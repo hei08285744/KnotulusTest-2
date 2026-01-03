@@ -1,0 +1,1512 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="Tooplate">
+
+        <title>Dashboard</title>
+
+        <!-- CSS FILES -->      
+        <link rel="preconnect" href="https://fonts.googleapis.com">    
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/css/apexcharts.css" rel="stylesheet">
+        <link href="assets/css/tooplate-mini-finance.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <header class="navbar sticky-top flex-md-nowrap">          
+            <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
+                <img class = "logo-image" src="assets/imgs/logo-4.png" alt="" >
+                <a class="logo align-items-center" href="index2.html"><b>Knotulus</b></a>          
+            </div>
+
+                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                 <!--Search Bar-->
+                 <form id="header-search-form" action="#" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" method="get" autocomplete="off">
+                     <div class="form-control">
+                        <label for="search-term"><i class="ti ti-search"></i></label>                  
+                        <input class="search-bar" id="search-input" name="q" type="search" placeholder="Search Knots..." aria-label="Search" autocomplete="off"             
+                               autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">             
+                     </div>                             
+                 </form>
+
+            <div class="navbar-nav me-lg-2">
+                <div class="nav-item text-nowrap d-flex align-items-center">
+                    <div class="dropdown ps-3 ">
+                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                            <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
+                            <span class="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-lg-end notifications-block-wrap bg-white shadow" aria-labelledby="navbarLightDropdownMenuLink">
+                            <small>Notifications</small>
+
+                            <li class="notifications-block border-bottom pb-2 mb-2">
+                                <a class="dropdown-item d-flex  align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-success">
+                                        <i class="notifications-icon bi-check-circle-fill"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Your account has been created successfuly.</span>
+
+                                        <p>12 days ago</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="notifications-block border-bottom pb-2 mb-2">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-info">
+                                        <i class="notifications-icon bi-folder"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Please check. We have sent a Daily report.</span>
+
+                                        <p>10 days ago</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="notifications-block">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-danger">
+                                        <i class="notifications-icon bi-question-circle"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Account verification failed.</span>
+
+                                        <p>1 hour ago</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--<div class="dropdown ps-1">
+                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi-three-dots-vertical"></i>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-social bg-white shadow">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/search.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Google</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/spotify.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Spotify</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/telegram.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Telegram</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/snapchat.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Snapchat</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/tiktok.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Tiktok</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/youtube.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Youtube</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <div class="dropdown px-4">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                            <img class="profile-image img-fluid" src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" alt="avatar"/>
+                            <span class="position-absolute end-0 bottom-60 translate-middle p-1-5 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu shadow">
+                            <li>
+                                <div class="dropdown-menu-profile-thumb d-flex">
+                                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-3" alt="">
+
+                                    <div class="d-flex flex-column">
+                                        <!-- IDs added so script can update dropdown when profile is changed -->
+                                        <b id="header-small-name">Thomas</b>
+                                        <small>
+                                            <a id="header-small-email" href="mailto:thomas@site.com">thomas@site.com</a>
+                                        </small>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="profile.html">
+                                    <i class="ti ti-user"></i>
+                                    Profile
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="setting.html">
+                                    <i class="ti ti-settings"></i>
+                                    Settings
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="help-center.html">
+                                    <i class="ti ti-help"></i>
+                                    Help
+                                </a>
+                            </li>
+
+                            <li class="border-top mt-3 pt-2">
+                                <a class="dropdown-item" href="index.html">
+                                    <i class="ti ti-logout"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <br>
+        <div class="container-fluid"> 
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                    <div class="position-sticky py-2 px-3 sidebar-sticky">
+                        <ul class="nav flex-column h-100">
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Home</div>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="index2.html">
+                                    <i class="ti ti-layout-dashboard"></i>
+                                    Dashboard
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="leaderboard.html">
+                                    <i class="ti ti-chart-bar"></i>
+                                    Leaderboard
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="quests.html">
+                                    <i class="ti ti-book"></i>
+                                    Quests
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="premium.html">
+                                    <i class="ti ti-rosette"></i>
+                                    Premium
+                                </a>
+                            </li>
+
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Discovery</div>
+                            <!--<li class="nav-item">
+                                <a class="nav-link" href="profile.html">
+                                    <i class="bi-person me-2"></i>
+                                    Profile
+                                </a>
+                            </li>-->
+
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Support</div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="community.html">
+                                    <i class="ti ti-users"></i>
+                                    Community
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="setting.html">
+                                    <i class="ti ti-settings"></i>
+                                    Settings
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="help-center.html">
+                                    <i class="ti ti-help"></i>
+                                    Help Center
+                                </a>
+                            </li>
+
+                            <!--<li class="nav-item featured-box mt-lg-5 mt-4 mb-4">
+                                <img src="images/credit-card.png" class="img-fluid" alt="">
+
+                                <a class="btn custom-btn" href="#">Upgrade</a>
+                            </li>-->
+                            <!--<br>
+                            <a class="btn custom-btn" href="#">Pro</a>-->
+
+                            <!--<li class="nav-item border-top mt-auto pt-2">
+                                <a class="nav-link" href="index.html">
+                                    <i class="bi-box-arrow-left me-2"></i>
+                                    Logout
+                                </a>
+                            </li>-->
+                            <br>
+                            <li class="nav-item-tools border-top mt-auto pt-2" >
+                                <!--Search Bar-->
+                                <form id="sidebar-search-form" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" action="#" method="get" role="form">
+                                    <div class="form-control">
+                                        <label for="search-term"><i class="ti ti-search"></i></label> 
+                                        <input class="search-bar" id="sidebar-search-input" name="search" type="text" placeholder="Search Knots..." aria-label="Search" autocomplete="off"
+                                            autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">
+                                    </div>
+                                </form>  
+    
+                                <br>                                
+                                <a class="nav-link-button" href="#">
+                                    <label class="switch">
+                                        <input id="input" type="checkbox" checked="darkTheme" />
+                                        <span class="slider-round">
+                                            <div class="star star_1"></div>
+                                            <div class="star star_2"></div>
+                                            <div class="star star_3"></div>
+                                            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+                                                <path
+                                              transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+                                              fill="#fff"
+                                              d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                </a>
+                                <br>
+
+                                <a class="nav-link-button" href="#">     
+                                    <button class="nav-link-toggle-translate" id="theme-toggle">
+                                        <i class="ti ti-language" style="font-size: 1.5em;"></i>
+                                    </button>                                                                   
+                                </a>
+
+                                <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                                        <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
+                                        <span class="position-absolute translate-middle p-1 bg-danger border border-light rounded-circle">
+                                            <span class="visually-hidden">New alerts</span>
+                                        </span>
+                                </a>
+                                
+                                <a class="nav-link-button" href="#">       
+                                    <button class="nav-link-toggle-dark-theme" id="theme-toggle" disabled>
+                                        <!--<i class="ti ti-moon" style="font-size: 1.5em;"></i>-->
+                                    </button>                            
+                                </a>
+                            </li> 
+                            <br><br>               
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="main-wrapper col-md-9 ms-sm-auto py-0 col-lg-9 px-md-4 border-start border-top border-right border-bottom border-end">
+                    <br>
+                    <div class="row my-4">
+                        <div class="title-group mb-3">
+                            <h1 class="h7 mb-0">Dashboard</b></h1>
+                        </div>
+    
+                        <!-- Business Data Display -->
+                        <div id="shopify-data-container" class="col-lg-12 col-12 mt-4">
+                            <div class="custom-block-badges">
+                                <div class="cb-header">
+                                    <h5 class="mb-0">Overview</h5>
+                                    <div class="cb-actions">
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item-xero" role="presentation">
+                                                <button class="nav-link" id="xero-tab" data-bs-toggle="tab" data-bs-target="#xero-tab-pane" type="button" role="tab" aria-controls="xero-tab-pane" aria-selected="true">Xero</button>
+                                            </li>
+                                            <li class="nav-item-quickbooks" role="presentation">
+                                                <button class="nav-link" id="quickbooks-tab" data-bs-toggle="tab" data-bs-target="#quickbooks-tab-pane" type="button" role="tab" aria-controls="quickbooks-tab-pane" aria-selected="false">QuickBooks</button>
+                                            </li>
+                                            <li class="nav-item-stripe" role="presentation">
+                                                <button class="nav-link" id="stripe-tab" data-bs-toggle="tab" data-bs-target="#stripe-tab-pane" type="button" role="tab" aria-controls="stripe-tab-pane" aria-selected="false">Stripe</button>
+                                            </li>
+                                            <li class="nav-item-shopify" role="presentation">
+                                                <button class="nav-link active" id="shopify-tab" data-bs-toggle="tab" data-bs-target="#shopify-tab-pane" type="button" role="tab" aria-controls="shopify-tab-pane" aria-selected="false">Shopify</button>
+                                            </li>
+                                            <li class="nav-item-woo" role="presentation">
+                                                <button class="nav-link" id="woo-tab" data-bs-toggle="tab" data-bs-target="#woo-tab-pane" type="button" role="tab" aria-controls="woo-tab-pane" aria-selected="false">Woo</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row">    
+                                    <!--<div class="col-md-3">-->
+                                    <div class="col-12 col-sm-6 col-md-3">
+                                        <div class="card-data">
+                                            <div class="title">
+                                                <span>
+                                                    <svg width="20" fill="currentColor" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1362 1185q0 153-99.5 263.5t-258.5 136.5v175q0 14-9 23t-23 9h-135q-13 0-22.5-9.5t-9.5-22.5v-175q-66-9-127.5-31t-101.5-44.5-74-48-46.5-37.5-17.5-18q-17-21-2-41l103-135q7-10 23-12 15-2 24 9l2 2q113 99 243 125 37 8 74 8 81 0 142.5-43t61.5-122q0-28-15-53t-33.5-42-58.5-37.5-66-32-80-32.5q-39-16-61.5-25t-61.5-26.5-62.5-31-56.5-35.5-53.5-42.5-43.5-49-35.5-58-21-66.5-8.5-78q0-138 98-242t255-134v-180q0-13 9.5-22.5t22.5-9.5h135q14 0 23 9t9 23v176q57 6 110.5 23t87 33.5 63.5 37.5 39 29 15 14q17 18 5 38l-81 146q-8 15-23 16-14 3-27-7-3-3-14.5-12t-39-26.5-58.5-32-74.5-26-85.5-11.5q-95 0-155 43t-60 111q0 26 8.5 48t29.5 41.5 39.5 33 56 31 60.5 27 70 27.5q53 20 81 31.5t76 35 75.5 42.5 62 50 53 63.5 31.5 76.5 13 94z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                                <p class="title-text">Revenue</p>
+                                                <p class="percent">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" fill="currentColor" height="20" width="20">
+                                                        <path d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z">
+                                                        </path>
+                                                    </svg> 20%
+                                                </p>
+                                            </div>
+                                            <div class="data" id="total-revenue">
+                                                <p>
+                                                    39,500 
+                                                </p>
+                                                
+                                                <div class="range">
+                                                    <div class="fill">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-md-3">-->
+                                    <div class="col-12 col-sm-6 col-md-3">
+                                        <div class="card-data">
+                                            <div class="title">
+                                                <span class="order">
+                                                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.4141 4.91424L5.99991 14.3285L0.585693 8.91424L3.41412 6.08582L5.99991 8.6716L12.5857 2.08582L15.4141 4.91424Z" fill="#ffffff"></path> </g></svg>
+                                                </span>
+                                                <p class="title-text">Orders</p>
+                                                <p class="percent">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" fill="currentColor" height="20" width="20">
+                                                        <path d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z">
+                                                        </path>
+                                                    </svg> 50%
+                                                </p>
+                                            </div>
+                                            <div class="data" id="total-orders">
+                                                <p>
+                                                    471 
+                                                </p>
+                                                
+                                                <div class="range">
+                                                    <div class="fill-50">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-md-3">-->
+                                    <div class="col-12 col-sm-6 col-md-3">
+                                        <div class="card-data">
+                                            <div class="title">
+                                                <span class="customer">
+                                                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z" fill="#ffffff"></path> <path d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z" fill="#ffffff"></path> </g></svg>
+                                                </span>
+                                                <p class="title-text">Customers</p>
+                                                <p class="percent">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" fill="currentColor" height="20" width="20">
+                                                        <path d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z">
+                                                        </path>
+                                                    </svg> 30%
+                                                </p>
+                                            </div>
+                                            <div class="data" id="customer-count"><p>95</p>
+                                                <div class="range">
+                                                    <div class="fill-20">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-md-3">-->
+                                    <div class="col-12 col-sm-6 col-md-3">
+                                        <div class="card-data">
+                                            <div class="title">
+                                                <span class="product">
+                                                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1 5V3L8 0L15 3V5L8 8L1 5Z" fill="#ffffff"></path> <path d="M8 16L1 13V11L8 14L15 11V13L8 16Z" fill="#ffffff"></path> <path d="M1 9L8 12L15 9V7L8 10L1 7V9Z" fill="#ffffff"></path> </g></svg>
+                                                </span>
+                                                <p class="title-text">Products</p>
+                                                <p class="percent">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" fill="currentColor" height="20" width="20">
+                                                        <path d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z">
+                                                        </path>
+                                                    </svg>  -
+                                                </p>
+                                            </div>
+                                            <div class="data" id="product-count"><p>109</p>                     
+                                                <div class="range">
+                                                    <div class="fill-100">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- New Stats Card (matches attached style) -->
+                                    <!--<div class="col-12 col-sm-6 col-md-3">
+                                        <div class="custom-block-badges"> 
+                                            <h5 class="mb-4">Badges</h5>                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-3">
+                                        <div class="custom-block-badges"> 
+                                            <h5 class="mb-4">Badges</h5>                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-3">
+                                        <div class="custom-block-badges"> 
+                                            <h5 class="mb-4">Badges</h5>                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-3">
+                                        <div class="custom-block-badges"> 
+                                            <h5 class="mb-4">Badges</h5>                                           
+                                        </div>
+                                    </div>-->
+
+                                    <!--<div class="col-md-3">
+                                        <div class="card bg-c-blue">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Total Revenue</h6>
+                                                <p id="total-revenue" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card bg-c-green">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Total Orders</h6>
+                                                <p id="total-orders" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card bg-c-yellow">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Total Customers</h6>
+                                                <p id="customer-count" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card bg-c-pink">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Total Products</h6>
+                                                <p id="product-count" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-7 col-12">
+                            <div class="custom-block-badges"> 
+                                <h5 class="mb-4">Badges</h5>
+                                <div class="container-badges">
+                                    
+                                </div>
+                            </div>
+                            <div class="custom-block-update-news custom-block-balance">
+                                <div class="news-update">NEWS UPDATE</div>
+                                <a class="btn custom-btn-news" href="#">Upgrade</a>
+                                <a class="btn custom-btn-news" href="#">Learn More</a>
+                            </div>
+
+
+
+                            <div class="custom-block-business">
+                                <h5 class="mb-4">Featured Businesses</h5>     
+                                <ul class="facility-list">
+                                    <li class="facility-list__item">
+                                        <div class="icon-circle">
+                                            <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-0" alt="">
+                                        </div>
+                                        <div class="user-message">User1<br><p>message</p></div>
+                                    </li>
+                                    <li class="facility-list__item">
+                                        <div class="icon-circle">
+                                            <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-0" alt="">
+                                        </div>
+                                        <div class="user-message">User2<br><p>message</p></div>
+                                    </li>
+                                    <li class="facility-list__item">
+                                        <div class="icon-circle">
+                                            <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-0" alt="">
+                                        </div>
+                                        <div class="user-message">User3<br><p>message</p></div>
+                                    </li>
+                                    <li class="facility-list__item">
+                                        <div class="icon-circle">
+                                            <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-0" alt="">
+                                        </div>
+                                        <div class="user-message">User4<br><p>message</p></div>
+                                    </li>
+                                    <li class="facility-list__item">
+                                        <div class="icon-circle">
+                                            <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-0" alt="">
+                                        </div>
+                                        <div class="user-message">User5<br><p>message</p></div>
+                                    </li>
+                                </ul>                          
+                            </div>
+
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">History</h5>
+
+                                <div id="pie-chart"></div>
+                            </div>
+
+                            <div class="custom-block bg-white">
+                                <div id="chart"></div>
+                            </div>
+
+                            <div class="custom-block custom-block-exchange">
+                                <h5 class="mb-4">Exchange Rate</h5>
+
+                                <div class="d-flex align-items-center border-bottom pb-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <img src="images/flag/united-states.png" class="exchange-image img-fluid" alt="">
+
+                                        <div>
+                                            <p>USD</p>
+                                            <h6>1 US Dollar</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="ms-auto me-4">
+                                        <small>Sell</small>
+                                        <h6>1.0931</h6>
+                                    </div>
+
+                                    <div>
+                                        <small>Buy</small>
+                                        <h6>1.0821</h6>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center border-bottom pb-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <img src="images/flag/singapore.png" class="exchange-image img-fluid" alt="">
+
+                                        <div>
+                                            <p>SGD</p>
+                                            <h6>1 Singapore Dollar</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="ms-auto me-4">
+                                        <small>Sell</small>
+                                        <h6>0.6901</h6>
+                                    </div>
+
+                                    <div>
+                                        <small>Buy</small>
+                                        <h6>0.6201</h6>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center border-bottom pb-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <img src="images/flag/united-kingdom.png" class="exchange-image img-fluid" alt="">
+
+                                        <div>
+                                            <p>GPD</p>
+                                            <h6>1 British Pound</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="ms-auto me-4">
+                                        <small>Sell</small>
+                                        <h6>1.1520</h6>
+                                    </div>
+
+                                    <div>
+                                        <small>Buy</small>
+                                        <h6>1.1412</h6>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center border-bottom pb-3 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <img src="images/flag/australia.png" class="exchange-image img-fluid" alt="">
+
+                                        <div>
+                                            <p>AUD</p>
+                                            <h6>1 Australian Dollar</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="ms-auto me-4">
+                                        <small>Sell</small>
+                                        <h6>0.6110</h6>
+                                    </div>
+
+                                    <div>
+                                        <small>Buy</small>
+                                        <h6>0.5110</h6>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="images/flag/european-union.png" class="exchange-image img-fluid" alt="">
+
+                                        <div>
+                                            <p>EUR</p>
+                                            <h6>1 Euro</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="ms-auto me-4">
+                                        <small>Sell</small>
+                                        <h6>1.1020</h6>
+                                    </div>
+
+                                    <div>
+                                        <small>Buy</small>
+                                        <h6>1.1010</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        
+
+                        <div class="col-lg-5 col-12">
+                            <div class="custom-block-badges">
+                                <h5 class="mb-4"></h5> 
+                                <div id="chat-container">
+                                    <div id="chat-input">
+                                        <div id="file-input"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-light">
+                                <div class="custom-block-profile-image-wrap mb-4">
+                                    <img src="images/medium-shot-happy-man-smiling.jpg" class="custom-block-profile-image img-fluid" alt="">
+
+                                    <a href="setting.html" class="bi-pencil-square custom-block-edit-icon"></a>
+                                </div>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Name:</strong>
+
+                                    <!-- kept id="profile-name" so existing scripts still update it -->
+                                    <span id="profile-name">User</span>
+                                </p>
+
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Email:</strong>
+                                    <!-- add id so the profile email is updated from localStorage -->
+                                    <a id="display-profile-email" href="mailto:thomas@site.com">thomas@site.com</a>
+                                </p>
+
+                                
+                            </div>
+
+                            <!---<div class="custom-block custom-block-bottom d-flex flex-wrap">
+                                <div class="custom-block-bottom-item">
+                                    <a href="#" class="d-flex flex-column">
+                                        <i class="custom-block-icon bi-wallet"></i>
+
+                                        <small>Top up</small>
+                                    </a>
+                                </div>-->
+
+
+                                <div class="custom-block-bottom-item">
+                                    <a href="#" class="d-flex flex-column">
+                                        <i class="custom-block-icon bi-upc-scan"></i>
+
+                                        <small>Scan & Pay</small>
+                                    </a>
+                                </div>
+
+                                <div class="custom-block-bottom-item">
+                                    <a href="#" class="d-flex flex-column">
+                                        <i class="custom-block-icon bi-send"></i>
+
+                                        <small>Send</small>
+                                    </a>
+                                </div>
+
+                                <div class="custom-block-bottom-item">
+                                    <a href="#" class="d-flex flex-column">
+                                        <i class="custom-block-icon bi-arrow-down"></i>
+
+                                        <small>Request</small>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="custom-block custom-block-transations">
+                                <h5 class="mb-4">Recent Transations</h5>
+
+                                <div class="d-flex flex-wrap align-items-center mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img src="images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
+
+                                        <div>
+                                            <p>
+                                                <a href="transation-detail.html">Daniel Jones</a>
+                                            </p>
+
+                                            <small class="text-muted">C2C Transfer</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="ms-auto">
+                                        <small>05/12/2023</small>
+                                        <strong class="d-block text-danger"><span class="me-1">-</span> $250</strong>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap align-items-center mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <img src="images/profile/young-beautiful-woman-pink-warm-sweater.jpg" class="profile-image img-fluid" alt="">
+
+                                        <div>
+                                            <p>
+                                                <a href="transation-detail.html">Public Bank</a>
+                                            </p>
+
+                                            <small class="text-muted">Mobile Reload</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="ms-auto">
+                                        <small>22/8/2023</small>
+                                        <strong class="d-block text-success"><span class="me-1">+</span> $280</strong>
+                                    </div>
+                                </div>
+
+                                <!--<div class="d-flex flex-wrap align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <img src="images/profile/young-woman-with-round-glasses-yellow-sweater.jpg" class="profile-image img-fluid" alt="">
+
+                                        <div>
+                                            <p><a href="transation-detail.html">Store</a></p>
+
+                                            <small class="text-muted">Payment Received</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="ms-auto">
+                                        <small>22/8/2023</small>
+                                        <strong class="d-block text-success"><span class="me-1">+</span> $280</strong>
+                                    </div>
+                                </div>
+
+                                <div class="border-top pt-4 mt-4 text-center">
+                                    <a class="btn custom-btn" href="wallet.html">
+                                        View all transations
+                                        <i class="bi-arrow-up-right-circle-fill ms-2"></i>
+                                    </a>
+                                </div>
+                            </div>-->
+
+                            <!--<div class="custom-block primary-bg">
+                                <h5 class="text-white mb-4">Send Money</h5>
+
+                                <a href="#">
+                                    <img src="images/profile/young-woman-with-round-glasses-yellow-sweater.jpg" class="profile-image img-fluid" alt="">
+                                </a>
+
+                                <a href="#">
+                                    <img src="images/profile/young-beautiful-woman-pink-warm-sweater.jpg" class="profile-image img-fluid" alt="">
+                                </a>
+
+                                <a href="#">
+                                    <img src="images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
+                                </a>
+
+                                <div class="profile-rounded">
+                                    <a href="#">
+                                        <i class="profile-rounded-icon bi-plus"></i>
+                                    </a>
+                                </div>
+                            </div>-->
+
+                        </div>
+                    </div>
+
+                    <footer class="site-footer">
+                        <div class="container">
+                            <div class="row">
+                                
+                                <div class="col-lg-12 col-12">
+                                    <p>KNOTULUS // The Pulse of Progress // 2025</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </footer>
+                </main>
+
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/apexcharts.min.js"></script>
+        <script src="assets/js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/icons-react/dist/index.umd.min.js"></script>
+
+        <script>
+            const statusBadge = (s) => {
+            const map = {
+                Paid: "bg-green-50 text-green-700 ring-green-600/20",
+                Pending: "bg-amber-50 text-amber-700 ring-amber-600/20",
+                Refunded: "bg-red-50 text-red-700 ring-red-600/20"
+            };
+            return `<span class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-medium ring-1 ${
+                map[s] || "bg-gray-50 text-gray-700 ring-gray-600/20"
+            }">${s}</span>`;
+            };
+        </script>
+
+        <script type="text/javascript">
+            var options = {
+              series: [13, 43, 22],
+              chart: {
+              width: 380,
+              type: 'pie',
+            },
+            labels: ['Balance', 'Expense', 'Credit Loan',],
+            responsive: [{
+              breakpoint: 480,
+              options: {
+                chart: {
+                  width: 200
+                },
+                legend: {
+                  position: 'bottom'
+                }
+              }
+            }]
+            };
+
+            var chart = new ApexCharts(document.querySelector("#pie-chart"), options);
+            chart.render();
+        </script>
+
+        <script type="text/javascript">
+            var options = {
+              series: [{
+              name: 'Income',
+              data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+            }, {
+              name: 'Expense',
+              data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+            }, {
+              name: 'Transfer',
+              data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+            }],
+              chart: {
+              type: 'bar',
+              height: 350
+            },
+            plotOptions: {
+              bar: {
+                horizontal: false,
+                columnWidth: '55%',
+                endingShape: 'rounded'
+              },
+            },
+            dataLabels: {
+              enabled: false
+            },
+            stroke: {
+              show: true,
+              width: 2,
+              colors: ['transparent']
+            },
+            xaxis: {
+              categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+            },
+            yaxis: {
+              title: {
+                text: '$ (thousands)'
+              }
+            },
+            fill: {
+              opacity: 1
+            },
+            tooltip: {
+              y: {
+                formatter: function (val) {
+                  return "$ " + val + " thousands"
+                }
+              }
+            }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        </script>
+        <script type="text/javascript"> //dark mode toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const body = document.body;
+            const localStorageKey = 'dark-mode';
+
+            // Function to set the theme
+            function setTheme(isDarkMode) {
+                if (isDarkMode) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem(localStorageKey, 'true');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.removeItem(localStorageKey);
+                }
+            }
+
+            // Check for saved user preference on page load
+            if (localStorage.getItem(localStorageKey) === 'true') {
+                setTheme(true);
+            }
+
+            // Add event listener to the toggle button
+            themeToggleBtn.addEventListener('click', () => {
+                // Toggle the theme state
+                setTheme(!body.classList.contains('dark-mode'));
+            });
+
+        </script>
+
+        <script> //input trigger dark mode button
+        // Input toggle -> dark mode control (robust, runs after DOM ready)
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkbox = document.getElementById('input');
+            const themeBtn = document.getElementById('theme-toggle');
+            const bodyEl = document.body;
+            const LS_KEY = 'dark-mode';
+
+            // Helper: toggle theme and persist
+            function applyTheme(enable) {
+                if (enable) {
+                    bodyEl.classList.add('dark-mode');
+                    localStorage.setItem(LS_KEY, 'true');
+                } else {
+                    bodyEl.classList.remove('dark-mode');
+                    localStorage.removeItem(LS_KEY);
+                }
+            }
+
+            // Initialize state from localStorage or body class
+            const saved = localStorage.getItem(LS_KEY) === 'true';
+            const initial = saved || bodyEl.classList.contains('dark-mode');
+            applyTheme(initial);
+            if (checkbox) checkbox.checked = !!initial;
+
+            // Keep checkbox -> theme consistent
+            if (checkbox) {
+                checkbox.addEventListener('change', () => {
+                    const enable = checkbox.checked;
+                    applyTheme(enable);
+
+                    // Optionally simulate theme button click to keep UI in sync
+                    if (themeBtn) {
+                        try { themeBtn.disabled = false; themeBtn.click(); } catch (e) { /* ignore */ }
+                    }
+                }, { passive: true });
+            }
+
+            // Ensure theme button still works and keeps checkbox synced
+            if (themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const isDark = bodyEl.classList.contains('dark-mode');
+                    applyTheme(!isDark);
+                    if (checkbox) checkbox.checked = !isDark;
+                });
+            }
+        });
+        </script>
+
+        <script> //searchbar index
+            // Custom search redirect: map input keywords to pages; fallback to search-results.html?q=
+            (function() {
+                const map = {
+                    'logout': 'index.html',
+                    'home': 'index2.html',
+                    'dash': 'index2.html',
+                    'dashboard': 'index2.html',
+                    'leaderboard': 'leaderboard.html',
+                    'leader': 'leaderboard.html',
+                    'premium': 'premium.html',
+                    'profile': 'profile.html',
+                    'quest': 'quests.html',
+                    'quests': 'quests.html',
+                    'community': 'community.html',
+                    'settings': 'setting.html',
+                    'setting': 'setting.html',
+                    'help': 'help-center.html',
+                    
+                };
+
+                function handleSearchSubmit(e, inputEl) {
+                    e.preventDefault();
+                    const raw = inputEl.value || '';
+                    const term = raw.trim();
+                    if (!term) return;
+                    const lower = term.toLowerCase();
+
+                    for (const key in map) {
+                        if (Object.prototype.hasOwnProperty.call(map, key) && lower.includes(key)) {
+                            // pass original query as q param
+                            window.location.href = map[key] + '?q=' + encodeURIComponent(term);
+                            return;
+                        }
+                    }
+
+                    // no matching page -> go to generic search results page
+                    window.location.href = 'search-results.html?q=' + encodeURIComponent(term);
+                }
+
+                const headerForm = document.getElementById('header-search-form');
+                const headerInput = document.getElementById('search-input');
+                if (headerForm && headerInput) {
+                    headerForm.addEventListener('submit', (e) => handleSearchSubmit(e, headerInput));
+                }
+
+                const sidebarForm = document.getElementById('sidebar-search-form');
+                const sidebarInput = document.getElementById('sidebar-search-input');
+                if (sidebarForm && sidebarInput) {
+                    sidebarForm.addEventListener('submit', (e) => handleSearchSubmit(e, sidebarInput));
+                }
+
+                // Optional: allow Enter inside inputs to submit (already handled by form submit)
+                // Also optionally support pressing Enter without using the form:
+                [headerInput, sidebarInput].forEach(inp => {
+                    if (!inp) return;
+                    inp.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleSearchSubmit(e, inp);
+                        }
+                    });
+                });
+            })();
+        </script>
+        <script> //dropdown profile update
+            // Load updated profile from localStorage and display on the page.
+            // This script only updates display elements; saving is handled by the settings page.
+            (function () {
+                const DISPLAY_NAME_ID = 'display-profile-name';
+                const DISPLAY_EMAIL_ID = 'display-profile-email';
+                const HEADER_NAME_ID = 'header-small-name';
+                const HEADER_EMAIL_ID = 'header-small-email';
+
+                function updateProfileDisplay() {
+                    const name = localStorage.getItem('profileName') || '';
+                    const email = localStorage.getItem('profileEmail') || '';
+
+                    const displayName = document.getElementById(DISPLAY_NAME_ID);
+                    const displayEmail = document.getElementById(DISPLAY_EMAIL_ID);
+                    const headerName = document.getElementById(HEADER_NAME_ID);
+                    const headerEmail = document.getElementById(HEADER_EMAIL_ID);
+
+                    if (displayName) displayName.textContent = name || '—';
+                    if (displayEmail) {
+                        displayEmail.textContent = email || '—';
+                        displayEmail.href = email ? ('mailto:' + email) : '#';
+                    }
+                    if (headerName) headerName.textContent = name || 'User';
+                    if (headerEmail) {
+                        headerEmail.textContent = email || '';
+                        if (email) headerEmail.href = 'mailto:' + email;
+                    }
+
+                    // update other common selectors (navbar username, profile-name, dropdown-username)
+                    document.querySelectorAll('.navbar-username, #profile-name, #dropdown-username').forEach(el => {
+                        if (el) el.textContent = name || '';
+                    });
+                }
+
+                // update on initial load
+                document.addEventListener('DOMContentLoaded', updateProfileDisplay);
+
+                // update if localStorage changes in another tab/window
+                window.addEventListener('storage', (e) => {
+                    if (e.key === 'profileName' || e.key === 'profileEmail') updateProfileDisplay();
+                });
+
+                // Provide a global helper so settings page can call it after saving
+                window.updateProfileDisplay = updateProfileDisplay;
+            })();
+        </script>
+        <script> //community chat animation
+            let amountOfColors = 18; // Or "participants"
+            const AUTO_DELETE_MS = 10000; // milliseconds before a chat line auto-deletes
+            const AUTO_DELETE_JITTER = 3000; // optional randomness added to auto-delete time
+            const FADE_OUT_MS = 500; // fade out duration
+
+            let container = document.getElementById("chat-container");
+            let lineWidth = 400;
+            let profileImgWidth = 60;
+            let textWidth = lineWidth - 20 - profileImgWidth - 10;
+            let chats = [];
+            let maxTexts = 4;
+
+            function createElement(opts = {}) {
+                let ele = document.createElement("div");
+                if ("class" in opts) {
+                    if (!Array.isArray(opts.class)) {
+                        opts.class = [opts.class];
+                    }
+                    ele.classList.add(...opts.class);
+                }
+                return ele;
+            }
+
+            function addChat() {
+                let chat = new Chat();
+                chats.push(chat);
+                setTimeout(() => chat.loop(), 200);
+                return chat;
+            }
+
+            class Chat {
+                constructor() {
+                    this.ele = createElement({ class: "chat" });
+                    this.lines = [];
+                    this.anim = null;
+                    container.appendChild(this.ele);
+                }
+                addLine() {
+                    let l = new Line(this); // pass parent chat reference
+                    this.lines.push(l);
+                    this.ele.appendChild(l.ele.lineContainer);
+                    return l;
+                }
+                removeOldest() {
+                    let maxCount = Math.ceil((window.innerHeight / 1080) * 12);
+                    if (this.lines.length > maxCount) {
+                        let oldest = this.lines.splice(0, this.lines.length - maxCount);
+                        oldest.forEach((n) => this.ele.removeChild(n.ele.lineContainer));
+                    }
+                }
+                loop() {
+                    if (this.anim) {
+                        this.stopLoop();
+                    }
+                    this.addLine();
+                    this.removeOldest();
+                    /*this.anim = setTimeout(() => this.loop(), Math.random() * 1300 + 180);*/
+                    this.anim = setTimeout(() => this.loop(), 3000);
+                }
+                stopLoop() {
+                    clearTimeout(this.anim);
+                    this.anim = null;
+                }
+            }
+
+            class Line {
+                constructor(parentChat) {
+                    this.parentChat = parentChat || null;
+                    this.pickColor();
+                    this.pickName();
+                    this.pickText();
+                    this.pickHasImg();
+                    this.pickHasRichBody();
+                    this.setupElements();
+                    this.animateIn();
+                }
+
+                pickColor() {
+                    this.hue =
+                        Math.floor(Math.random() * amountOfColors) * (360 / amountOfColors);
+                    this.color = `hsl(${this.hue}, 90%, 50%)`;
+                    this.profileImgColor = `hsl(${this.hue}, 40%, 55%)`;
+                    return this.hue;
+                }
+
+                pickName() {
+                    // pick a random human-like name
+                    const NAMES = [
+                        'Ava','Liam','Noah','Emma','Olivia','Mason','Sophia','Isabella','Lucas','Mia',
+                        'Ethan','Amelia','Harper','Ella','James','Evelyn','Benjamin','Charlotte','Logan','Aria'
+                    ];
+                    this.name = NAMES[Math.floor(Math.random() * NAMES.length)];
+                }
+
+                pickText() {
+                    // generate 1-4 short random sentences
+                    const PHRASES = [
+                        'Sounds good to me.',
+                        'I will check and update.',
+                        'Where can I find that?',
+                        'Nice work! 🎉',
+                        'Can we push this to production?',
+                        'I like the new layout.',
+                        'Let me know your thoughts.',
+                        'That issue is resolved now.',
+                        'I will follow up tomorrow.',
+                        'Thanks for the update.'
+                    ];
+                    const count = 1 + Math.floor(Math.random() * 4);
+                    this.textsArray = [];
+                    for (let i = 0; i < count; i++) {
+                        // choose a phrase and sometimes append a short extra
+                        let phrase = PHRASES[Math.floor(Math.random() * PHRASES.length)];
+                        if (Math.random() > 0.7) phrase += ' ' + (PHRASES[Math.floor(Math.random() * PHRASES.length)]).toLowerCase();
+                        this.textsArray.push(phrase);
+                    }
+                    this.textCount = this.textsArray.length;
+                }
+
+                pickHasImg() {
+                    this.hasImg = Math.random() > 0.9;
+                }
+
+                pickHasRichBody() {
+                    this.hasRichBody = !this.hasImage && Math.random() > 0.85;
+                }
+
+                setupElements() {
+                    let ele = this.createElement();
+                    this.ele = ele;
+                    // set name text and profile initials
+                    ele.name.textContent = this.name;
+                    // fill texts
+                    ele.texts.forEach((n, i) => {
+                        n.textContent = this.textsArray[i] || '';
+                    });
+                    // style name and profile
+                    ele.name.style.backgroundColor = 'transparent';
+                    ele.name.style.height = 'auto';
+                    ele.profileImg.style.backgroundColor = this.profileImgColor;
+                    // show initials in profile box
+                    const initials = this.name.split(' ').map(s => s[0]).join('').slice(0,2).toUpperCase();
+                    ele.profileImg.textContent = initials;
+                    ele.profileImg.style.color = '#ffffff';
+                    ele.profileImg.style.display = 'flex';
+                    ele.profileImg.style.alignItems = 'center';
+                    ele.profileImg.style.justifyContent = 'center';
+                    ele.profileImg.style.fontWeight = '700';
+                    ele.profileImg.style.fontSize = '18px';
+                }
+
+                animateIn() {
+                    let delay = 35; // Some times it won't animate correctly without this
+                    let ele = this.ele;
+                    setTimeout(() => {
+                        ele.lineContainer.style.opacity = 1;
+                        ele.lineContainer.style.maxHeight = "200px";
+                        ele.lineContainer.style.transform = "translateX(0px) scale(1)";
+                    }, delay);
+
+                    let otherEleList = [ele.profileImg, ele.name, ...ele.texts];
+
+                    if ("img" in ele) {
+                        otherEleList.push(ele.img);
+                    } else if ("richBody" in ele) {
+                        otherEleList.push(ele.richBody);
+                    }
+
+                    delay += 40;
+
+                    otherEleList.forEach((e, i) => {
+                        setTimeout(() => {
+                            e.style.opacity = 1;
+                            e.style.transform = "translateY(0px)";
+                        }, (delay += 50));
+                    });
+
+                    ele.texts.forEach((n, i, arr) =>
+                        setTimeout(() => (n.style.opacity = 1), 70 * (i + 3) + delay)
+                    );
+                    // schedule auto-delete
+                    const ttl = AUTO_DELETE_MS + Math.floor(Math.random() * AUTO_DELETE_JITTER);
+                    this._autoDeleteTimeout = setTimeout(() => this.animateOutAndRemove(), ttl);
+                }
+
+                animateOutAndRemove() {
+                    // fade out visuals, then remove from DOM and parent lines array
+                    if (!this.ele || !this.ele.lineContainer) return;
+                    // clear any pending auto-delete to avoid double calls
+                    if (this._autoDeleteTimeout) {
+                        clearTimeout(this._autoDeleteTimeout);
+                        this._autoDeleteTimeout = null;
+                    }
+                    // start fade out
+                    this.ele.lineContainer.style.transition = `opacity ${FADE_OUT_MS}ms ease, max-height ${FADE_OUT_MS}ms ease, transform ${FADE_OUT_MS}ms ease`;
+                    this.ele.lineContainer.style.opacity = 0;
+                    this.ele.lineContainer.style.maxHeight = "0px";
+                    this.ele.lineContainer.style.transform = "translateX(-10px) scale(.98)";
+                    // remove child elements after fade
+                    setTimeout(() => {
+                        try {
+                            if (this.ele && this.ele.lineContainer && this.ele.lineContainer.parentNode) {
+                                this.ele.lineContainer.parentNode.removeChild(this.ele.lineContainer);
+                            }
+                            // remove from parentChat.lines array if possible
+                            if (this.parentChat && Array.isArray(this.parentChat.lines)) {
+                                const idx = this.parentChat.lines.indexOf(this);
+                                if (idx > -1) this.parentChat.lines.splice(idx, 1);
+                            }
+                        } catch (e) { /* ignore */ }
+                    }, FADE_OUT_MS + 10);
+                }
+
+                createElement() {
+                    let lineContainer = createElement({ class: "line-container" });
+                    let line = createElement({ class: "line" });
+                    let profileImg = createElement({ class: "profile-img" });
+                    let body = createElement({ class: "body" });
+                    let name = createElement({ class: "chat-name" });
+                    let texts = [];
+                    let img = createElement({ class: "img" });
+                    let richBody = createElement({ class: "rich-body" });
+                    body.appendChild(name);
+                    for (let i = 0; i < (this.textCount || 1); i++) {
+                        let text = createElement({ class: "text" });
+                        texts.push(text);
+                        body.appendChild(text);
+                    }
+                    line.appendChild(profileImg);
+                    line.appendChild(body);
+                    lineContainer.appendChild(line);
+                    let out = { lineContainer, line, profileImg, body, name, texts };
+                    this.hasImg && (out.img = img) && body.appendChild(img);
+                    this.hasRichBody && (out.richBody = richBody) && body.appendChild(richBody);
+                    return out;
+                }
+            }
+
+            function loop() {
+                chats.forEach((n) => n.loop());
+            }
+
+            function stopLoop() {
+                chats.forEach((n) => n.stopLoop());
+            }
+
+            (() => addChat())();
+
+        </script>
+
+        <script> /* Shopify cards drag-and-drop sorting (persists order in localStorage) */
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('shopify-data-container');
+            if (!container) return;
+            const row = container.querySelector('.row');
+            if (!row) return;
+
+            // Ensure each column/card has a stable data-card-id and is draggable
+            Array.from(row.children).forEach((el, i) => {
+                if (!el.dataset.cardId) el.dataset.cardId = 'card-' + i;
+                el.setAttribute('draggable', 'true');
+            });
+
+            const LS_KEY = 'shopify_cards_order';
+
+            // Restore saved order if present
+            const saved = localStorage.getItem(LS_KEY);
+            if (saved) {
+                try {
+                    const order = JSON.parse(saved);
+                    const map = new Map();
+                    Array.from(row.children).forEach(child => map.set(child.dataset.cardId, child));
+                    order.forEach(id => {
+                        const node = map.get(id);
+                        if (node) row.appendChild(node);
+                    });
+                } catch (e) { /* ignore malformed data */ }
+            }
+
+            let dragEl = null;
+
+            row.addEventListener('dragstart', (e) => {
+                const el = e.target.closest('[draggable="true"]');
+                if (!el) return;
+                dragEl = el;
+                el.classList.add('dragging');
+                try { e.dataTransfer.setData('text/plain', el.dataset.cardId); } catch (err) { /* some browsers */ }
+                e.dataTransfer.effectAllowed = 'move';
+            });
+
+            row.addEventListener('dragend', () => {
+                if (dragEl) dragEl.classList.remove('dragging');
+                dragEl = null;
+                saveOrder();
+            });
+
+            row.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                const afterEl = getDragAfterElement(row, e.clientY);
+                const dragging = row.querySelector('.dragging');
+                if (!dragging) return;
+                if (afterEl == null) {
+                    row.appendChild(dragging);
+                } else {
+                    row.insertBefore(dragging, afterEl);
+                }
+            });
+
+            function getDragAfterElement(container, y) {
+                const draggableElements = [...container.querySelectorAll('[draggable="true"]:not(.dragging)')];
+                let closest = { offset: Number.NEGATIVE_INFINITY, element: null };
+                for (const child of draggableElements) {
+                    const box = child.getBoundingClientRect();
+                    const offset = y - box.top - box.height / 2;
+                    if (offset < 0 && offset > closest.offset) {
+                        closest = { offset, element: child };
+                    }
+                }
+                return closest.element;
+            }
+
+            function saveOrder() {
+                const ids = Array.from(row.children).map(c => c.dataset.cardId || '');
+                localStorage.setItem(LS_KEY, JSON.stringify(ids));
+            }
+        });
+        </script>
+
+    </body>
+</html>

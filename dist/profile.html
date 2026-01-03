@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Profile</title>
+
+        <!-- CSS FILES -->      
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/css/tooplate-mini-finance.css" rel="stylesheet">
+        <style>
+            .btn-sm {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.7rem;
+                border-radius: 0.3rem;
+                width: 150px; 
+            }
+        </style>
+    </head>
+    
+    <body>
+        <header class="navbar sticky-top flex-md-nowrap">          
+            <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
+                <img class = "logo-image" src="assets/imgs/logo-4.png" alt="" >
+                <a class="logo align-items-center" href="index2.html"><b>Knotulus</b></a>          
+            </div>
+
+                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                 <!--Search Bar-->
+                 <form id="header-search-form" action="#" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" method="get" autocomplete="off">
+                     <div class="form-control">
+                        <label for="search-term"><i class="ti ti-search"></i></label>                  
+                        <input class="search-bar" id="search-input" name="q" type="search" placeholder="Search Knots..." aria-label="Search" autocomplete="off"             
+                               autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">             
+                     </div>                             
+                 </form>
+
+            <div class="navbar-nav me-lg-2">
+                <div class="nav-item text-nowrap d-flex align-items-center">
+                    <div class="dropdown ps-3 ">
+                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                            <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
+                            <span class="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-lg-end notifications-block-wrap bg-white shadow" aria-labelledby="navbarLightDropdownMenuLink">
+                            <small>Notifications</small>
+
+                            <li class="notifications-block border-bottom pb-2 mb-2">
+                                <a class="dropdown-item d-flex  align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-success">
+                                        <i class="notifications-icon bi-check-circle-fill"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Your account has been created successfuly.</span>
+
+                                        <p>12 days ago</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown px-4">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class = "profile-image img-fluid" src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light'/>
+                            <span class="position-absolute end-0 bottom-60 translate-middle p-1-5 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu shadow">
+                            <li>
+                                <div class="dropdown-menu-profile-thumb d-flex">
+                                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-3" alt="">
+
+                                    <div class="d-flex flex-column">
+                                        <b id="header-small-name">Thomas</b>
+                                        <small>
+                                            <a id="header-small-email" href="mailto:thomas@site.com">thomas@site.com</a>
+                                        </small>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li><a class="dropdown-item" href="profile.html"><i class="ti ti-user"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="setting.html"><i class="ti ti-settings"></i> Settings</a></li>
+                            <li><a class="dropdown-item" href="help-center.html"><i class="ti ti-help"></i> Help</a></li>
+                            <li class="border-top mt-3 pt-2"><a class="dropdown-item" href="index.html"><i class="ti ti-logout"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <br>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                    <div class="position-sticky py-2 px-3 sidebar-sticky">
+                        <ul class="nav flex-column h-100">
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Home</div>
+                            <li class="nav-item"><a class="nav-link" href="index2.html"><i class="ti ti-layout-dashboard"></i> Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="leaderboard.html"><i class="ti ti-chart-bar"></i> Leaderboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="quests.html"><i class="ti ti-book"></i> Quests</a></li>
+                            <li class="nav-item"><a class="nav-link" href="premium.html"><i class="ti ti-rosette"></i> Premium</a></li>
+
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Discovery</div>
+
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Support</div>
+                            <li class="nav-item"><a class="nav-link" href="community.html"><i class="ti ti-users"></i> Community</a></li>
+                            <li class="nav-item"><a class="nav-link" href="setting.html"><i class="ti ti-settings"></i> Settings</a></li>
+                            <li class="nav-item"><a class="nav-link" href="help-center.html"><i class="ti ti-help"></i> Help Center</a></li>
+
+                            <br>
+                            <li class="nav-item-tools border-top mt-auto pt-2" >
+                                <!--Search Bar-->
+                                <form id="sidebar-search-form" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" action="#" method="get" role="form">
+                                    <div class="form-control">
+                                        <label for="search-term"><i class="ti ti-search"></i></label> 
+                                        <input class="search-bar" id="sidebar-search-input" name="search" type="text" placeholder="Search Knots..." aria-label="Search" autocomplete="off"
+                                            autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">
+                                    </div>
+                                </form>  
+    
+                                <br>                                
+                                <a class="nav-link-button" href="#">
+                                    <label class="switch">
+                                        <input id="input" type="checkbox" checked="darkTheme" />
+                                        <span class="slider-round">
+                                            <div class="star star_1"></div>
+                                            <div class="star star_2"></div>
+                                            <div class="star star_3"></div>
+                                            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+                                                <path
+                                              transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+                                              fill="#fff"
+                                              d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                </a>
+                                <br>
+
+                                <a class="nav-link-button" href="#">     
+                                    <button class="nav-link-toggle-translate" id="theme-toggle">
+                                        <i class="ti ti-language" style="font-size: 1.5em;"></i>
+                                    </button>                                                                   
+                                </a>
+
+                                <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                                        <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
+                                        <span class="position-absolute translate-middle p-1 bg-danger border border-light rounded-circle">
+                                            <span class="visually-hidden">New alerts</span>
+                                        </span>
+                                </a>
+                                
+                                <a class="nav-link-button" href="#">       
+                                    <button class="nav-link-toggle-dark-theme" id="theme-toggle" disabled>
+                                        <!--<i class="ti ti-moon" style="font-size: 1.5em;"></i>-->
+                                    </button>                            
+                                </a>
+                            </li> 
+                            <br><br>               
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="main-wrapper col-md-9 ms-sm-auto py-0 col-lg-9 px-md-4 border-start border-top border-right border-bottom border-end">
+                    <div class="row my-4">
+                        <div class="title-group mb-3">
+                            <h1 class="h7 mb-0">Profile</h1>
+                        </div>
+
+                        <div class="col-lg-7 col-12">
+                            <div class="custom-block custom-block-profile">
+                                <div class="row">
+                                    <div class="col-lg-12 col-12 mb-3"><h6>General</h6></div>
+                                    <div class="col-lg-3 col-12 mb-4 mb-lg-0">
+                                        <div class="custom-block-profile-image-wrap">
+                                            <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="custom-block-profile-image img-fluid" alt="">
+                                            <a href="setting.html" class="bi-pencil-square custom-block-edit-icon"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9 col-12">
+                                        <p class="d-flex flex-wrap mb-2"><strong>Name:</strong><span id="display-profile-name" class="ms-2"></span></p>
+                                        <p class="d-flex flex-wrap mb-2"><strong>Email:</strong><a id="display-profile-email" class="ms-2" href="#"></a></p>
+                                        <p class="d-flex flex-wrap mb-2"><strong>Shop Name:</strong><span id="display-profile-shop" class="ms-2"></span></p>
+
+                                        <div class="wrapper-profile">
+                                            <section class="section">
+                                              <div class="actions">
+                                                <button id="add" class="button-profile button--primary">
+                                                  <svg width="24" height="24">
+                                                    <use href="#plus"></use>
+                                                  </svg>
+                                                  Add categories
+                                                </button>
+                                                <button id="run" class="button-profile button--secondary">
+                                                  <svg width="24" height="24">
+                                                    <use href="#play"></use>
+                                                  </svg>
+                                                  Run Animation
+                                                </button>
+                                              </div>
+                                              <div class="card-profile">
+                                                <ul id="list" class="list">
+                                                  <li class="list__item">📚 Reading</li>
+                                                  <li class="list__item">✈️ Traveling</li>
+                                                  <li class="list__item">👨‍🍳 Cooking</li>
+                                                  <li class="list__item">📸 Photography</li>
+                                                  <li class="list__item">🎮 Gaming</li>
+                                                </ul>
+                                              </div>
+                                            </section>
+                                          </div>
+                                      
+                                          <svg width="0" height="0" style="display: none">
+                                            <symbol id="exclamation" fill="none" viewBox="0 0 24 24">
+                                              <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="1.5"
+                                                stroke="currentColor"
+                                                d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
+                                              />
+                                            </symbol>
+                                            <symbol id="plus" fill="none" viewBox="0 0 24 24">
+                                              <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="1.5"
+                                                stroke="currentColor"
+                                                d="M12 4.5v15m7.5-7.5h-15"
+                                              />
+                                            </symbol>
+                                            <symbol id="play" fill="none" viewBox="0 0 24 24">
+                                              <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="1.5"
+                                                stroke="currentColor"
+                                                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
+                                              />
+                                            </symbol>
+                                          </svg>
+
+                                        <div class="d-flex align-items-center gap-2 mt-3">
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="period-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Last 10 days
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="period-dropdown">
+                                                    <li><a class="dropdown-item" href="#" data-period="10">Last 10 days</a></li>
+                                                    <li><a class="dropdown-item" href="#" data-period="30">Last 30 days</a></li>
+                                                    <li><a class="dropdown-item" href="#" data-period="90">Last 90 days</a></li>
+                                                </ul>
+                                            </div>
+                                            <button id="btn-fetch-data" class="btn btn-secondary btn-sm">Fetch Data</button>
+                                            <button id="btn-clear-shop" class="btn btn-danger btn-sm">Clear Shop</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Business Data Display -->
+                        <div id="shopify-data-container" class="col-lg-12 col-12 mt-4">
+                            <div class="custom-block bg-white">
+                                <!--<h5 class="mb-4">Businesses Data</h5>-->
+                                <div class="row">    
+                                    <div class="col-md-3">
+                                        <div class="card-data">
+                                            <div class="title">
+                                                <span>
+                                                    <svg width="20" fill="currentColor" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1362 1185q0 153-99.5 263.5t-258.5 136.5v175q0 14-9 23t-23 9h-135q-13 0-22.5-9.5t-9.5-22.5v-175q-66-9-127.5-31t-101.5-44.5-74-48-46.5-37.5-17.5-18q-17-21-2-41l103-135q7-10 23-12 15-2 24 9l2 2q113 99 243 125 37 8 74 8 81 0 142.5-43t61.5-122q0-28-15-53t-33.5-42-58.5-37.5-66-32-80-32.5q-39-16-61.5-25t-61.5-26.5-62.5-31-56.5-35.5-53.5-42.5-43.5-49-35.5-58-21-66.5-8.5-78q0-138 98-242t255-134v-180q0-13 9.5-22.5t22.5-9.5h135q14 0 23 9t9 23v176q57 6 110.5 23t87 33.5 63.5 37.5 39 29 15 14q17 18 5 38l-81 146q-8 15-23 16-14 3-27-7-3-3-14.5-12t-39-26.5-58.5-32-74.5-26-85.5-11.5q-95 0-155 43t-60 111q0 26 8.5 48t29.5 41.5 39.5 33 56 31 60.5 27 70 27.5q53 20 81 31.5t76 35 75.5 42.5 62 50 53 63.5 31.5 76.5 13 94z">
+                                                        </path>
+                                                    </svg>
+                                                </span>
+                                                <p class="title-text">Revenue</p>
+                                                <p class="percent">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" fill="currentColor" height="20" width="20">
+                                                        <path d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z">
+                                                        </path>
+                                                    </svg> 20%
+                                                </p>
+                                            </div>
+                                            <div class="data" id="total-revenue">
+                                                <p>
+                                                    39,500 
+                                                </p>
+                                                
+                                                <div class="range">
+                                                    <div class="fill">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card-data">
+                                            <div class="title">
+                                                <span class="order">
+                                                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.4141 4.91424L5.99991 14.3285L0.585693 8.91424L3.41412 6.08582L5.99991 8.6716L12.5857 2.08582L15.4141 4.91424Z" fill="#ffffff"></path> </g></svg>
+                                                </span>
+                                                <p class="title-text">Orders</p>
+                                                <p class="percent">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" fill="currentColor" height="20" width="20">
+                                                        <path d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z">
+                                                        </path>
+                                                    </svg> 50%
+                                                </p>
+                                            </div>
+                                            <div class="data" id="total-orders">
+                                                <p>
+                                                    471 
+                                                </p>
+                                                
+                                                <div class="range">
+                                                    <div class="fill-50">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card-data">
+                                            <div class="title">
+                                                <span class="customer">
+                                                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 7C9.65685 7 11 5.65685 11 4C11 2.34315 9.65685 1 8 1C6.34315 1 5 2.34315 5 4C5 5.65685 6.34315 7 8 7Z" fill="#ffffff"></path> <path d="M14 12C14 10.3431 12.6569 9 11 9H5C3.34315 9 2 10.3431 2 12V15H14V12Z" fill="#ffffff"></path> </g></svg>
+                                                </span>
+                                                <p class="title-text">Customers</p>
+                                                <p class="percent">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" fill="currentColor" height="20" width="20">
+                                                        <path d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z">
+                                                        </path>
+                                                    </svg> 30%
+                                                </p>
+                                            </div>
+                                            <div class="data" id="customer-count"><p>95</p>
+                                                <div class="range">
+                                                    <div class="fill-20">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card-data">
+                                            <div class="title">
+                                                <span class="product">
+                                                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1 5V3L8 0L15 3V5L8 8L1 5Z" fill="#ffffff"></path> <path d="M8 16L1 13V11L8 14L15 11V13L8 16Z" fill="#ffffff"></path> <path d="M1 9L8 12L15 9V7L8 10L1 7V9Z" fill="#ffffff"></path> </g></svg>
+                                                </span>
+                                                <p class="title-text">Products</p>
+                                                <p class="percent">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1792 1792" fill="currentColor" height="20" width="20">
+                                                        <path d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z">
+                                                        </path>
+                                                    </svg>  -
+                                                </p>
+                                            </div>
+                                            <div class="data" id="product-count"><p>109</p>                     
+                                                <div class="range">
+                                                    <div class="fill-100">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    
+                                    <!--<div class="col-md-3">
+                                        <div class="card bg-c-blue">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Total Revenue</h6>
+                                                <p id="total-revenue" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card bg-c-green">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Total Orders</h6>
+                                                <p id="total-orders" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card bg-c-yellow">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Total Customers</h6>
+                                                <p id="customer-count" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card bg-c-pink">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Total Products</h6>
+                                                <p id="product-count" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shopify Data Display -->
+                        <!--<div id="shopify-data-container" class="col-lg-12 col-12 mt-4">
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">Shopify Store Data</h5>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="card bg-c-blue">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Total Revenue</h6>
+                                                <p id="total-revenue" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card bg-c-green">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Total Orders</h6>
+                                                <p id="total-orders" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card bg-c-yellow">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Total Customers</h6>
+                                                <p id="customer-count" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card bg-c-pink">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Total Products</h6>
+                                                <p id="product-count" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                        
+                        <!-- Financial Summary Display -->
+                        <!--<div id="financial-summary-container" class="col-lg-12 col-12 mt-4">
+                            <div class="custom-block bg-white">
+                                <h5 class="mb-4">Financial Summary</h5>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card bg-c-blue">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Revenue Growth Rate</h6>
+                                                <p id="revenue-growth-rate" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card bg-c-green">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Profit (70% Margin)</h6>
+                                                <p id="profit" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card bg-c-yellow">
+                                            <div class="card-body">
+                                                <h6 class="card-title">Valuation Change</h6>
+                                                <p id="valuation-change" class="h4 card-text"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+
+                    <footer class="site-footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-12"><p class="copyright-text">Copyright © Mini Finance 2048 - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p></div>
+                            </div>
+                        </div>
+                    </footer>
+                </main>
+            </div>
+        </div>
+
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/custom.js"></script>
+        <script src="scripts/shopify.js"></script>
+        
+        <script type="text/javascript"> //dark mode toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const body = document.body;
+            const localStorageKey = 'dark-mode';
+
+            // Function to set the theme
+            function setTheme(isDarkMode) {
+                if (isDarkMode) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem(localStorageKey, 'true');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.removeItem(localStorageKey);
+                }
+            }
+
+            // Check for saved user preference on page load
+            if (localStorage.getItem(localStorageKey) === 'true') {
+                setTheme(true);
+            }
+
+            // Add event listener to the toggle button
+            themeToggleBtn.addEventListener('click', () => {
+                // Toggle the theme state
+                setTheme(!body.classList.contains('dark-mode'));
+            });
+
+        </script>
+
+        <script> //input trigger dark mode button
+            // Input toggle -> dark mode control (robust, runs after DOM ready)
+            document.addEventListener('DOMContentLoaded', () => {
+                const checkbox = document.getElementById('input');
+                const themeBtn = document.getElementById('theme-toggle');
+                const bodyEl = document.body;
+                const LS_KEY = 'dark-mode';
+    
+                // Helper: toggle theme and persist
+                function applyTheme(enable) {
+                    if (enable) {
+                        bodyEl.classList.add('dark-mode');
+                        localStorage.setItem(LS_KEY, 'true');
+                    } else {
+                        bodyEl.classList.remove('dark-mode');
+                        localStorage.removeItem(LS_KEY);
+                    }
+                }
+    
+                // Initialize state from localStorage or body class
+                const saved = localStorage.getItem(LS_KEY) === 'true';
+                const initial = saved || bodyEl.classList.contains('dark-mode');
+                applyTheme(initial);
+                if (checkbox) checkbox.checked = !!initial;
+    
+                // Keep checkbox -> theme consistent
+                if (checkbox) {
+                    checkbox.addEventListener('change', () => {
+                        const enable = checkbox.checked;
+                        applyTheme(enable);
+    
+                        // Optionally simulate theme button click to keep UI in sync
+                        if (themeBtn) {
+                            try { themeBtn.disabled = false; themeBtn.click(); } catch (e) { /* ignore */ }
+                        }
+                    }, { passive: true });
+                }
+    
+                // Ensure theme button still works and keeps checkbox synced
+                if (themeBtn) {
+                    themeBtn.addEventListener('click', () => {
+                        const isDark = bodyEl.classList.contains('dark-mode');
+                        applyTheme(!isDark);
+                        if (checkbox) checkbox.checked = !isDark;
+                    });
+                }
+            });
+        </script>
+
+        <script>
+            // This script loads the user's profile data from localStorage and populates the DOM.
+            document.addEventListener('DOMContentLoaded', () => {
+                const displayName = document.getElementById('display-profile-name');
+                const displayEmail = document.getElementById('display-profile-email');
+                const displayShop = document.getElementById('display-profile-shop');
+                const headerName = document.getElementById('header-small-name');
+                const headerEmail = document.getElementById('header-small-email');
+
+                const savedName = localStorage.getItem('profileName') || '';
+                const savedEmail = localStorage.getItem('profileEmail') || '';
+                const savedShop = localStorage.getItem('shopName') || '';
+
+                if (displayName) displayName.textContent = savedName;
+                if (displayEmail) {
+                    displayEmail.textContent = savedEmail;
+                    displayEmail.href = 'mailto:' + savedEmail;
+                }
+                if (displayShop) displayShop.textContent = savedShop;
+
+                if (headerName) headerName.textContent = savedName;
+                if (headerEmail) {
+                    headerEmail.textContent = savedEmail;
+                    headerEmail.href = 'mailto:' + savedEmail;
+                }
+            });
+        </script>
+
+        <script> //profile interest
+            const runAnimationButton = document.getElementById("run");
+            const addNewItemButton = document.getElementById("add");
+            const list = document.getElementById("list");
+            const newItemsContent = [
+            "☕ Coffee Tasting",
+            "🌱 Gardening",
+            "🎵 Music",
+            "💪 Fitness",
+            "🎬 Movies",
+            "🥾 Hiking",
+            "💻 Coding",
+            "🎨 Drawing",
+            "🏊 Swimming",
+            "🧩 Puzzles",
+            ];
+            let newItemIndex = 0;
+
+            runAnimationButton.addEventListener("click", runAnimation);
+            addNewItemButton.addEventListener("click", addNewItem);
+
+            function runAnimation() {
+            list.classList.remove("animate");
+            void list.offsetWidth;
+            list.classList.add("animate");
+            }
+
+            function addNewItem() {
+            if (newItemIndex >= newItemsContent.length) return;
+
+            const li = document.createElement("li");
+            li.textContent = newItemsContent[newItemIndex];
+            li.classList.add("list__item");
+
+            list.classList.remove("animate");
+            list.appendChild(li);
+
+            newItemIndex++;
+            if (newItemIndex == newItemsContent.length) addNewItemButton.disabled = true;
+            }
+
+        </script>
+
+    </body>
+</html>

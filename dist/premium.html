@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Premium</title>
+
+        <!-- CSS FILES -->      
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/css/apexcharts.css" rel="stylesheet">
+        <link href="assets/css/tooplate-mini-finance.css" rel="stylesheet">
+
+    </head>
+    
+    <body>
+        <header class="navbar sticky-top flex-md-nowrap">          
+            <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
+                <img class = "logo-image" src="assets/imgs/logo-4.png" alt="" >
+                <a class="logo align-items-center" href="index2.html"><b>Knotulus</b></a>          
+            </div>
+
+                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!--Search Bar-->
+                 <form id="header-search-form" action="#" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" method="get" autocomplete="off">
+                     <div class="form-control">
+                        <label for="search-term"><i class="ti ti-search"></i></label>                  
+                        <input class="search-bar" id="search-input" name="q" type="search" placeholder="Search Knots..." aria-label="Search" autocomplete="off"             
+                               autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">             
+                     </div>                             
+                 </form>
+
+            <div class="navbar-nav me-lg-2">
+                <div class="nav-item text-nowrap d-flex align-items-center">
+                    <div class="dropdown ps-3 ">
+                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                            <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
+                            <span class="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-lg-end notifications-block-wrap bg-white shadow" aria-labelledby="navbarLightDropdownMenuLink">
+                            <small>Notifications</small>
+
+                            <li class="notifications-block border-bottom pb-2 mb-2">
+                                <a class="dropdown-item d-flex  align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-success">
+                                        <i class="notifications-icon bi-check-circle-fill"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Your account has been created successfuly.</span>
+
+                                        <p>12 days ago</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="notifications-block border-bottom pb-2 mb-2">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-info">
+                                        <i class="notifications-icon bi-folder"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Please check. We have sent a Daily report.</span>
+
+                                        <p>10 days ago</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="notifications-block">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-danger">
+                                        <i class="notifications-icon bi-question-circle"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Account verification failed.</span>
+
+                                        <p>1 hour ago</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--<div class="dropdown ps-1">
+                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi-three-dots-vertical"></i>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-social bg-white shadow">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/search.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Google</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/spotify.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Spotify</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/telegram.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Telegram</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/snapchat.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Snapchat</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/tiktok.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Tiktok</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/youtube.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Youtube</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <div class="dropdown px-4">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <!--<img src="images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">-->
+                            <img class = "profile-image img-fluid" src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light'/>
+                            <span class="position-absolute end-0 bottom-60 translate-middle p-1-5 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu shadow">
+                            <li>
+                                <div class="dropdown-menu-profile-thumb d-flex">
+                                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-3" alt="">
+
+                                    <div class="d-flex flex-column">
+                                        <!-- IDs added so script can update dropdown when profile is changed -->
+                                        <b id="header-small-name">Thomas</b>
+                                        <small>
+                                            <a id="header-small-email" href="mailto:thomas@site.com">thomas@site.com</a>
+                                        </small>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="profile.html">
+                                    <i class="ti ti-user"></i>
+                                    Profile
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="setting.html">
+                                    <i class="ti ti-settings"></i>
+                                    Settings
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="help-center.html">
+                                    <i class="ti ti-help"></i>
+                                    Help
+                                </a>
+                            </li>
+
+                            <li class="border-top mt-3 pt-2">
+                                <a class="dropdown-item" href="index.html">
+                                    <i class="ti ti-logout"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                    <div class="position-sticky py-2 px-3 sidebar-sticky">
+                        <ul class="nav flex-column h-100">
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Home</div>
+                            <li class="nav-item"><a class="nav-link" href="index2.html"><i class="ti ti-layout-dashboard"></i> Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="leaderboard.html"><i class="ti ti-chart-bar"></i> Leaderboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="quests.html"><i class="ti ti-book"></i> Quests</a></li>
+                            <li class="nav-item"><a class="nav-link" href="premium.html"><i class="ti ti-rosette"></i> Premium</a></li>
+
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Discovery</div>
+
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Support</div>
+                            <li class="nav-item"><a class="nav-link" href="community.html"><i class="ti ti-users"></i> Community</a></li>
+                            <li class="nav-item"><a class="nav-link" href="setting.html"><i class="ti ti-settings"></i> Settings</a></li>
+                            <li class="nav-item"><a class="nav-link" href="help-center.html"><i class="ti ti-help"></i> Help Center</a></li>
+
+                            <br>
+                            <li class="nav-item-tools border-top mt-auto pt-2" >
+                                <!--Search Bar-->
+                                <form id="sidebar-search-form" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" action="#" method="get" role="form">
+                                    <div class="form-control">
+                                        <label for="search-term"><i class="ti ti-search"></i></label> 
+                                        <input class="search-bar" id="sidebar-search-input" name="search" type="text" placeholder="Search Knots..." aria-label="Search" autocomplete="off"
+                                            autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">
+                                    </div>
+                                </form>  
+    
+                                <br>                                
+                                <a class="nav-link-button" href="#">
+                                    <label class="switch">
+                                        <input id="input" type="checkbox" checked="darkTheme" />
+                                        <span class="slider-round">
+                                            <div class="star star_1"></div>
+                                            <div class="star star_2"></div>
+                                            <div class="star star_3"></div>
+                                            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+                                                <path
+                                              transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+                                              fill="#fff"
+                                              d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                </a>
+                                <br>
+
+                                <a class="nav-link-button" href="#">     
+                                    <button class="nav-link-toggle-translate" id="theme-toggle">
+                                        <i class="ti ti-language" style="font-size: 1.5em;"></i>
+                                    </button>                                                                   
+                                </a>
+
+                                <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                                        <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
+                                        <span class="position-absolute translate-middle p-1 bg-danger border border-light rounded-circle">
+                                            <span class="visually-hidden">New alerts</span>
+                                        </span>
+                                </a>
+                                
+                                <a class="nav-link-button" href="#">       
+                                    <button class="nav-link-toggle-dark-theme" id="theme-toggle" disabled>
+                                        <!--<i class="ti ti-moon" style="font-size: 1.5em;"></i>-->
+                                    </button>                            
+                                </a>
+                            </li> 
+                            <br><br>               
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start border-top border-right border-bottom">
+                    <div class="title-group mb-3">
+                        <h1 class="h7 mb-0">Premium</b></h1>
+
+                        <div class="row my-4">
+                            <div class="col-lg-7 col-12">
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <footer class="site-footer">
+                        <div class="container">
+                            <div class="row">
+                                
+                                <div class="col-lg-12 col-12">
+                                    <p class="copyright-text">Copyright © Mini Finance 2048 
+                                    - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </footer>
+                </main>
+
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/apexcharts.min.js"></script>
+        <script src="assets/js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/icons-react/dist/index.umd.min.js"></script>
+
+        <script type="text/javascript"> //dark mode toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const body = document.body;
+            const localStorageKey = 'dark-mode';
+
+            // Function to set the theme
+            function setTheme(isDarkMode) {
+                if (isDarkMode) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem(localStorageKey, 'true');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.removeItem(localStorageKey);
+                }
+            }
+
+            // Check for saved user preference on page load
+            if (localStorage.getItem(localStorageKey) === 'true') {
+                setTheme(true);
+            }
+
+            // Add event listener to the toggle button
+            themeToggleBtn.addEventListener('click', () => {
+                // Toggle the theme state
+                setTheme(!body.classList.contains('dark-mode'));
+            });
+
+        </script>
+
+        <script> //input trigger dark mode button
+            // Input toggle -> dark mode control (robust, runs after DOM ready)
+            document.addEventListener('DOMContentLoaded', () => {
+                const checkbox = document.getElementById('input');
+                const themeBtn = document.getElementById('theme-toggle');
+                const bodyEl = document.body;
+                const LS_KEY = 'dark-mode';
+    
+                // Helper: toggle theme and persist
+                function applyTheme(enable) {
+                    if (enable) {
+                        bodyEl.classList.add('dark-mode');
+                        localStorage.setItem(LS_KEY, 'true');
+                    } else {
+                        bodyEl.classList.remove('dark-mode');
+                        localStorage.removeItem(LS_KEY);
+                    }
+                }
+    
+                // Initialize state from localStorage or body class
+                const saved = localStorage.getItem(LS_KEY) === 'true';
+                const initial = saved || bodyEl.classList.contains('dark-mode');
+                applyTheme(initial);
+                if (checkbox) checkbox.checked = !!initial;
+    
+                // Keep checkbox -> theme consistent
+                if (checkbox) {
+                    checkbox.addEventListener('change', () => {
+                        const enable = checkbox.checked;
+                        applyTheme(enable);
+    
+                        // Optionally simulate theme button click to keep UI in sync
+                        if (themeBtn) {
+                            try { themeBtn.disabled = false; themeBtn.click(); } catch (e) { /* ignore */ }
+                        }
+                    }, { passive: true });
+                }
+    
+                // Ensure theme button still works and keeps checkbox synced
+                if (themeBtn) {
+                    themeBtn.addEventListener('click', () => {
+                        const isDark = bodyEl.classList.contains('dark-mode');
+                        applyTheme(!isDark);
+                        if (checkbox) checkbox.checked = !isDark;
+                    });
+                }
+            });
+        </script>
+        
+        <script> //searchbar index
+            // Custom search redirect: map input keywords to pages; fallback to search-results.html?q=
+            (function() {
+                const map = {
+                    'logout': 'index.html',
+                    'home': 'index2.html',
+                    'dash': 'index2.html',
+                    'dashboard': 'index2.html',
+                    'leaderboard': 'leaderboard.html',
+                    'leader': 'leaderboard.html',
+                    'premium': 'premium.html',
+                    'profile': 'profile.html',
+                    'quest': 'quests.html',
+                    'quests': 'quests.html',
+                    'community': 'community.html',
+                    'settings': 'setting.html',
+                    'setting': 'setting.html',
+                    'help': 'help-center.html',
+                    
+                };
+
+                function handleSearchSubmit(e, inputEl) {
+                    e.preventDefault();
+                    const raw = inputEl.value || '';
+                    const term = raw.trim();
+                    if (!term) return;
+                    const lower = term.toLowerCase();
+
+                    for (const key in map) {
+                        if (Object.prototype.hasOwnProperty.call(map, key) && lower.includes(key)) {
+                            // pass original query as q param
+                            window.location.href = map[key] + '?q=' + encodeURIComponent(term);
+                            return;
+                        }
+                    }
+
+                    // no matching page -> go to generic search results page
+                    window.location.href = 'search-results.html?q=' + encodeURIComponent(term);
+                }
+
+                const headerForm = document.getElementById('header-search-form');
+                const headerInput = document.getElementById('search-input');
+                if (headerForm && headerInput) {
+                    headerForm.addEventListener('submit', (e) => handleSearchSubmit(e, headerInput));
+                }
+
+                const sidebarForm = document.getElementById('sidebar-search-form');
+                const sidebarInput = document.getElementById('sidebar-search-input');
+                if (sidebarForm && sidebarInput) {
+                    sidebarForm.addEventListener('submit', (e) => handleSearchSubmit(e, sidebarInput));
+                }
+
+                // Optional: allow Enter inside inputs to submit (already handled by form submit)
+                // Also optionally support pressing Enter without using the form:
+                [headerInput, sidebarInput].forEach(inp => {
+                    if (!inp) return;
+                    inp.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleSearchSubmit(e, inp);
+                        }
+                    });
+                });
+            })();
+        </script>
+       
+        <script> //drop down profile update
+            // Load updated profile from localStorage and display on the page.
+            // This script only updates display elements; saving is handled by the settings page.
+            (function () {
+                const DISPLAY_NAME_ID = 'display-profile-name';
+                const DISPLAY_EMAIL_ID = 'display-profile-email';
+                const HEADER_NAME_ID = 'header-small-name';
+                const HEADER_EMAIL_ID = 'header-small-email';
+
+                function updateProfileDisplay() {
+                    const name = localStorage.getItem('profileName') || '';
+                    const email = localStorage.getItem('profileEmail') || '';
+
+                    const displayName = document.getElementById(DISPLAY_NAME_ID);
+                    const displayEmail = document.getElementById(DISPLAY_EMAIL_ID);
+                    const headerName = document.getElementById(HEADER_NAME_ID);
+                    const headerEmail = document.getElementById(HEADER_EMAIL_ID);
+
+                    if (displayName) displayName.textContent = name || '—';
+                    if (displayEmail) {
+                        displayEmail.textContent = email || '—';
+                        displayEmail.href = email ? ('mailto:' + email) : '#';
+                    }
+                    if (headerName) headerName.textContent = name || 'User';
+                    if (headerEmail) {
+                        headerEmail.textContent = email || '';
+                        if (email) headerEmail.href = 'mailto:' + email;
+                    }
+
+                    // update other common selectors (navbar username, profile-name, dropdown-username)
+                    document.querySelectorAll('.navbar-username, #profile-name, #dropdown-username').forEach(el => {
+                        if (el) el.textContent = name || '';
+                    });
+                }
+
+                // update on initial load
+                document.addEventListener('DOMContentLoaded', updateProfileDisplay);
+
+                // update if localStorage changes in another tab/window
+                window.addEventListener('storage', (e) => {
+                    if (e.key === 'profileName' || e.key === 'profileEmail') updateProfileDisplay();
+                });
+
+                // Provide a global helper so settings page can call it after saving
+                window.updateProfileDisplay = updateProfileDisplay;
+            })();
+         </script>
+
+    </body>
+</html>

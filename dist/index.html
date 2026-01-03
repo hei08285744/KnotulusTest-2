@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knotulus</title>
+    <link href="assets/css/tooplate-minimal-white-style.css" rel="stylesheet">
+    <link href="assets/css/output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <img class = "logo-pic" src="assets/imgs/logo-2.jpg" alt="" >
+            <a href="#home" class="logo">Knotulus</a>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link">HOME</a></li>
+                <li><a href="#about" class="nav-link">ABOUT</a></li>
+                <!--<li><a href="#services" class="nav-link">SERVICES</a></li>-->
+                <li><a href="#contact" class="nav-link">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section id="home" class="hero">
+        <!-- Animated Objects (Reduced) -->
+        <div class="floating-objects">
+            <div class="floating-circle"></div>
+            <div class="floating-circle"></div>
+            <div class="floating-square"></div>
+            <div class="floating-line"></div>
+        </div>
+        
+        <div class="hero-decoration"></div>
+        <div class="hero-content">
+            <br><br>
+            <h1 class="text-5xl md:text-7xl font-bold text-primary">KNOTULUS</h1>
+            <p class="typewriter text-xl md:text-2xl text-secondary mt-4 font-medium tracking-tighter">Where Momentum Meets Capital</p>
+            <br>
+            <form id="signup-form" class="signup-form custom-form">
+                <div class="form-control">
+                    <label for="name-input" style="margin:0; padding:0; display:flex; align-items:center;"><i class="ti ti-user"></i></label>
+                    <input type="text" id="name-input" name="name" class="search-bar" placeholder="Enter your name" required>
+                </div>
+                <div class="vertical-space"></div>
+                <div class="form-control">
+                    <label for="email-input" style="margin:0; padding:0; display:flex; align-items:center;"><i class="ti ti-mail"></i></label>
+                    <input type="email" id="email-input" name="email" class="search-bar" placeholder="Enter your email" required>
+                </div>
+                <br>
+                <div class="vertical-space"></div>
+                <button type="submit" class="cta-button">Join Waitlist</button>
+                <div id="form-message"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Section 2: About - Mixed Layouts -->
+    <section id="about" class="about">
+        <div class="container">
+            <!-- Introduction with large quote -->
+            <div class="about-intro fade-in">
+                <div class="quote-block">
+                    <div class="text-center max-w-3xl mx-auto mb-10">
+                        <h2 class="text-3xl font-bold border-b-2 border-black inline-block ">The Entrepreneurial Void</h2>
+                    </div>
+                    <span class="quote-mark">"</span>
+                    <p class="text-sm md:text-base text-gray-700">
+                        In today's digital age, brilliant ideas fade from lack of momentum, not merit. This is amplified by a growing pool of young professionals seeking autonomy—a pool currently underserved and underutilised.
+                    </p>
+                    <br><br>
+                    <!--<div class="quote-author">
+                        <span class="author-line"></span>
+                        <p>Antoine de Saint-Exupéry</p>
+                    </div>-->
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="card">
+                            <h3 class="text-lg font-bold text-center mb-4">HK Youth Unemployment</h3>
+                            <p class="text-center text-gray-500 text-xs mb-4 uppercase tracking-widest">[ Ages 20-29 ]</p>
+                            <div class="chart-container">
+                                <canvas id="unemploymentChart"></canvas>
+                            </div>
+                            <p class="text-center text-xs text-gray-700 mt-4 border-t pt-2 border-gray-200">Youth unemployment at <strong>8%</strong> is nearly <strong>3x higher</strong> than the overall rate.</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="text-lg font-bold text-center mb-4">Employee Needs Unmet</h3>
+                            <p class="text-center text-gray-500 text-xs mb-4 uppercase tracking-widest">[ Mercer Data ]</p>
+                            <div class="chart-container">
+                                <canvas id="needsChart"></canvas>
+                            </div>
+                            <p class="text-center text-xs text-gray-700 mt-4 border-t pt-2 border-gray-200"><strong>49% of employees</strong> feel their employer is not meeting their needs.</p>
+                        </div>
+        
+                        <div class="card">
+                            <h3 class="text-lg font-bold text-center mb-4">Gen-Z Desire for Autonomy</h3>
+                            <p class="text-center text-gray-500 text-xs mb-4 uppercase tracking-widest">[ Deloitte Asia ]</p>
+                            <div class="chart-container">
+                                <canvas id="autonomyChart"></canvas>
+                            </div>
+                            <p class="text-center text-xs text-gray-700 mt-4 border-t pt-2 border-gray-200"><strong>70% of Gen-Z</strong> want autonomy or ownership over their work.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="black-line"></div>
+
+            <!-- Philosophy Section with offset layout -->
+            <div class="philosophy-section fade-in">
+                <div class="philosophy-header">
+                    <h2><b>The Solution: Ecosystem</b></h2>
+                </div>
+                <div class="philosophy-content">
+                    <div class="philosophy-main">
+                        <p class="text-sm md:text-base text-gray-300">
+                            KNOTULUS is not just a platform; it's the heartbeat of the entrepreneurial community. We transform abstract ambition into a tangible, interactive, and engaging narrative, making growth a shared race.
+                        </p>
+                    </div>
+                    <br><br>
+                    <div class="philosophy-points">
+                        <div class="point-item">
+                            <span class="point-number">01</span>
+                            <h4>Connect Your Data</h4>
+                            <p>Securely connect your campaign data to our platform.</p>
+                        </div>
+                        <div class="point-item">
+                            <span class="point-number">02</span>
+                            <h4>See Your Ranking</h4>
+                            <p>View your real-time ranking on the 'Living Leaderboard'.</p>
+                        </div>
+                        <div class="point-item">
+                            <span class="point-number">03</span>
+                            <h4>Make Data-Driven Decisions</h4>
+                            <p>Use our insights to optimize your campaigns and investments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="black-line"></div>
+
+            <!-- Process Timeline -->
+            <div class="process-timeline fade-in">
+                <h2 class="section-subtitle font-bold">The 3-Stage Rollout</h2>
+                <br>
+                <p class="text-sm md:text-base text-gray-700">
+                    Our phased approach builds a robust ecosystem, starting with engagement, moving to verification, and culminating in investor access.
+                </p>
+                <br><br>
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Engagement</h4>
+                            <p>Goal: Generate Volume</p>
+                            <br>
+                            <p class="text-gray-700 text-xs text-center">Attract businesses with gamified tools like the "Momentum Meter" and "Progress Sprints".</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Verification</h4>
+                            <p>Goal: Amplify Signal</p>
+                            <br>
+                            <p class="text-gray-700 text-xs text-center">Vet businesses by connecting live data (Shopify, Xero) via "KNOTULUS Connect".</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Investor Access</h4>
+                            <p>Goal: Meet Capital</p>
+                            <br>
+                            <p class="text-gray-700 text-xs text-center">Launch investor licenses for a curated feed of verified, high-momentum businesses.</p>
+                        </div>
+                    </div>
+                    <!--<div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Deliver</h4>
+                            <p>Bringing vision to life</p>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+
+            <div class="black-line"></div>
+
+            <!-- Values Grid -->
+            <div class="values-section fade-in">
+                <div class="values-header">
+                    <div class="black-square"></div>
+                    <h2 class="text-3xl font-bold mb-4 border-b-2 border-black inline-block">Core Engine: Engagement Score</h2>
+                    <div class="black-square"></div>
+                </div>
+                <p class="text-sm md:text-base text-gray-700">
+                    The leaderboard is powered by the "Engagement Score," a dynamic metric combining verified data with platform activity.
+                </p>
+                <br><br>
+                <!--<div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">—</div>
+                        <h4>Minimalism</h4>
+                    </div>
+                    <div class="value-card black">
+                        <div class="value-icon">+</div>
+                        <h4>Innovation</h4>
+                    </div>
+                    <div class="value-card black">
+                        <div class="value-icon">○</div>
+                        <h4>Precision</h4>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">□</div>
+                        <h4>Balance</h4>
+                    </div>
+                </div>-->
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="card">
+                        <h3 class="text-lg font-bold text-center mb-4">Score Composition</h3>
+                        <div class="chart-container">
+                            <canvas id="scoreChart"></canvas>
+                        </div>
+                    </div>
+    
+                    <div class="space-y-6">
+                        <div class="card border-l-8 border-black pl-6">
+                            <h3 class="text-xl font-bold text-primary mb-1">60% Verified Momentum</h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">The Hard Data</p>
+                            <ul class="list-none text-gray-700 text-sm space-y-2">
+                                <li class="flex items-center"><span class="mr-2 text-xl">&bull;</span> Live data (Shopify, Shopee)</li>
+                                <li class="flex items-center"><span class="mr-2 text-xl">&bull;</span> Accounting (Xero, QuickBooks)</li>
+                                <li class="flex items-center"><span class="mr-2 text-xl">&bull;</span> Periodic verified uploads</li>
+                            </ul>
+                        </div>
+                        <div class="card border-l-8 border-gray-400 pl-6">
+                            <h3 class="text-xl font-bold text-primary mb-1">40% Platform Interaction</h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">The Soft Signal</p>
+                            <ul class="list-none text-gray-700 text-sm space-y-2">
+                                <li class="flex items-center"><span class="mr-2 text-xl">&bull;</span> Profile completeness</li>
+                                <li class="flex items-center"><span class="mr-2 text-xl">&bull;</span> Sprint participation</li>
+                                <li class="flex items-center"><span class="mr-2 text-xl">&bull;</span> Connection follow-through</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+                <!-- Stats Section -->
+                <div class="stats-grid fade-in">
+                    <h2 class="text-3xl font-bold text-white uppercase tracking-wider">Reigniting Human Progress</h2>
+                    <div class="stat-item">
+                        <div class="stat-number">70%</div>
+                        <div class="stat-label">Gen-Z Seek Autonomy</div>
+                        <div class="stat-decoration"></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">49%</div>
+                        <div class="stat-label">Needs Unmet</div>
+                        <div class="stat-decoration"></div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8%</div>
+                        <div class="stat-label">Youth Unemployment</div>
+                        <div class="stat-decoration"></div>
+                    </div>
+                    <!--<div class="stat-item">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Possibilities</div>
+                        <div class="stat-decoration"></div>
+                    </div>-->
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="black-line"></div>
+
+    
+    <!-- Section 3: Services - Asymmetric Grid -->
+    <!--<section id="services" class="services">
+        <div class="container">
+            <div class="services-header fade-in">
+                <h2>What We Do</h2>
+            </div>
+            
+            <div class="asymmetric-grid fade-in">
+                <div class="service-large">
+                    <h3>Brand Identity</h3>
+                    <p>Creating distinctive visual languages that communicate your essence through simplicity. We develop comprehensive brand systems that stand the test of time.</p>
+                    <a href="#contact" class="service-tag">View Work</a>
+                </div>
+                <div class="service-small">
+                    <div class="service-number">01</div>
+                    <h4>Strategy First</h4>
+                </div>
+            </div>
+            
+            <div class="asymmetric-grid reverse fade-in">
+                <div class="service-small">
+                    <div class="service-number">02</div>
+                    <h4>Digital Native</h4>
+                </div>
+                <div class="service-large">
+                    <h3>Web Design</h3>
+                    <p>Crafting digital experiences that prioritize clarity and usability. Every pixel serves a purpose in our pursuit of functional beauty.</p>
+                    <a href="#contact" class="service-tag">Explore</a>
+                </div>
+            </div>
+            
+            <div class="asymmetric-grid fade-in">
+                <div class="service-large">
+                    <h3>Art Direction</h3>
+                    <p>Guiding visual narratives with restraint and intention. We believe the most powerful statements are often the quietest ones.</p>
+                    <a href="#contact" class="service-tag">Discover</a>
+                </div>
+                <div class="service-small">
+                    <div class="service-number">03</div>
+                    <h4>Vision Focused</h4>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Section 4: Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid fade-in">
+                <div class="contact-info">
+                    <h2>Connect</h2>
+                    <div class="info-item">
+                        <h4>Email</h4>
+                        <p>info@knotulus.com</p>
+                    </div>
+                    <!--<div class="info-item">
+                        <h4>Phone</h4>
+                        <p>+852 0000 0000</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Location</h4>
+                        <p>Hong Kong, HK</p>
+                    </div>-->
+                </div>
+                
+                <div class="contact-divider"></div>
+                
+                <div class="contact-form">
+                    <form id="signup-form" class="signup-form custom-form">
+                        <div class="form-group">
+                            <!--<input type="name-input" placeholder=" " required>-->
+                            <input type="text" id="name-input" name="name" placeholder=" " required>
+                            <label>Name</label>
+                        </div>
+                        <div class="form-group">
+                            <!--<input type="email-input" placeholder=" " required>-->
+                            <input type="email" id="email-input" name="email" placeholder=" " required>
+                            <label>Email</label>
+                        </div>
+                        <!--<div class="form-group">
+                            <textarea rows="4" placeholder=" " required></textarea>
+                            <label>Message</label>
+                        </div>-->
+                        <!--<button type="submit" class="submit-btn">Send</button>-->
+                        <button type="submit" class="cta-button">Join Waitlist</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <!--<p>© 2025 Minimal Studio — Designed by <a href="https://www.tooplate.com" target="_blank" rel="nofollow noopener" style="color: #000; font-weight: 700;">Tooplate</a></p>-->
+        <p>KNOTULUS // The Pulse of Progress // 2025</p>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <script> // chart
+        window.addEventListener('DOMContentLoaded', () => {
+            // Monochrome Palette
+            const chartColors = {
+                black: '#000000',
+                darkGray: '#4b5563',
+                midGray: '#9ca3af',
+                lightGray: '#e5e7eb',
+                white: '#ffffff'
+            };
+
+            const tooltipTitleCallback = function(tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+
+            const defaultChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#000000',
+                            font: {
+                                family: "'Roboto Mono', monospace",
+                                weight: '500',
+                                size: 11
+                            },
+                            usePointStyle: true,
+                            pointStyle: 'rect'
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#000000',
+                        titleFont: { family: "'Roboto Mono', monospace" },
+                        bodyFont: { family: "'Roboto Mono', monospace" },
+                        padding: 10,
+                        cornerRadius: 0,
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            };
+
+            const ctxUnemployment = document.getElementById('unemploymentChart').getContext('2d');
+            new Chart(ctxUnemployment, {
+                type: 'bar',
+                data: {
+                    labels: ['Youth (20-29)', 'Overall'],
+                    datasets: [{
+                        label: 'Unemployment Rate (%)',
+                        data: [8, 3],
+                        backgroundColor: [chartColors.black, chartColors.midGray],
+                        borderColor: chartColors.black,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...defaultChartOptions,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: '#e5e5e5'
+                            },
+                            ticks: {
+                                color: '#000000',
+                                font: { family: "'Roboto Mono', monospace" },
+                                callback: function(value) {
+                                    return value + '%'
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#000000',
+                                font: { family: "'Roboto Mono', monospace" }
+                            }
+                        }
+                    },
+                    plugins: {
+                        ...defaultChartOptions.plugins,
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+
+            const ctxNeeds = document.getElementById('needsChart').getContext('2d');
+            new Chart(ctxNeeds, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Needs Not Met', 'Needs Met'],
+                    datasets: [{
+                        data: [49, 51],
+                        backgroundColor: [chartColors.black, chartColors.lightGray],
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    ...defaultChartOptions,
+                    cutout: '70%'
+                }
+            });
+
+            const ctxAutonomy = document.getElementById('autonomyChart').getContext('2d');
+            new Chart(ctxAutonomy, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Want Autonomy', 'Other'],
+                    datasets: [{
+                        data: [70, 30],
+                        backgroundColor: [chartColors.darkGray, chartColors.lightGray],
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    ...defaultChartOptions,
+                    cutout: '70%'
+                }
+            });
+
+            const ctxScore = document.getElementById('scoreChart').getContext('2d');
+            new Chart(ctxScore, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        ['Verified', 'Momentum'],
+                        ['Platform', 'Interaction']
+                    ],
+                    datasets: [{
+                        data: [60, 40],
+                        backgroundColor: [chartColors.black, chartColors.midGray],
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    ...defaultChartOptions,
+                    cutout: '60%'
+                }
+            });
+        });
+    </script>
+
+    <script> //sign up waiting list
+        const signupForm = document.getElementById('signup-form');
+        const formMessage = document.getElementById('form-message');
+
+        function showMessage(message, isError = false) {
+            formMessage.textContent = message;
+            formMessage.style.color = isError ? '#dc3545' : '#28a745'; // Red for error, Green for success
+            formMessage.classList.add('show');
+        }
+
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const nameInput = document.getElementById('name-input');
+            const emailInput = document.getElementById('email-input');
+            const name = nameInput.value;
+            const email = emailInput.value;
+            const ctaButton = signupForm.querySelector('.cta-button');
+
+            // Clear previous messages
+            formMessage.classList.remove('show');
+
+            if (!name || !email) {
+                showMessage('Please enter your name and email.', true);
+                return;
+            }
+
+            ctaButton.disabled = true;
+            ctaButton.textContent = 'Submitting...';
+
+            try {
+                const response = await fetch('/api/joinWaitlist', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name: name, email: email }),
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.userId) {
+                    showMessage('Thank you for joining the waitlist!', false);
+                    nameInput.value = '';
+                    emailInput.value = '';
+
+                    localStorage.setItem('userId', result.userId);
+                    localStorage.setItem('profileName', name);
+                    localStorage.setItem('profileEmail', email);
+
+                    // Redirect to the main application page
+                    //-window.location.href = '/index2.html';
+                } else {
+                    throw new Error(result.error || 'An unknown error occurred.');
+                }
+
+            } catch (error) {
+                console.error('Error signing up:', error);
+                showMessage(error.message || 'Error signing up. Please try again later.', true);
+            } finally {
+                ctaButton.disabled = false;
+                ctaButton.textContent = 'Join Waitlist';
+            }
+        });
+    </script>
+    <script src="assets/js/tooplate-minimal-script.js"></script>
+</body>
+</html>

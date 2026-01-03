@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Setting</title>
+
+        <!-- CSS FILES -->      
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/css/tooplate-mini-finance.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <header class="navbar sticky-top flex-md-nowrap">          
+            <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
+                <img class = "logo-image" src="assets/imgs/logo-4.png" alt="" >
+                <a class="logo align-items-center" href="index2.html"><b>Knotulus</b></a>          
+            </div>
+
+                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!--Search Bar-->
+                <form id="header-search-form" action="#" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" method="get" autocomplete="off">
+                    <div class="form-control">
+                        <label for="search-term"><i class="ti ti-search"></i></label>                  
+                        <input class="search-bar" id="search-input" name="q" type="search" placeholder="Search Knots..." aria-label="Search" autocomplete="off"             
+                               autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">             
+                    </div>                             
+                </form>
+
+            <div class="navbar-nav me-lg-2">
+                <div class="nav-item text-nowrap d-flex align-items-center">
+                    <div class="dropdown ps-3">
+                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi-bell"></i>
+                            <span class="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </a>
+
+                        <ul class="dropdown-menu notifications-block-wrap bg-white shadow">
+                            <small>Notifications</small>
+
+                            <li class="notifications-block border-bottom pb-2 mb-2">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-success">
+                                        <i class="notifications-icon bi-check-circle-fill"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Your account has been created successfuly.</span>
+
+                                        <p>12 days ago</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="notifications-block border-bottom pb-2 mb-2">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-info">
+                                        <i class="notifications-icon bi-folder"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Please check. We have sent a Daily report.</span>
+
+                                        <p>10 days ago</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="notifications-block">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-danger">
+                                        <i class="notifications-icon bi-question-circle"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Account verification failed.</span>
+
+                                        <p>1 hour ago</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown px-4">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class = "profile-image img-fluid" src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light'/>
+                            <span class="position-absolute end-0 bottom-60 translate-middle p-1-5 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu shadow">
+                            <li>
+                                <div class="dropdown-menu-profile-thumb d-flex">
+                                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-3" alt="">
+
+                                    <div class="d-flex flex-column">
+                                        <b id="header-small-name">Thomas</b>
+                                        <small>
+                                            <a id="header-small-email" href="mailto:thomas@site.com">thomas@site.com</a>
+                                        </small>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="profile.html">
+                                    <i class="ti ti-user"></i>
+                                    Profile
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="setting.html">
+                                    <i class="ti ti-settings"></i>
+                                    Settings
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="help-center.html">
+                                    <i class="ti ti-help"></i>
+                                    Help
+                                </a>
+                            </li>
+
+                            <li class="border-top mt-3 pt-2">
+                                <a class="dropdown-item" href="index.html">
+                                    <i class="ti ti-logout"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>  
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                    <div class="position-sticky py-2 px-3 sidebar-sticky">
+                        <ul class="nav flex-column h-100">
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Home</div>
+                            <li class="nav-item"><a class="nav-link" href="index2.html"><i class="ti ti-layout-dashboard"></i> Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="leaderboard.html"><i class="ti ti-chart-bar"></i> Leaderboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="quests.html"><i class="ti ti-book"></i> Quests</a></li>
+                            <li class="nav-item"><a class="nav-link" href="premium.html"><i class="ti ti-rosette"></i> Premium</a></li>
+
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Discovery</div>
+
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Support</div>
+                            <li class="nav-item"><a class="nav-link" href="community.html"><i class="ti ti-users"></i> Community</a></li>
+                            <li class="nav-item"><a class="nav-link" href="setting.html"><i class="ti ti-settings"></i> Settings</a></li>
+                            <li class="nav-item"><a class="nav-link" href="help-center.html"><i class="ti ti-help"></i> Help Center</a></li>
+
+                            <br>
+                            <li class="nav-item-tools border-top mt-auto pt-2" >
+                                <!--Search Bar-->
+                                <form id="sidebar-search-form" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" action="#" method="get" role="form">
+                                    <div class="form-control">
+                                        <label for="search-term"><i class="ti ti-search"></i></label> 
+                                        <input class="search-bar" id="sidebar-search-input" name="search" type="text" placeholder="Search Knots..." aria-label="Search" autocomplete="off"
+                                            autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">
+                                    </div>
+                                </form>  
+    
+                                <br>                                
+                                <a class="nav-link-button" href="#">
+                                    <label class="switch">
+                                        <input id="input" type="checkbox" checked="darkTheme" />
+                                        <span class="slider-round">
+                                            <div class="star star_1"></div>
+                                            <div class="star star_2"></div>
+                                            <div class="star star_3"></div>
+                                            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+                                                <path
+                                              transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+                                              fill="#fff"
+                                              d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                </a>
+                                <br>
+
+                                <a class="nav-link-button" href="#">     
+                                    <button class="nav-link-toggle-translate" id="theme-toggle">
+                                        <i class="ti ti-language" style="font-size: 1.5em;"></i>
+                                    </button>                                                                   
+                                </a>
+
+                                <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                                        <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
+                                        <span class="position-absolute translate-middle p-1 bg-danger border border-light rounded-circle">
+                                            <span class="visually-hidden">New alerts</span>
+                                        </span>
+                                </a>
+                                
+                                <a class="nav-link-button" href="#">       
+                                    <button class="nav-link-toggle-dark-theme" id="theme-toggle" disabled>
+                                        <!--<i class="ti ti-moon" style="font-size: 1.5em;"></i>-->
+                                    </button>                            
+                                </a>
+                            </li> 
+                            <br><br>               
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="main-wrapper col-md-9 ms-sm-auto py-0 col-lg-9 px-md-4 border-start border-top border-right border-bottom border-end">
+
+                    <div class="row my-4">
+                        <div class="title-group mb-3">
+                            <h1 class="h7 mb-0">Setting</h1>
+                        </div>
+
+                        <div class="col-lg-7 col-12">
+                            <div class="custom-block-badges">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="true">Profile</button>
+                                    </li>
+
+                                    <!--<li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="integration-tab data-bs-toggle="tab" data-bs-target="#integration-tab-pane" type="button" role="tab" aria-controls="integration aria-selected="true">Integration</button>
+                                    </li>-->
+
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="password-tab" data-bs-toggle="tab" data-bs-target="#password-tab-pane" type="button" role="tab" aria-controls="password-tab-pane" aria-selected="false">Password</button>
+                                    </li>
+
+                                    <!--<li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="notification-tab" data-bs-toggle="tab" data-bs-target="#notification-tab-pane" type="button" role="tab" aria-controls="notification-tab-pane" aria-selected="false">Notification</button>
+                                    </li>-->
+                                </ul>
+
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                        <h6 class="mb-4">User Profile</h6>
+
+                                        <div class="col-lg-9 col-12">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="me-3">
+                                                    <div class="small text-muted"><p>Use Edit to update name, email, and Shopify credentials.</p></div>
+                                                </div>
+                                                <button type="button" id="edit-profile-btn" class="btn custom-btn btn-sm ms-3">Edit</button>
+                                            </div>
+
+                                            <form id="profile-edit-form" class="mb-3 d-none" onsubmit="return false;">
+                                                <div class="d-flex flex-wrap mb-2 align-items-center">
+                                                    <strong class="me-2">Name:</strong>
+                                                    <input id="input-profile-name" class="form-control form-control-sm w-auto" type="text" value="Thomas Edison" />
+                                                </div>
+                                                <br>
+                                                <div class="d-flex flex-wrap mb-2 align-items-center">
+                                                    <strong class="me-2">Email:</strong>
+                                                    <input id="input-profile-email" class="form-control form-control-sm w-auto" type="email" value="thomas@site.com" />
+                                                </div>
+                                                <br>
+                                                <div class="d-flex gap-2">
+                                                    <button id="btn-save-credentials" class="btn btn-primary btn-sm">Save</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="password-tab-pane" role="tabpanel" aria-labelledby="password-tab" tabindex="0">
+                                        <h6 class="mb-4">Password</h6>
+                                        <form class="custom-form password-form" action="#" method="post" role="form">
+                                            <input type="password" name="password" id="password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Current Password" required="">
+                                            <input type="password" name="confirm_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="New Password" required="">
+                                            <input type="password" name="confirm_password_confirm" id="confirm_password_confirm" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Confirm Password" required="">
+                                            <div class="d-flex">
+                                                <button type="button" class="form-control me-3">Reset</button>
+                                                <button type="submit" class="form-control ms-2">Update Password</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!--<div class="tab-pane fade" id="notification-tab-pane" role="tabpanel" aria-labelledby="notification-tab" tabindex="0">
+                                        <h6 class="mb-4">Notification</h6>
+                                        <form class="custom-form notification-form" action="#" method="post" role="form">
+                                            <div class="form-check form-switch d-flex mb-3 ps-0">
+                                                <label class="form-check-label" for="flexSwitchCheckCheckedOne">Account activity</label>
+                                                <input class="form-check-input ms-auto" type="checkbox" name="form-check-input" role="switch" id="flexSwitchCheckCheckedOne" checked>
+                                            </div>
+                                            <div class="form-check form-switch d-flex mb-3 ps-0">
+                                                <label class="form-check-label" for="flexSwitchCheckCheckedTwo">Payment updated</label>
+                                                <input class="form-check-input ms-auto" type="checkbox" name="form-check-input" role="switch" id="flexSwitchCheckCheckedTwo" checked>
+                                            </div>
+                                            <div class="d-flex mt-4">
+                                                <button type="button" class="form-control me-3">Reset</button>
+                                                <button type="submit" class="form-control ms-2">Update Settings</button>
+                                            </div>
+                                        </form>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 col-12">
+                            <div class="custom-block-badges">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item-xero" role="presentation">
+                                        <button class="nav-link active" id="xero-tab" data-bs-toggle="tab" data-bs-target="#xero-tab-pane" type="button" role="tab" aria-controls="xero-tab-pane" aria-selected="true">Xero</button>
+                                    </li>
+
+                                    <li class="nav-item-quickbooks" role="presentation">
+                                        <button class="nav-link" id="quickbooks-tab" data-bs-toggle="tab" data-bs-target="#quickbooks-tab-pane" type="button" role="tab" aria-controls="quickbooks-tab-pane" aria-selected="false">QuickBooks</button>
+                                    </li>
+
+                                    <li class="nav-item-stripe" role="presentation">
+                                        <button class="nav-link" id="stripe-tab" data-bs-toggle="tab" data-bs-target="#stripe-tab-pane" type="button" role="tab" aria-controls="stripe-tab-pane" aria-selected="false">Stripe</button>
+                                    </li>
+
+                                    <li class="nav-item-shopify" role="presentation">
+                                        <button class="nav-link" id="shopify-tab" data-bs-toggle="tab" data-bs-target="#shopify-tab-pane" type="button" role="tab" aria-controls="shopify-tab-pane" aria-selected="false">Shopify</button>
+                                    </li>
+
+                                    <li class="nav-item-woo" role="presentation">
+                                        <button class="nav-link" id="woo-tab" data-bs-toggle="tab" data-bs-target="#woo-tab-pane" type="button" role="tab" aria-controls="woo-tab-pane" aria-selected="false">Woo</button>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="xero-tab-pane" role="tabpanel" aria-labelledby="xero-tab" tabindex="0">
+                                        <h6 class="mb-2">Integeration Settings</h6>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="logo-xero-blue" viewBox="0 0 45 46" id="xero">
+                                            <path fill="#13B5EA" d="M22.457 45.49c12.402 0 22.456-10.072 22.456-22.495C44.913 10.57 34.86.5 22.457.5 10.054.5 0 10.57 0 22.995 0 35.418 10.054 45.49 22.457 45.49" class="logo-xero-blue__circle"></path>
+                                            <path fill="#fff" d="M10.75 22.935l3.832-3.85a.688.688 0 0 0-.977-.965l-3.83 3.833-3.845-3.84a.687.687 0 0 0-.966.979l3.832 3.837-3.83 3.84a.688.688 0 1 0 .964.981l3.84-3.842 3.825 3.827a.685.685 0 0 0 1.184-.473.68.68 0 0 0-.2-.485l-3.83-3.846m22.782.003c0 .69.56 1.25 1.25 1.25a1.25 1.25 0 0 0-.001-2.5c-.687 0-1.246.56-1.246 1.25m-2.368 0c0-1.995 1.62-3.62 3.614-3.62 1.99 0 3.613 1.625 3.613 3.62s-1.622 3.62-3.613 3.62a3.62 3.62 0 0 1-3.614-3.62m-1.422 0c0 2.78 2.26 5.044 5.036 5.044s5.036-2.262 5.036-5.043c0-2.78-2.26-5.044-5.036-5.044a5.046 5.046 0 0 0-5.036 5.044m-.357-4.958h-.21c-.635 0-1.247.2-1.758.595a.696.696 0 0 0-.674-.54.68.68 0 0 0-.68.684l.002 8.495a.687.687 0 0 0 1.372-.002v-5.224c0-1.74.16-2.444 1.648-2.63.14-.017.288-.014.29-.014.406-.015.696-.296.696-.675a.69.69 0 0 0-.69-.688m-13.182 4.127c0-.02.002-.04.003-.058a3.637 3.637 0 0 1 7.065.055H16.2zm8.473-.13c-.296-1.403-1.063-2.556-2.23-3.296a5.064 5.064 0 0 0-5.61.15 5.098 5.098 0 0 0-1.973 5.357 5.08 5.08 0 0 0 4.274 3.767c.608.074 1.2.04 1.81-.12a4.965 4.965 0 0 0 1.506-.644c.487-.313.894-.727 1.29-1.222.006-.01.014-.017.022-.027.274-.34.223-.826-.077-1.056-.254-.195-.68-.274-1.014.156-.072.104-.153.21-.24.315-.267.295-.598.58-.994.802-.506.27-1.08.423-1.69.427-1.998-.023-3.066-1.42-3.447-2.416a3.716 3.716 0 0 1-.153-.58l-.01-.105h7.17c.982-.022 1.51-.717 1.364-1.51z" class="logo-xero-blue__text"></path>
+                                          </svg><br>
+                                          
+                                        <div class="d-flex flex-wrap mb-2 align-items-center">
+                                            <strong class="me-2">Xero ID:</strong>
+                                            <input id="input-shop-name" class="form-control form-control-sm w-auto" type="text" value="" placeholder="The ID for client" />
+                                        </div>
+                                        <br>
+                                        <div class="d-flex flex-wrap mb-2 align-items-center">
+                                            <strong class="me-2">Client Secret:</strong>
+                                            <input id="input-access-token" class="form-control form-control-sm w-auto" type="password" value="" placeholder="••••••••••••" />
+                                        </div><br>   
+                                        <!--<div class="success">
+                                            <div class="success__icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z"></path></svg>
+                                            </div>
+                                            <div class="success__title"><b>Success - Everthing went smoothly!</b></div>
+                                            <div class="success__close"><svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20"><path fill="#393a37" d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"></path></svg></div>
+                                        </div><br>
+                                        <div class="info">
+                                            <div class="info__icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z"></path></svg>
+                                            </div>
+                                            <div class="info__title"><b>Info - This is some information for you.</b></div>
+                                            <div class="info__close"><svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20"><path fill="#393a37" d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"></path></svg></div>
+                                        </div><br>
+                                        <div class="warning">
+                                            <div class="warning__icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z"></path></svg>
+                                            </div>
+                                            <div class="warning__title"><b>Warning - Becareful with this next steps.</b></div>
+                                            <div class="warning__close"><svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20"><path fill="#393a37" d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"></path></svg></div>
+                                        </div><br>
+                                        <div class="error">
+                                            <div class="error__icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z"></path></svg>
+                                            </div>
+                                            <div class="error__title"><b>Error - Something went wrong.</b></div>
+                                            <div class="error__close"><svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20"><path fill="#393a37" d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"></path></svg></div>
+                                        </div>-->
+                                        <br>
+                                        <div class="d-flex gap-2">
+                                            <button id="btn-save-credentials-xero" class="btn btn-primary btn-sm">Save Credentials</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="quickbooks-tab-pane" role="tabpanel" aria-labelledby="quickbooks-tab" tabindex="0">
+                                        <h6 class="mb-2">Integeration Settings</h6>
+                                        <svg fill="#33a323" width="61px" height="61px" viewBox="1 1 14 14" role="img" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m 6.3574454,12.980221 c -2.771173,-0.3002 -4.964916,-2.4641 -5.322984,-5.2506004 -0.04147,-0.3227 -0.04147,-1.1292 0,-1.452 0.261842,-2.0377 1.477656,-3.7499 3.307903,-4.6586 1.451944,-0.72079999 3.206807,-0.81769999 4.720995,-0.2606 1.9314676,0.7107 3.3629446,2.3552 3.8109276,4.378 0.163139,0.7367 0.163139,1.7977 0,2.5344 -0.399836,1.8054004 -1.582178,3.3192004 -3.2161976,4.1176004 -0.581119,0.284 -1.052565,0.4358 -1.690295,0.5444 -0.37024,0.063 -1.232158,0.088 -1.610349,0.047 z m 0.369588,-5.4090004 0,-2.9699 -0.805174,-0.01 c -0.922695,-0.01 -1.197335,0.014 -1.551433,0.1317 -0.775997,0.2573 -1.348379,0.8733 -1.552945,1.6713 -0.08307,0.324 -0.09496,0.8089 -0.02734,1.1152 0.182766,0.8278 0.775652,1.4916 1.582187,1.7713 0.243147,0.084 0.302996,0.094 0.618963,0.1046 l 0.349789,0.011 0,-0.422 0,-0.4219 -0.270591,-0.013 c -0.430318,-0.021 -0.732893,-0.1548 -1.036493,-0.4592 -0.366949,-0.3679 -0.512167,-0.8966 -0.396379,-1.4431 0.09293,-0.4385 0.396426,-0.8211 0.805891,-1.016 0.301106,-0.1433 0.424681,-0.1643 0.964869,-0.1643 l 0.460686,0 0,2.5299 c 0,1.3914 0.0082,2.5381004 0.01824,2.5481004 0.01004,0.01 0.203079,0.015 0.428987,0.011 l 0.410742,-0.01 0,-2.9699004 z m 2.494721,1.7933 c 0.8233966,-0.1334 1.5424896,-0.69 1.8386366,-1.4232 0.13689,-0.3389 0.174945,-0.5432 0.177105,-0.9509 0.0017,-0.3194 -0.0079,-0.4196 -0.05792,-0.6054 -0.189917,-0.7053 -0.652274,-1.2639 -1.3011336,-1.5721 -0.315182,-0.1496 -0.524716,-0.2001 -0.901552,-0.2172 l -0.337261,-0.015 0.0073,0.4328 0.0073,0.4328 0.30359,0.016 c 0.326755,0.017 0.452859,0.052 0.670744,0.1857 0.32218,0.1975 0.5633516,0.483 0.6823896,0.8079 0.07677,0.2096 0.09504,0.6947 0.03513,0.9329 -0.107464,0.4274 -0.3888116,0.7767 -0.7827516,0.9719 -0.287054,0.1422 -0.52924,0.1854 -1.047698,0.1865 l -0.402587,0.001 0,-2.5476 0,-2.5475 -0.435586,0 -0.435586,0 0,2.9699 0,2.9699 0.904171,-2e-4 c 0.505853,0 0.979765,-0.012 1.075766,-0.028 z"></path></g></svg><br>
+                                        <div class="d-flex flex-wrap mb-2 align-items-center">
+                                            <strong class="me-2">QuickBooks ID:</strong>
+                                            <input id="input-shop-name" class="form-control form-control-sm w-auto" type="text" value="" placeholder="The ID for client" />
+                                        </div>
+                                        <br>
+                                        <div class="d-flex flex-wrap mb-2 align-items-center">
+                                            <strong class="me-2">Client Secret:</strong>
+                                            <input id="input-access-token" class="form-control form-control-sm w-auto" type="password" value="" placeholder="••••••••••••" />
+                                        </div>
+                                        <br>
+                                        <div class="d-flex gap-2">
+                                            <button id="btn-save-credentials" class="btn btn-primary btn-sm">Save Credentials</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="stripe-tab-pane" role="tabpanel" aria-labelledby="stripe-tab" tabindex="0">
+                                        <h6 class="mb-2">Integeration Settings</h6>
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="50" height="50" viewBox="0 0 256 256" xml:space="preserve">
+                                            <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                                                <circle cx="45" cy="45" r="45" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(99,91,255); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) "/>
+                                                <path d="M 75 45.417 c 0 -4.267 -2.067 -7.633 -6.017 -7.633 c -3.967 0 -6.367 3.367 -6.367 7.6 c 0 5.017 2.833 7.55 6.9 7.55 c 1.983 0 3.483 -0.45 4.617 -1.083 v -3.333 C 73 49.083 71.7 49.433 70.05 49.433 c -1.617 0 -3.05 -0.567 -3.233 -2.533 h 8.15 C 74.967 46.683 75 45.817 75 45.417 z M 66.767 43.833 c 0 -1.883 1.15 -2.667 2.2 -2.667 c 1.017 0 2.1 0.783 2.1 2.667 H 66.767 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(249,249,249); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                                <path d="M 56.183 37.783 c -1.633 0 -2.683 0.767 -3.267 1.3 L 52.7 38.05 h -3.667 v 19.433 L 53.2 56.6 l 0.017 -4.717 c 0.6 0.433 1.483 1.05 2.95 1.05 c 2.983 0 5.7 -2.4 5.7 -7.683 C 61.85 40.417 59.1 37.783 56.183 37.783 z M 55.183 49.267 c -0.983 0 -1.567 -0.35 -1.967 -0.783 L 53.2 42.3 c 0.433 -0.483 1.033 -0.817 1.983 -0.817 c 1.517 0 2.567 1.7 2.567 3.883 C 57.75 47.6 56.717 49.267 55.183 49.267 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(249,249,249); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                                <polygon points="43.3,36.8 47.48,35.9 47.48,32.52 43.3,33.4 " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(249,249,249); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) "/>
+                                                <rect x="43.3" y="38.07" rx="0" ry="0" width="4.18" height="14.58" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(249,249,249); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) "/>
+                                                <path d="M 38.817 39.3 l -0.267 -1.233 h -3.6 V 52.65 h 4.167 v -9.883 c 0.983 -1.283 2.65 -1.05 3.167 -0.867 v -3.833 C 41.75 37.867 39.8 37.5 38.817 39.3 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(249,249,249); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                                <path d="M 30.483 34.45 l -4.067 0.867 L 26.4 48.667 c 0 2.467 1.85 4.283 4.317 4.283 c 1.367 0 2.367 -0.25 2.917 -0.55 v -3.383 C 33.1 49.233 30.467 50 30.467 47.533 v -5.917 h 3.167 v -3.55 h -3.167 L 30.483 34.45 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(249,249,249); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                                <path d="M 19.217 42.3 c 0 -0.65 0.533 -0.9 1.417 -0.9 c 1.267 0 2.867 0.383 4.133 1.067 V 38.55 c -1.383 -0.55 -2.75 -0.767 -4.133 -0.767 C 17.25 37.783 15 39.55 15 42.5 c 0 4.6 6.333 3.867 6.333 5.85 c 0 0.767 -0.667 1.017 -1.6 1.017 c -1.383 0 -3.15 -0.567 -4.55 -1.333 V 52 c 1.55 0.667 3.117 0.95 4.55 0.95 c 3.467 0 5.85 -1.717 5.85 -4.7 C 25.567 43.283 19.217 44.167 19.217 42.3 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(249,249,249); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                            </g>
+                                            </svg><br>
+                                        <div class="d-flex flex-wrap mb-2 align-items-center">
+                                            <strong class="me-2">Stripe ID:</strong>
+                                            <input id="input-shop-name" class="form-control form-control-sm w-auto" type="text" value="" placeholder="The ID for client" />
+                                        </div>
+                                        <br>
+                                        <div class="d-flex flex-wrap mb-2 align-items-center">
+                                            <strong class="me-2">Client Secret:</strong>
+                                            <input id="input-access-token" class="form-control form-control-sm w-auto" type="password" value="" placeholder="••••••••••••" />
+                                        </div>
+                                        <br>
+                                        <div class="d-flex gap-2">
+                                            <button id="btn-save-credentials" class="btn btn-primary btn-sm">Save Credentials</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="shopify-tab-pane" role="tabpanel" aria-labelledby="shopify-tab" tabindex="0">
+                                        <h6 class="mb-2">Integeration Settings</h6>
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="50" height="50" viewBox="0 0 256 256" xml:space="preserve">
+                                            <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                                                <circle cx="45" cy="45" r="45" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(149,191,71); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) "/>
+                                                <path d="M 18.32 43.95 c -0.774 -0.42 -1.171 -0.774 -1.171 -1.26 c 0 -0.619 0.552 -1.017 1.415 -1.017 c 1.004 0 1.901 0.42 1.901 0.42 l 0.707 -2.166 c 0 0 -0.65 -0.509 -2.564 -0.509 c -2.663 0 -4.509 1.525 -4.509 3.669 c 0 1.216 0.862 2.144 2.012 2.807 c 0.928 0.53 1.26 0.906 1.26 1.459 c 0 0.575 -0.464 1.039 -1.326 1.039 c -1.284 0 -2.497 -0.663 -2.497 -0.663 l -0.752 2.166 c 0 0 1.121 0.752 3.006 0.752 c 2.741 0 4.708 -1.348 4.708 -3.78 C 20.509 45.563 19.515 44.635 18.32 43.95 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(40,40,40); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                                <path d="M 29.24 39.396 c -1.348 0 -2.409 0.641 -3.227 1.613 l -0.044 -0.022 l 1.171 -6.123 H 24.09 l -2.962 15.583 h 3.051 l 1.017 -5.327 c 0.398 -2.012 1.436 -3.249 2.409 -3.249 c 0.685 0 0.951 0.464 0.951 1.128 c 0 0.42 -0.044 0.928 -0.133 1.348 l -1.149 6.1 h 3.051 l 1.193 -6.3 c 0.133 -0.663 0.221 -1.459 0.221 -1.989 C 31.738 40.435 30.831 39.396 29.24 39.396 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(40,40,40); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                                <path d="M 38.634 39.396 c -3.67 0 -6.1 3.316 -6.1 7.007 c 0 2.365 1.458 4.266 4.2 4.266 c 3.603 0 6.034 -3.227 6.034 -7.007 C 42.768 41.474 41.485 39.396 38.634 39.396 z M 37.131 48.327 c -1.039 0 -1.481 -0.884 -1.481 -1.989 c 0 -1.746 0.907 -4.597 2.564 -4.597 c 1.083 0 1.436 0.928 1.436 1.835 C 39.65 45.453 38.745 48.327 37.131 48.327 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(40,40,40); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                                <path d="M 50.57 39.396 c -2.059 0 -3.227 1.813 -3.227 1.813 h -0.044 l 0.177 -1.636 h -2.697 c -0.132 1.105 -0.376 2.785 -0.619 4.045 L 42.038 54.78 h 3.051 l 0.839 -4.509 h 0.067 c 0 0 0.626 0.398 1.79 0.398 c 3.581 0 5.923 -3.669 5.923 -7.383 C 53.709 41.231 52.802 39.396 50.57 39.396 z M 47.652 48.37 c -0.792 0 -1.26 -0.442 -1.26 -0.442 l 0.509 -2.851 c 0.354 -1.901 1.348 -3.161 2.41 -3.161 c 0.928 0 1.216 0.862 1.216 1.68 C 50.526 45.563 49.354 48.37 47.652 48.37 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(40,40,40); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                                <path d="M 58.063 35.02 c -0.972 0 -1.746 0.774 -1.746 1.768 c 0 0.906 0.575 1.525 1.437 1.525 h 0.044 c 0.951 0 1.768 -0.641 1.79 -1.768 C 59.589 35.661 58.992 35.02 58.063 35.02 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(40,40,40); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                                <path d="M 53.798 50.448 h 3.05 l 2.078 -10.808 h -3.073 L 53.798 50.448 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(40,40,40); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                                <path d="M 66.684 39.618 h -2.122 l 0.11 -0.509 c 0.177 -1.039 0.796 -1.967 1.813 -1.967 c 0.543 0 0.972 0.155 0.972 0.155 l 0.597 -2.387 c 0 0 -0.53 -0.265 -1.658 -0.265 c -1.083 0 -2.165 0.309 -2.984 1.017 c -1.039 0.884 -1.525 2.166 -1.768 3.448 l -0.088 0.509 h -1.415 l -0.442 2.299 h 1.415 L 59.5 50.449 h 3.051 l 1.614 -8.532 h 2.1 L 66.684 39.618 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(40,40,40); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                                <path d="M 74.022 39.64 c 0 0 -1.907 4.804 -2.763 7.426 h -0.045 c -0.058 -0.845 -0.752 -7.426 -0.752 -7.426 h -3.205 l 1.835 9.924 c 0.045 0.221 0.022 0.354 -0.066 0.509 c -0.354 0.685 -0.951 1.348 -1.658 1.835 c -0.575 0.42 -1.216 0.685 -1.724 0.862 l 0.84 2.586 c 0.619 -0.133 1.901 -0.641 2.984 -1.658 c 1.393 -1.304 2.674 -3.316 4 -6.057 l 3.736 -8.002 L 74.022 39.64 L 74.022 39.64 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(40,40,40); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+                                            </g>
+                                            </svg>
+                                        <div class="d-flex flex-wrap mb-2 align-items-center">
+                                            <strong class="me-2">Shop Name:</strong>
+                                            <input id="input-shop-name" class="form-control form-control-sm w-auto" type="text" value="" placeholder="your-store.myshopify.com" />
+                                        </div>
+                                        <br>
+                                        <div class="d-flex flex-wrap mb-2 align-items-center">
+                                            <strong class="me-2">Access Token:</strong>
+                                            <input id="input-access-token" class="form-control form-control-sm w-auto" type="password" value="" placeholder="••••••••••••" />
+                                        </div>
+                                        <br>
+                                        <div class="d-flex gap-2">
+                                            <button id="btn-save-credentials" class="btn btn-primary btn-sm">Save Credentials</button>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="woo-tab-pane" role="tabpanel" aria-labelledby="woo-tab" tabindex="0">
+                                        <h6 class="mb-2">Integeration Settings</h6>
+                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">
+                                            <path fill="#a64a7b" d="M43,11H5c-2.209,0-4,1.791-4,4v16c0,2.209,1.791,4,4,4h19l8,4l-2-4h13c2.209,0,4-1.791,4-4V15 C47,12.791,45.209,11,43,11z"></path><path fill="#fff" d="M40.443 19c.041 0 .132.005.277.038.342.077.559.198.82.686C41.85 20.283 42 21.007 42 21.939c0 1.398-.317 2.639-.973 3.802C40.321 27 39.805 27 39.557 27c-.041 0-.132-.005-.277-.038-.342-.077-.559-.198-.809-.666C38.158 25.722 38 24.963 38 24.043c0-1.399.314-2.63.963-3.765C39.691 19 40.218 19 40.443 19M40.443 16c-1.67 0-3.026.931-4.087 2.793C35.452 20.375 35 22.125 35 24.043c0 1.434.278 2.662.835 3.686.626 1.173 1.548 1.88 2.783 2.16C38.948 29.963 39.261 30 39.557 30c1.687 0 3.043-.931 4.087-2.793C44.548 25.606 45 23.856 45 21.939c0-1.452-.278-2.662-.835-3.668-.626-1.173-1.548-1.88-2.783-2.16C41.052 16.037 40.739 16 40.443 16L40.443 16zM28.443 19c.041 0 .132.005.268.036.333.076.571.207.829.689C29.85 20.283 30 21.007 30 21.939c0 1.398-.317 2.639-.973 3.802C28.321 27 27.805 27 27.557 27c-.041 0-.132-.005-.277-.038-.342-.077-.559-.198-.809-.666C26.158 25.722 26 24.963 26 24.043c0-1.399.314-2.63.963-3.765C27.691 19 28.218 19 28.443 19M28.443 16c-1.67 0-3.026.931-4.087 2.793C23.452 20.375 23 22.125 23 24.043c0 1.434.278 2.662.835 3.686.626 1.173 1.548 1.88 2.783 2.16C26.948 29.963 27.261 30 27.557 30c1.687 0 3.043-.931 4.087-2.793C32.548 25.606 33 23.856 33 21.939c0-1.452-.278-2.662-.835-3.668-.626-1.173-1.565-1.88-2.783-2.16C29.052 16.037 28.739 16 28.443 16L28.443 16zM18.5 32c-.421 0-.832-.178-1.123-.505-2.196-2.479-3.545-5.735-4.34-8.343-1.144 2.42-2.688 5.515-4.251 8.119-.309.515-.894.792-1.491.715-.596-.083-1.085-.513-1.242-1.093-2.212-8.127-3.007-13.95-3.039-14.194-.11-.82.466-1.575 1.286-1.686.831-.108 1.576.465 1.687 1.286.007.049.571 4.177 2.033 10.199 2.218-4.208 4.078-8.535 4.102-8.59.267-.62.919-.989 1.58-.895.668.09 1.194.615 1.285 1.283.007.052.542 3.825 2.245 7.451.719-7.166 2.873-10.839 2.982-11.021.427-.711 1.35-.941 2.058-.515.711.426.941 1.348.515 2.058C22.762 16.313 20 21.115 20 30.5c0 .623-.386 1.182-.968 1.402C18.858 31.968 18.679 32 18.5 32z"></path>
+                                            </svg>
+                                        <div class="d-flex flex-wrap mb-2 align-items-center">
+                                            <strong class="me-2">Shop Name:</strong>
+                                            <input id="input-shop-name" class="form-control form-control-sm w-auto" type="text" value="" placeholder="your-store.myshopify.com" />
+                                        </div>
+                                        <br>
+                                        <div class="d-flex flex-wrap mb-2 align-items-center">
+                                            <strong class="me-2">Access Token:</strong>
+                                            <input id="input-access-token" class="form-control form-control-sm w-auto" type="password" value="" placeholder="••••••••••••" />
+                                        </div>
+                                        <br>
+                                        <div class="d-flex gap-2">
+                                            <button id="btn-save-credentials" class="btn btn-primary btn-sm">Save Credentials</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <footer class="site-footer">
+                        <div class="container">
+                            <div class="row">
+                                
+                                <div class="col-lg-12 col-12">
+                                    <p class="copyright-text">Copyright © Mini Finance 2048 
+                                    - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </footer>
+                </main>
+
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/custom.js"></script>
+           
+        <script type="text/javascript"> //dark mode toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const body = document.body;
+            const localStorageKey = 'dark-mode';
+
+            // Function to set the theme
+            function setTheme(isDarkMode) {
+                if (isDarkMode) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem(localStorageKey, 'true');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.removeItem(localStorageKey);
+                }
+            }
+
+            // Check for saved user preference on page load
+            if (localStorage.getItem(localStorageKey) === 'true') {
+                setTheme(true);
+            }
+
+            // Add event listener to the toggle button
+            themeToggleBtn.addEventListener('click', () => {
+                // Toggle the theme state
+                setTheme(!body.classList.contains('dark-mode'));
+            });
+
+        </script>
+
+        <style>
+            /* Inline popup wrapper to host cloned message markup without changing styles */
+            .inline-toast {
+                position: fixed;
+                z-index: 9999;
+                opacity: 0;
+                transition: opacity 180ms ease, transform 180ms ease;
+                pointer-events: auto;
+                box-sizing: border-box;
+                /*transform: translateX(50px);*/
+            }
+            .inline-toast.visible { opacity: 1; transform: translateY(0); }
+            .inline-toast.below { transform: translateY(6px); }
+            /* Keep the cloned message's own background/border/radius intact by not overriding them here */
+            .inline-toast .success, .inline-toast .info, .inline-toast .warning, .inline-toast .error {
+                margin: 0; /* ensure no extra margin is added */
+            }
+            .inline-toast .success__title, .inline-toast .info__title, .inline-toast .warning__title, .inline-toast .error__title {
+                margin: 0;
+            }
+        </style>
+
+        <script> //message popup function
+            document.addEventListener('DOMContentLoaded', () => {
+                const saveBtn = document.getElementById('btn-save-credentials-xero');
+
+                // popup builder: creates an inline popup matching the page's message blocks
+                function showPopupMessage(type = 'success', message = '', targetEl, timeout = 3000) {
+                    if (!targetEl) targetEl = document.getElementById('btn-save-credentials-xero') || document.body;
+
+                    const templates = {
+                        success: `
+                            <div class="success">
+                                <div class="success__icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z"></path></svg>
+                                </div>
+                                <div class="success__title"><b>${message || 'Success - Everthing went smoothly!'}</b></div>
+                                <div class="success__close"><svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20"><path fill="#393a37" d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"></path></svg></div>
+                            </div>
+                        `,
+                        info: `
+                            <div class="info">
+                                <div class="info__icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z"></path></svg>
+                                </div>
+                                <div class="info__title"><b>${message || 'Info - This is some information for you.'}</b></div>
+                                <div class="info__close"><svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20"><path fill="#393a37" d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"></path></svg></div>
+                            </div>
+                        `,
+                        warning: `
+                            <div class="warning">
+                                <div class="warning__icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z"></path></svg>
+                                </div>
+                                <div class="warning__title"><b>${message || 'Warning - Becareful with this next steps.'}</b></div>
+                                <div class="warning__close"><svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20"><path fill="#393a37" d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"></path></svg></div>
+                            </div>
+                        `,
+                        error: `
+                            <div class="error">
+                                <div class="error__icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z"></path></svg>
+                                </div>
+                                <div class="error__title"><b>${message || 'Error - Something went wrong.'}</b></div>
+                                <div class="error__close"><svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20"><path fill="#393a37" d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"></path></svg></div>
+                            </div>
+                        `
+                    };
+
+                    const html = templates[type] || templates.success;
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'inline-toast ' + type;
+                    // Parse the template and use only the inner content of the template's root
+                    const tmp = document.createElement('div');
+                    tmp.innerHTML = html.trim();
+                    const first = tmp.firstElementChild;
+                    wrapper.innerHTML = (first && first.classList && first.classList.contains(type)) ? first.innerHTML : tmp.innerHTML;
+
+                    // append arrow element
+                    const arrow = document.createElement('div');
+                    arrow.className = 'toast-arrow';
+                    wrapper.appendChild(arrow);
+
+                    // wire close behavior from cloned block
+                    wrapper.querySelectorAll('.' + type + '__close').forEach(closeEl => {
+                        closeEl.style.cursor = 'pointer';
+                        closeEl.addEventListener('click', () => { wrapper.classList.remove('visible'); setTimeout(() => wrapper.remove(), 180); });
+                    });
+
+                    // place the popup near the target element
+                    document.body.appendChild(wrapper);
+                    requestAnimationFrame(() => {
+                        const rect = targetEl.getBoundingClientRect ? targetEl.getBoundingClientRect() : { left: window.innerWidth/2, top: window.innerHeight/2, width:0, height:0, bottom: window.innerHeight/2 };
+                        const tw = wrapper.offsetWidth;
+                        const th = wrapper.offsetHeight;
+                        let left = (rect.left || (window.innerWidth/2)) + (rect.width/2) - (tw/2);
+                        left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
+                        let top = (rect.top || (window.innerHeight/2)) - th - 12;
+                        if (top < 8) { top = (rect.bottom || (window.innerHeight/2)) + 12; wrapper.classList.add('below'); }
+                        wrapper.style.left = left + 'px';
+                        wrapper.style.top = top + 'px';
+                        requestAnimationFrame(() => wrapper.classList.add('visible'));
+                        setTimeout(() => { try { wrapper.classList.remove('visible'); setTimeout(() => wrapper.remove(), 180); } catch(e){} }, timeout);
+                    });
+                }
+
+                if (saveBtn) {
+                    saveBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // hide existing messages and popups before showing new toast
+                        const hideSelectors = ['.message', '.messages', '.alert', '.success', '.toast-popup', '.popup', '.modal'];
+                        hideSelectors.forEach(sel => {
+                            document.querySelectorAll(sel).forEach(el => {
+                                try { el.style.display = 'none'; } catch (err) {}
+                            });
+                        });
+
+                        // pick a random toast type to display
+                        const types = ['success', 'info', 'warning', 'error'];
+                        const messages = {
+                            success: 'Success - Everthing went smoothly!',
+                            info: 'Info - This is some information for you.',
+                            warning: 'Warning - Becareful with this next steps.',
+                            error: 'Error - Something went wrong.'
+                        };
+                        const type = types[Math.floor(Math.random() * types.length)];
+
+                        // show the inline popup above the Save button
+                        showPopupMessage(type, messages[type], saveBtn, 3000);
+                    });
+                }
+            });
+        </script>
+
+        <script> //input trigger dark mode button
+            // Input toggle -> dark mode control (robust, runs after DOM ready)
+            document.addEventListener('DOMContentLoaded', () => {
+                const checkbox = document.getElementById('input');
+                const themeBtn = document.getElementById('theme-toggle');
+                const bodyEl = document.body;
+                const LS_KEY = 'dark-mode';
+    
+                // Helper: toggle theme and persist
+                function applyTheme(enable) {
+                    if (enable) {
+                        bodyEl.classList.add('dark-mode');
+                        localStorage.setItem(LS_KEY, 'true');
+                    } else {
+                        bodyEl.classList.remove('dark-mode');
+                        localStorage.removeItem(LS_KEY);
+                    }
+                }
+    
+                // Initialize state from localStorage or body class
+                const saved = localStorage.getItem(LS_KEY) === 'true';
+                const initial = saved || bodyEl.classList.contains('dark-mode');
+                applyTheme(initial);
+                if (checkbox) checkbox.checked = !!initial;
+    
+                // Keep checkbox -> theme consistent
+                if (checkbox) {
+                    checkbox.addEventListener('change', () => {
+                        const enable = checkbox.checked;
+                        applyTheme(enable);
+    
+                        // Optionally simulate theme button click to keep UI in sync
+                        if (themeBtn) {
+                            try { themeBtn.disabled = false; themeBtn.click(); } catch (e) { /* ignore */ }
+                        }
+                    }, { passive: true });
+                }
+    
+                // Ensure theme button still works and keeps checkbox synced
+                if (themeBtn) {
+                    themeBtn.addEventListener('click', () => {
+                        const isDark = bodyEl.classList.contains('dark-mode');
+                        applyTheme(!isDark);
+                        if (checkbox) checkbox.checked = !isDark;
+                    });
+                }
+            });
+        </script>
+
+        <script> //searchbar index
+            (function() {
+                const map = {
+                    'logout': 'index.html', 'home': 'index2.html', 'dash': 'index2.html',
+                    'dashboard': 'index2.html', 'leaderboard': 'leaderboard.html', 'leader': 'leaderboard.html',
+                    'premium': 'premium.html', 'profile': 'profile.html', 'quest': 'quests.html',
+                    'quests': 'quests.html', 'community': 'community.html', 'settings': 'setting.html',
+                    'setting': 'setting.html', 'help': 'help-center.html',
+                };
+
+                function handleSearchSubmit(e, inputEl) {
+                    e.preventDefault();
+                    const raw = inputEl.value || '';
+                    const term = raw.trim();
+                    if (!term) return;
+                    const lower = term.toLowerCase();
+
+                    for (const key in map) {
+                        if (Object.prototype.hasOwnProperty.call(map, key) && lower.includes(key)) {
+                            window.location.href = map[key] + '?q=' + encodeURIComponent(term);
+                            return;
+                        }
+                    }
+                    window.location.href = 'search-results.html?q=' + encodeURIComponent(term);
+                }
+
+                const headerForm = document.getElementById('header-search-form');
+                const headerInput = document.getElementById('search-input');
+                if (headerForm && headerInput) {
+                    headerForm.addEventListener('submit', (e) => handleSearchSubmit(e, headerInput));
+                }
+
+                const sidebarForm = document.getElementById('sidebar-search-form');
+                const sidebarInput = document.getElementById('sidebar-search-input');
+                if (sidebarForm && sidebarInput) {
+                    sidebarForm.addEventListener('submit', (e) => handleSearchSubmit(e, sidebarInput));
+                }
+            })();
+        </script>
+
+        <script>
+            // Consolidated Profile and Credentials Saver
+            (function(){
+                const headerName = document.getElementById('header-small-name');
+                const headerEmail = document.getElementById('header-small-email');
+                const editBtn = document.getElementById('edit-profile-btn');
+                const saveBtn = document.getElementById('btn-save-credentials');
+                const form = document.getElementById('profile-edit-form');
+                const inputName = document.getElementById('input-profile-name');
+                const inputEmail = document.getElementById('input-profile-email');
+                const inputShop = document.getElementById('input-shop-name');
+                const inputToken = document.getElementById('input-access-token');
+
+                // --- Load existing data ---
+                function loadProfile() {
+                    const savedName = localStorage.getItem('profileName');
+                    const savedEmail = localStorage.getItem('profileEmail');
+                    const savedShop = localStorage.getItem('shopName');
+                    const savedToken = localStorage.getItem('accessToken');
+
+                    if (savedName) {
+                        inputName.value = savedName;
+                        headerName.textContent = savedName;
+                    }
+                    if (savedEmail) {
+                        inputEmail.value = savedEmail;
+                        headerEmail.textContent = savedEmail;
+                        headerEmail.href = 'mailto:' + savedEmail;
+                    }
+                    if (savedShop) inputShop.value = savedShop;
+                    if (savedToken) inputToken.value = savedToken;
+                }
+
+                function showForm(show) {
+                    if (!form) return;
+                    form.classList.toggle('d-none', !show);
+                    editBtn.textContent = show ? 'Cancel' : 'Edit';
+                    if (show) inputName.focus();
+                }
+
+                // --- Event Listeners ---
+                editBtn.addEventListener('click', () => {
+                    showForm(form.classList.contains('d-none'));
+                });
+
+                saveBtn.addEventListener('click', async () => {
+                    const name = inputName.value.trim();
+                    const email = inputEmail.value.trim();
+                    const shopName = inputShop.value.trim();
+                    const accessToken = inputToken.value.trim();
+                    const userId = localStorage.getItem('userId');
+
+                    // 1. Save Name and Email to localStorage
+                    if (name) {
+                        localStorage.setItem('profileName', name);
+                        headerName.textContent = name;
+                    }
+                    if (email) {
+                        localStorage.setItem('profileEmail', email);
+                        headerEmail.textContent = email;
+                        headerEmail.href = 'mailto:' + email;
+                    }
+
+                    // 2. Save Shopify Credentials to Server
+                    if (shopName && accessToken) {
+                         if (!userId) {
+                            showPopup('You must be logged in to save credentials.', true);
+                            return;
+                        }
+                        try {
+                            const response = await fetch('/api/saveShopifyCredentials', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ userId, shopName, accessToken }),
+                            });
+                            const result = await response.json();
+                            if (response.ok && result.success) {
+                                // Also save to localStorage for local display
+                                localStorage.setItem('shopName', shopName);
+                                localStorage.setItem('accessToken', accessToken);
+                                showPopup('Credentials saved successfully!');
+                            } else {
+                                throw new Error(result.error || 'Failed to save credentials.');
+                            }
+                        } catch (error) {
+                            console.error('Error saving credentials:', error);
+                            showPopup('Error: ' + error.message, true);
+                        }
+                    } else if (shopName || accessToken) {
+                        // Handle partial input case
+                        showPopup('Please provide both Shop Name and Access Token.', true);
+                    }
+                    
+                    // 3. Finalize
+                    try { window.dispatchEvent(new Event('storage')); } catch(e) {}
+                    showForm(false);
+                });
+
+                // --- Initial Load ---
+                loadProfile();
+
+                
+            })();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Community</title>
+
+        <!-- CSS FILES -->      
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/css/apexcharts.css" rel="stylesheet">
+        <link href="assets/css/tooplate-mini-finance.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <header class="navbar sticky-top flex-md-nowrap">          
+            <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
+                <img class = "logo-image" src="assets/imgs/logo-4.png" alt="" >
+                <a class="logo align-items-center" href="index2.html"><b>Knotulus</b></a>          
+            </div>
+
+                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!--Search Bar-->
+                 <form id="header-search-form" action="#" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" method="get" autocomplete="off">
+                     <div class="form-control">
+                        <label for="search-term"><i class="ti ti-search"></i></label>                  
+                        <input class="search-bar" id="search-input" name="q" type="search" placeholder="Search Knots..." aria-label="Search" autocomplete="off"             
+                               autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">             
+                     </div>                             
+                 </form>
+
+            <div class="navbar-nav me-lg-2">
+                <div class="nav-item text-nowrap d-flex align-items-center">
+                    <div class="dropdown ps-3 ">
+                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                            <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
+                            <span class="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-lg-end notifications-block-wrap bg-white shadow" aria-labelledby="navbarLightDropdownMenuLink">
+                            <small>Notifications</small>
+
+                            <li class="notifications-block border-bottom pb-2 mb-2">
+                                <a class="dropdown-item d-flex  align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-success">
+                                        <i class="notifications-icon bi-check-circle-fill"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Your account has been created successfuly.</span>
+
+                                        <p>12 days ago</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="notifications-block border-bottom pb-2 mb-2">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-info">
+                                        <i class="notifications-icon bi-folder"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Please check. We have sent a Daily report.</span>
+
+                                        <p>10 days ago</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="notifications-block">
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="notifications-icon-wrap bg-danger">
+                                        <i class="notifications-icon bi-question-circle"></i>
+                                    </div>
+
+                                    <div>
+                                        <span>Account verification failed.</span>
+
+                                        <p>1 hour ago</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--<div class="dropdown ps-1">
+                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi-three-dots-vertical"></i>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-social bg-white shadow">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/search.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Google</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/spotify.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Spotify</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/telegram.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Telegram</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/snapchat.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Snapchat</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/tiktok.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Tiktok</span>
+                                        </a>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-4">
+                                        <a class="dropdown-item text-center" href="#">
+                                            <img src="images/social/youtube.png" class="profile-image img-fluid" alt="">
+                                            <span class="d-block">Youtube</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <div class="dropdown px-4">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <!--<img src="images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">-->
+                            <img class = "profile-image img-fluid" src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light'/>
+                            <span class="position-absolute end-0 bottom-60 translate-middle p-1-5 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu shadow">
+                            <li>
+                                <div class="dropdown-menu-profile-thumb d-flex">
+                                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-3" alt="">
+
+                                    <div class="d-flex flex-column">
+                                        <!-- IDs added so script can update dropdown when profile is changed -->
+                                        <b id="header-small-name">Thomas</b>
+                                        <small>
+                                            <a id="header-small-email" href="mailto:thomas@site.com">thomas@site.com</a>
+                                        </small>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="profile.html">
+                                    <i class="ti ti-user"></i>
+                                    Profile
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="setting.html">
+                                    <i class="ti ti-settings"></i>
+                                    Settings
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="help-center.html">
+                                    <i class="ti ti-help"></i>
+                                    Help
+                                </a>
+                            </li>
+
+                            <li class="border-top mt-3 pt-2">
+                                <a class="dropdown-item" href="index.html">
+                                    <i class="ti ti-logout"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>                    
+                    </div>
+                </div>
+            </div>
+        </header>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                    <div class="position-sticky py-2 px-3 sidebar-sticky">
+                        <ul class="nav flex-column h-100">
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Home</div>
+                            <li class="nav-item"><a class="nav-link" href="index2.html"><i class="ti ti-layout-dashboard"></i> Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="leaderboard.html"><i class="ti ti-chart-bar"></i> Leaderboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="quests.html"><i class="ti ti-book"></i> Quests</a></li>
+                            <li class="nav-item"><a class="nav-link" href="premium.html"><i class="ti ti-rosette"></i> Premium</a></li>
+
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Discovery</div>
+
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Support</div>
+                            <li class="nav-item"><a class="nav-link" href="community.html"><i class="ti ti-users"></i> Community</a></li>
+                            <li class="nav-item"><a class="nav-link" href="setting.html"><i class="ti ti-settings"></i> Settings</a></li>
+                            <li class="nav-item"><a class="nav-link" href="help-center.html"><i class="ti ti-help"></i> Help Center</a></li>
+
+                            <br>
+                            <li class="nav-item-tools border-top mt-auto pt-2" >
+                                <!--Search Bar-->
+                                <form id="sidebar-search-form" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" action="#" method="get" role="form">
+                                    <div class="form-control">
+                                        <label for="search-term"><i class="ti ti-search"></i></label> 
+                                        <input class="search-bar" id="sidebar-search-input" name="search" type="text" placeholder="Search Knots..." aria-label="Search" autocomplete="off"
+                                            autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">
+                                    </div>
+                                </form>  
+    
+                                <br>                                
+                                <a class="nav-link-button" href="#">
+                                    <label class="switch">
+                                        <input id="input" type="checkbox" checked="darkTheme" />
+                                        <span class="slider-round">
+                                            <div class="star star_1"></div>
+                                            <div class="star star_2"></div>
+                                            <div class="star star_3"></div>
+                                            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+                                                <path
+                                              transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+                                              fill="#fff"
+                                              d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                </a>
+                                <br>
+
+                                <a class="nav-link-button" href="#">     
+                                    <button class="nav-link-toggle-translate" id="theme-toggle">
+                                        <i class="ti ti-language" style="font-size: 1.5em;"></i>
+                                    </button>                                                                   
+                                </a>
+
+                                <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                                        <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
+                                        <span class="position-absolute translate-middle p-1 bg-danger border border-light rounded-circle">
+                                            <span class="visually-hidden">New alerts</span>
+                                        </span>
+                                </a>
+                                
+                                <a class="nav-link-button" href="#">       
+                                    <button class="nav-link-toggle-dark-theme" id="theme-toggle" disabled>
+                                        <!--<i class="ti ti-moon" style="font-size: 1.5em;"></i>-->
+                                    </button>                            
+                                </a>
+                            </li> 
+                            <br><br>               
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start border-top border-right border-bottom">
+                    <div class="row my-4">
+                        <div class="title-group mb-3">
+                            <h1 class="h7 mb-0">Community</h1>
+                            <!--<small class="text-muted">Hello Thomas, welcome back!</small>-->
+                        </div>
+
+                        <!--<div class="col-lg-7 col-12">
+                            <div class="custom-block-badges">
+                                <div id="popup-container"></div>
+                            </div>
+                        </div>-->
+
+                        <div class="col-lg-7 col-12">
+                            <div class="custom-block bg-white">
+                                <div class="card-message">
+                                    <div class="bar"></div>
+                                    <div class="card_form"></div>
+                                    <div class="card_data">
+                                      <div class="data">
+                                        <div class="text">
+                                          <label class="text_m">Main Title</label>
+                                          <div class="cube text_s">
+                                            <label class="side front">Access the list (Topic)</label>
+                                            <label class="side top">Username-id</label>
+                                          </div>
+                                          <label class="text_d"
+                                            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Unum nescio,
+                                            quo modo possit, si luxuriosus sit, finitas cupiditates habere.
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <span title="Acceder a la lista (Temas)">Access</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br><br>
+                        
+                        
+                        <div class="col-lg-7 col-12">
+                            <div class="custom-block-badges">
+                                    <h5 class="mb-4"></h5> 
+                                    <div id="chat-container">
+                                        <div id="chat-input">
+                                            <div id="file-input"></div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <footer class="site-footer">
+                        <div class="container">
+                            <div class="row">
+                                
+                                <!--<div class="col-lg-12 col-12">
+                                    <p class="copyright-text">Copyright © Mini Finance 2048 
+                                    - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
+                                </div>-->
+
+                            </div>
+                        </div>
+                    </footer>
+                </main>
+
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/apexcharts.min.js"></script>
+        <script src="assets/js/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/icons-react/dist/index.umd.min.js"></script>
+
+        <script type="text/javascript"> //dark mode toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const body = document.body;
+            const localStorageKey = 'dark-mode';
+
+            // Function to set the theme
+            function setTheme(isDarkMode) {
+                if (isDarkMode) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem(localStorageKey, 'true');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.removeItem(localStorageKey);
+                }
+            }
+
+            // Check for saved user preference on page load
+            if (localStorage.getItem(localStorageKey) === 'true') {
+                setTheme(true);
+            }
+
+            // Add event listener to the toggle button
+            themeToggleBtn.addEventListener('click', () => {
+                // Toggle the theme state
+                setTheme(!body.classList.contains('dark-mode'));
+            });
+
+        </script>
+
+        <script> //input trigger dark mode button
+            // Input toggle -> dark mode control (robust, runs after DOM ready)
+            document.addEventListener('DOMContentLoaded', () => {
+                const checkbox = document.getElementById('input');
+                const themeBtn = document.getElementById('theme-toggle');
+                const bodyEl = document.body;
+                const LS_KEY = 'dark-mode';
+    
+                // Helper: toggle theme and persist
+                function applyTheme(enable) {
+                    if (enable) {
+                        bodyEl.classList.add('dark-mode');
+                        localStorage.setItem(LS_KEY, 'true');
+                    } else {
+                        bodyEl.classList.remove('dark-mode');
+                        localStorage.removeItem(LS_KEY);
+                    }
+                }
+    
+                // Initialize state from localStorage or body class
+                const saved = localStorage.getItem(LS_KEY) === 'true';
+                const initial = saved || bodyEl.classList.contains('dark-mode');
+                applyTheme(initial);
+                if (checkbox) checkbox.checked = !!initial;
+    
+                // Keep checkbox -> theme consistent
+                if (checkbox) {
+                    checkbox.addEventListener('change', () => {
+                        const enable = checkbox.checked;
+                        applyTheme(enable);
+    
+                        // Optionally simulate theme button click to keep UI in sync
+                        if (themeBtn) {
+                            try { themeBtn.disabled = false; themeBtn.click(); } catch (e) { /* ignore */ }
+                        }
+                    }, { passive: true });
+                }
+    
+                // Ensure theme button still works and keeps checkbox synced
+                if (themeBtn) {
+                    themeBtn.addEventListener('click', () => {
+                        const isDark = bodyEl.classList.contains('dark-mode');
+                        applyTheme(!isDark);
+                        if (checkbox) checkbox.checked = !isDark;
+                    });
+                }
+            });
+        </script>
+        
+        <script> //searchbar index
+            // Custom search redirect: map input keywords to pages; fallback to search-results.html?q=
+            (function() {
+                const map = {
+                    'logout': 'index.html',
+                    'home': 'index2.html',
+                    'dash': 'index2.html',
+                    'dashboard': 'index2.html',
+                    'leaderboard': 'leaderboard.html',
+                    'leader': 'leaderboard.html',
+                    'premium': 'premium.html',
+                    'profile': 'profile.html',
+                    'quest': 'quests.html',
+                    'quests': 'quests.html',
+                    'community': 'community.html',
+                    'settings': 'setting.html',
+                    'setting': 'setting.html',
+                    'help': 'help-center.html',
+                    
+                };
+
+                function handleSearchSubmit(e, inputEl) {
+                    e.preventDefault();
+                    const raw = inputEl.value || '';
+                    const term = raw.trim();
+                    if (!term) return;
+                    const lower = term.toLowerCase();
+
+                    for (const key in map) {
+                        if (Object.prototype.hasOwnProperty.call(map, key) && lower.includes(key)) {
+                            // pass original query as q param
+                            window.location.href = map[key] + '?q=' + encodeURIComponent(term);
+                            return;
+                        }
+                    }
+
+                    // no matching page -> go to generic search results page
+                    window.location.href = 'search-results.html?q=' + encodeURIComponent(term);
+                }
+
+                const headerForm = document.getElementById('header-search-form');
+                const headerInput = document.getElementById('search-input');
+                if (headerForm && headerInput) {
+                    headerForm.addEventListener('submit', (e) => handleSearchSubmit(e, headerInput));
+                }
+
+                const sidebarForm = document.getElementById('sidebar-search-form');
+                const sidebarInput = document.getElementById('sidebar-search-input');
+                if (sidebarForm && sidebarInput) {
+                    sidebarForm.addEventListener('submit', (e) => handleSearchSubmit(e, sidebarInput));
+                }
+
+                // Optional: allow Enter inside inputs to submit (already handled by form submit)
+                // Also optionally support pressing Enter without using the form:
+                [headerInput, sidebarInput].forEach(inp => {
+                    if (!inp) return;
+                    inp.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleSearchSubmit(e, inp);
+                        }
+                    });
+                });
+            })();
+        </script>
+       
+        <script> //dropdown profile update
+            // Load updated profile from localStorage and display on the page.
+            // This script only updates display elements; saving is handled by the settings page.
+            (function () {
+                const DISPLAY_NAME_ID = 'display-profile-name';
+                const DISPLAY_EMAIL_ID = 'display-profile-email';
+                const HEADER_NAME_ID = 'header-small-name';
+                const HEADER_EMAIL_ID = 'header-small-email';
+
+                function updateProfileDisplay() {
+                    const name = localStorage.getItem('profileName') || '';
+                    const email = localStorage.getItem('profileEmail') || '';
+
+                    const displayName = document.getElementById(DISPLAY_NAME_ID);
+                    const displayEmail = document.getElementById(DISPLAY_EMAIL_ID);
+                    const headerName = document.getElementById(HEADER_NAME_ID);
+                    const headerEmail = document.getElementById(HEADER_EMAIL_ID);
+
+                    if (displayName) displayName.textContent = name || '—';
+                    if (displayEmail) {
+                        displayEmail.textContent = email || '—';
+                        displayEmail.href = email ? ('mailto:' + email) : '#';
+                    }
+                    if (headerName) headerName.textContent = name || 'User';
+                    if (headerEmail) {
+                        headerEmail.textContent = email || '';
+                        if (email) headerEmail.href = 'mailto:' + email;
+                    }
+
+                    // update other common selectors (navbar username, profile-name, dropdown-username)
+                    document.querySelectorAll('.navbar-username, #profile-name, #dropdown-username').forEach(el => {
+                        if (el) el.textContent = name || '';
+                    });
+                }
+
+                // update on initial load
+                document.addEventListener('DOMContentLoaded', updateProfileDisplay);
+
+                // update if localStorage changes in another tab/window
+                window.addEventListener('storage', (e) => {
+                    if (e.key === 'profileName' || e.key === 'profileEmail') updateProfileDisplay();
+                });
+
+                // Provide a global helper so settings page can call it after saving
+                window.updateProfileDisplay = updateProfileDisplay;
+            })();
+        </script>
+
+        <!--<script>
+            // notification message list
+            const tips = [
+                '你是最最最棒的ദ്ദി˶ｰ̀֊ｰ́ )✧', 
+                '我最最最最喜欢你 ˃̶͈ ꇴ ˂̶͈',
+                '天冷了，多穿衣服', 
+                '我想你了',
+                '期待下一次见面',
+                '多喝水哦~',
+                '别熬夜(∗ᵒ̶̶̷̀ω˂̶́∗)੭₎₎̊₊♡',
+                '早点休息',
+                '好好爱自己',
+                '今天过得开心嘛'
+            ];
+
+            // background color
+            const bgColors = [
+                'lightpink', 'skyblue', 'lightgreen', 'lavender',
+                'lightyellow', 'plum', 'coral', 'bisque',
+                'aquamarine', 'mistyrose', 'honeydew',
+                'lavenderblush', 'oldlace'
+            ];
+
+            // create single window
+            function createPopup() {
+                const screenWidth = window.innerWidth;
+                const screenHeight = window.innerHeight;
+                
+                // popup animation
+                const popup = document.createElement('div');
+                popup.className = 'popup';
+                
+                // random scale
+                const width = Math.floor(Math.random() * 100) + 200;
+                const height = Math.floor(Math.random() * 30) + 50;
+                
+                // random position
+                const x = Math.floor(Math.random() * (screenWidth - width));
+                const y = Math.floor(Math.random() * (screenHeight - height));
+                
+                // style fomat
+                popup.style.width = width + 'px';
+                popup.style.height = height + 'px';
+                popup.style.left = x + 'px';
+                popup.style.top = y + 'px';
+                popup.style.backgroundColor = bgColors[Math.floor(Math.random() * bgColors.length)];
+                popup.style.fontSize = (Math.floor(Math.random() * 4) + 12) + 'px';
+                
+                // random noification
+                const tipText = tips[Math.floor(Math.random() * tips.length)];
+                
+                // add content
+                popup.innerHTML = `
+                    <div class="close-btn">×</div>
+                    <div class="message">${tipText}</div>
+                `;
+                
+                // add to page
+                document.getElementById('popup-container').appendChild(popup);
+                
+                // close button
+                const closeBtn = popup.querySelector('.close-btn');
+                closeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    popup.style.opacity = '0';
+                    popup.style.transform = 'scale(0.8)';
+                    setTimeout(() => popup.remove(), 300);
+                });
+                
+                // close tab x 
+                popup.addEventListener('click', function() {
+                    this.style.opacity = '0';
+                    this.style.transform = 'scale(0.8)';
+                    setTimeout(() => this.remove(), 300);
+                });
+                
+                return popup;
+            }
+
+            // build multiple windows
+            function createMultiplePopups(count) {
+                for (let i = 0; i < count; i++) {
+                    setTimeout(() => {
+                        createPopup();
+                    }, i * 50); // 50ms delay
+                }
+                
+                // close all window after 10s
+                setTimeout(() => {
+                    /*const popups = document.querySelectorAll('.popup');
+                    popups.forEach(popup => {
+                        popup.style.opacity = '0';
+                        popup.style.transform = 'scale(0.8)';
+                        setTimeout(() => popup.remove(), 300);
+                    });
+                    
+                    // noti box
+                    const hint = document.createElement('div');
+                    hint.innerHTML = '万事胜意<br>许你平安喜樂！';
+                    hint.style.cssText = `
+                        position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                        background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                        text-align: center; font-size: 16px; z-index: 1001;
+                    `;
+                    document.body.appendChild(hint);*/
+                    
+                    setTimeout(() => hint.remove(), 5000);
+                }, 10000);
+            }
+
+            // recreate windows
+            window.addEventListener('load', () => {
+                createMultiplePopups(20);
+            });
+        </script>-->
+
+        <script> //community chat animation
+            let amountOfColors = 18; // Or "participants"
+            const AUTO_DELETE_MS = 10000; // milliseconds before a chat line auto-deletes
+            const AUTO_DELETE_JITTER = 3000; // optional randomness added to auto-delete time
+            const FADE_OUT_MS = 500; // fade out duration
+
+            let container = document.getElementById("chat-container");
+            let lineWidth = 400;
+            let profileImgWidth = 60;
+            let textWidth = lineWidth - 20 - profileImgWidth - 10;
+            let chats = [];
+            let maxTexts = 4;
+
+            function createElement(opts = {}) {
+                let ele = document.createElement("div");
+                if ("class" in opts) {
+                    if (!Array.isArray(opts.class)) {
+                        opts.class = [opts.class];
+                    }
+                    ele.classList.add(...opts.class);
+                }
+                return ele;
+            }
+
+            function addChat() {
+                let chat = new Chat();
+                chats.push(chat);
+                setTimeout(() => chat.loop(), 200);
+                return chat;
+            }
+
+            class Chat {
+                constructor() {
+                    this.ele = createElement({ class: "chat" });
+                    this.lines = [];
+                    this.anim = null;
+                    container.appendChild(this.ele);
+                }
+                addLine() {
+                    let l = new Line(this); // pass parent chat reference
+                    this.lines.push(l);
+                    this.ele.appendChild(l.ele.lineContainer);
+                    return l;
+                }
+                removeOldest() {
+                    let maxCount = Math.ceil((window.innerHeight / 1080) * 12);
+                    if (this.lines.length > maxCount) {
+                        let oldest = this.lines.splice(0, this.lines.length - maxCount);
+                        oldest.forEach((n) => this.ele.removeChild(n.ele.lineContainer));
+                    }
+                }
+                loop() {
+                    if (this.anim) {
+                        this.stopLoop();
+                    }
+                    this.addLine();
+                    this.removeOldest();
+                    /*this.anim = setTimeout(() => this.loop(), Math.random() * 1300 + 180);*/
+                    this.anim = setTimeout(() => this.loop(), 3000);
+                }
+                stopLoop() {
+                    clearTimeout(this.anim);
+                    this.anim = null;
+                }
+            }
+
+            class Line {
+                constructor(parentChat) {
+                    this.parentChat = parentChat || null;
+                    this.pickColor();
+                    this.pickName();
+                    this.pickText();
+                    this.pickHasImg();
+                    this.pickHasRichBody();
+                    this.setupElements();
+                    this.animateIn();
+                }
+
+                pickColor() {
+                    this.hue =
+                        Math.floor(Math.random() * amountOfColors) * (360 / amountOfColors);
+                    this.color = `hsl(${this.hue}, 90%, 50%)`;
+                    this.profileImgColor = `hsl(${this.hue}, 40%, 55%)`;
+                    return this.hue;
+                }
+
+                pickName() {
+                    // pick a random human-like name
+                    const NAMES = [
+                        'Ava','Liam','Noah','Emma','Olivia','Mason','Sophia','Isabella','Lucas','Mia',
+                        'Ethan','Amelia','Harper','Ella','James','Evelyn','Benjamin','Charlotte','Logan','Aria'
+                    ];
+                    this.name = NAMES[Math.floor(Math.random() * NAMES.length)];
+                }
+
+                pickText() {
+                    // generate 1-4 short random sentences
+                    const PHRASES = [
+                        'Sounds good to me.',
+                        'I will check and update.',
+                        'Where can I find that?',
+                        'Nice work! 🎉',
+                        'Can we push this to production?',
+                        'I like the new layout.',
+                        'Let me know your thoughts.',
+                        'That issue is resolved now.',
+                        'I will follow up tomorrow.',
+                        'Thanks for the update.'
+                    ];
+                    const count = 1 + Math.floor(Math.random() * 4);
+                    this.textsArray = [];
+                    for (let i = 0; i < count; i++) {
+                        // choose a phrase and sometimes append a short extra
+                        let phrase = PHRASES[Math.floor(Math.random() * PHRASES.length)];
+                        if (Math.random() > 0.7) phrase += ' ' + (PHRASES[Math.floor(Math.random() * PHRASES.length)]).toLowerCase();
+                        this.textsArray.push(phrase);
+                    }
+                    this.textCount = this.textsArray.length;
+                }
+
+                pickHasImg() {
+                    this.hasImg = Math.random() > 0.9;
+                }
+
+                pickHasRichBody() {
+                    this.hasRichBody = !this.hasImage && Math.random() > 0.85;
+                }
+
+                setupElements() {
+                    let ele = this.createElement();
+                    this.ele = ele;
+                    // set name text and profile initials
+                    ele.name.textContent = this.name;
+                    // fill texts
+                    ele.texts.forEach((n, i) => {
+                        n.textContent = this.textsArray[i] || '';
+                    });
+                    // style name and profile
+                    ele.name.style.backgroundColor = 'transparent';
+                    ele.name.style.height = 'auto';
+                    ele.profileImg.style.backgroundColor = this.profileImgColor;
+                    // show initials in profile box
+                    const initials = this.name.split(' ').map(s => s[0]).join('').slice(0,2).toUpperCase();
+                    ele.profileImg.textContent = initials;
+                    ele.profileImg.style.color = '#ffffff';
+                    ele.profileImg.style.display = 'flex';
+                    ele.profileImg.style.alignItems = 'center';
+                    ele.profileImg.style.justifyContent = 'center';
+                    ele.profileImg.style.fontWeight = '700';
+                    ele.profileImg.style.fontSize = '18px';
+                }
+
+                animateIn() {
+                    let delay = 35; // Some times it won't animate correctly without this
+                    let ele = this.ele;
+                    setTimeout(() => {
+                        ele.lineContainer.style.opacity = 1;
+                        ele.lineContainer.style.maxHeight = "200px";
+                        ele.lineContainer.style.transform = "translateX(0px) scale(1)";
+                    }, delay);
+
+                    let otherEleList = [ele.profileImg, ele.name, ...ele.texts];
+
+                    if ("img" in ele) {
+                        otherEleList.push(ele.img);
+                    } else if ("richBody" in ele) {
+                        otherEleList.push(ele.richBody);
+                    }
+
+                    delay += 40;
+
+                    otherEleList.forEach((e, i) => {
+                        setTimeout(() => {
+                            e.style.opacity = 1;
+                            e.style.transform = "translateY(0px)";
+                        }, (delay += 50));
+                    });
+
+                    ele.texts.forEach((n, i, arr) =>
+                        setTimeout(() => (n.style.opacity = 1), 70 * (i + 3) + delay)
+                    );
+                    // schedule auto-delete
+                    const ttl = AUTO_DELETE_MS + Math.floor(Math.random() * AUTO_DELETE_JITTER);
+                    this._autoDeleteTimeout = setTimeout(() => this.animateOutAndRemove(), ttl);
+                }
+
+                animateOutAndRemove() {
+                    // fade out visuals, then remove from DOM and parent lines array
+                    if (!this.ele || !this.ele.lineContainer) return;
+                    // clear any pending auto-delete to avoid double calls
+                    if (this._autoDeleteTimeout) {
+                        clearTimeout(this._autoDeleteTimeout);
+                        this._autoDeleteTimeout = null;
+                    }
+                    // start fade out
+                    this.ele.lineContainer.style.transition = `opacity ${FADE_OUT_MS}ms ease, max-height ${FADE_OUT_MS}ms ease, transform ${FADE_OUT_MS}ms ease`;
+                    this.ele.lineContainer.style.opacity = 0;
+                    this.ele.lineContainer.style.maxHeight = "0px";
+                    this.ele.lineContainer.style.transform = "translateX(-10px) scale(.98)";
+                    // remove child elements after fade
+                    setTimeout(() => {
+                        try {
+                            if (this.ele && this.ele.lineContainer && this.ele.lineContainer.parentNode) {
+                                this.ele.lineContainer.parentNode.removeChild(this.ele.lineContainer);
+                            }
+                            // remove from parentChat.lines array if possible
+                            if (this.parentChat && Array.isArray(this.parentChat.lines)) {
+                                const idx = this.parentChat.lines.indexOf(this);
+                                if (idx > -1) this.parentChat.lines.splice(idx, 1);
+                            }
+                        } catch (e) { /* ignore */ }
+                    }, FADE_OUT_MS + 10);
+                }
+
+                createElement() {
+                    let lineContainer = createElement({ class: "line-container" });
+                    let line = createElement({ class: "line" });
+                    let profileImg = createElement({ class: "profile-img" });
+                    let body = createElement({ class: "body" });
+                    let name = createElement({ class: "chat-name" });
+                    let texts = [];
+                    let img = createElement({ class: "img" });
+                    let richBody = createElement({ class: "rich-body" });
+                    body.appendChild(name);
+                    for (let i = 0; i < (this.textCount || 1); i++) {
+                        let text = createElement({ class: "text" });
+                        texts.push(text);
+                        body.appendChild(text);
+                    }
+                    line.appendChild(profileImg);
+                    line.appendChild(body);
+                    lineContainer.appendChild(line);
+                    let out = { lineContainer, line, profileImg, body, name, texts };
+                    this.hasImg && (out.img = img) && body.appendChild(img);
+                    this.hasRichBody && (out.richBody = richBody) && body.appendChild(richBody);
+                    return out;
+                }
+            }
+
+            function loop() {
+                chats.forEach((n) => n.loop());
+            }
+
+            function stopLoop() {
+                chats.forEach((n) => n.stopLoop());
+            }
+
+            (() => addChat())();
+
+        </script>
+
+    </body>
+</html>
