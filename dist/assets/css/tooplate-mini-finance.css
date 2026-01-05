@@ -181,6 +181,73 @@ i{
   
 }
 
+/* Place register (or other action) button to the right of the Dashboard title */
+.title-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* title left, button right */
+  gap: 1rem;
+}
+
+.title-group h1 {
+  margin: 0;
+  font-size: 4rem;
+}
+
+.rainbow-hover {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff7576;
+  background-color: #2B3044;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 24px;
+  position: relative;
+  line-height: 24px;
+  border-radius: 9px;
+  box-shadow: 0px 1px 2px #2B3044,
+    0px 4px 10px #2B3044;
+  transform-style: preserve-3d;
+  transform: scale(var(--s, 1)) perspective(600px)
+    rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  perspective: 600px;
+  transition: transform 0.1s;
+}
+
+.sp {
+  background: linear-gradient(
+      90deg,
+      #866ee7,
+      #ea60da,
+      #ed8f57,
+      #fbd41d,
+      #2cca91
+    );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  display: block;
+}
+
+.rainbow-hover:active {
+  transition: 0.3s;
+  transform: scale(0.93);
+}
+
+@media (max-width: 576px) {
+  .title-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .rainbow-hover {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
 .custom-block.section-bg,
 .section-bg {
   background-color: var(--section-bg-color);
@@ -2062,6 +2129,116 @@ header .dropdown-menu .ti {
 }
 
 /*---------------------------------------
+  dashboard cownload     
+-----------------------------------------*/
+
+.card-download {
+  max-width: 100%;
+  background-color: rgb(7 16 45);
+  background: linear-gradient(to top right, rgb(7 16 45), rgb(58 60 84));
+  background: -webkit-linear-gradient(to top right, rgb(7 16 45), rgb(58 60 84));
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgb(84 90 106);
+}
+
+.small-text, .title-download,.desc {
+  font-weight: 600;
+}
+
+.title-download,.desc {
+  margin: 8px 0;
+}
+
+.small-text {
+  color: #488aec;
+  font-size: 14px;
+}
+
+.title-download {
+  color: #fff;
+  font-size: 26px;
+  line-height: 26px;
+}
+
+.desc {
+  color: rgb(151 153 167);
+  font-size: 13px;
+}
+
+.buttons-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.button-download {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 6px;
+  text-decoration: none;
+}
+
+.button-download:first-child {
+  box-shadow: 0 4px 6px -1px #488aec31, 0 2px 4px -1px #488aec17;
+  background-color: #488aec;
+}
+
+.button-download:last-child {
+  box-shadow: 0 4px 6px -1px #0b162531, 0 2px 4px -1px #0e192b17;
+  background-color: #fff;
+}
+
+.icon {
+  height: 25px;
+  width: 25px;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.icon svg:last-child {
+  fill: #000
+}
+
+.button-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+}
+
+.button-text span:first-child {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.google span:first-child {
+  color: rgb(219 206 253);
+}
+
+.apple span:first-child {
+  color: rgb(81 87 108);
+}
+
+.google span:last-child {
+  color: #fff;
+  font-weight: 800;
+}
+
+.apple span:last-child {
+  color: #000;
+  font-weight: 800;
+}
+
+/*---------------------------------------
   leaderboard cards      
 -----------------------------------------*/
 
@@ -2410,15 +2587,15 @@ header .dropdown-menu .ti {
 -----------------------------------------*/
  #chat-container {
 	display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px; 
-    flex-direction: column;
-    gap: 20px;
-    background-color: #f1f2f200;
-    height: calc(100vh - 400px); 
-    position: relative; /* ensure children are positioned relative to this container */
-    box-sizing: border-box; 
+  justify-content: center;
+  align-items: center;
+  padding: 10px; 
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f1f2f200;
+  height: calc(100vh - 400px);
+  position: relative; /* ensure children are positioned relative to this container */
+  box-sizing: border-box; 
 
 }
  #chat-input {
@@ -2787,6 +2964,242 @@ header .dropdown-menu .ti {
 .card-message .front {
   transform: translate3d(0, 0, 1em);
 }
+
+/*---------------------------------------
+  community // upcoming meeting
+-----------------------------------------*/
+
+.meeting-card {
+  background-color: #e9eeea;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.header-meeting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.date-selector {
+  width:120px;
+  height: 30px;
+  background-color: #e9eeea;
+  border-radius: 9999px;
+  padding: 1rem 1rem;
+  cursor: pointer;
+  border: 1px solid #d0d0ce;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.date-selector:hover {
+  background-color: #dededd;
+}
+
+.date-selector span {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.calls-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.calls-info span {
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.date-nav-and-indicators {
+  position: relative;
+}
+
+.date-nav-container {
+  background-color: white;
+  border-radius: 16px;
+  padding: 12px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.day-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.day-number,
+.day-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.day-number {
+  font-size: 1.2rem;
+  font-weight: 600;
+  height: 28px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding-top: 5px;
+}
+
+.day-name {
+  font-size: 0.7rem;
+  height: 20px;
+  color: #666;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.day-item:hover .day-number,
+.day-item:hover .day-name {
+  background-color: #f8f8f8;
+}
+
+.day-active .day-number,
+.day-active .day-name {
+  background-color: #f0ff7a;
+}
+
+.indicator-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  padding: 0 28px;
+  box-sizing: border-box;
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #d0d0ce;
+  position: relative;
+  z-index: 2;
+}
+
+.indicator-active {
+  background-color: #000;
+}
+
+.indicator-line {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  right: 32px;
+  height: 1px;
+  border-top: 1.5px dashed #d0d0ce;
+  z-index: 1;
+}
+
+@media screen and (max-width: 480px) {
+  .meeting-card {
+    max-width: 100%;
+    padding: 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .date-selector {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .date-selector span {
+    font-size: 0.9rem;
+  }
+
+  .day-number,
+  .day-name {
+    width: 36px;
+  }
+
+  .day-number {
+    font-size: 1rem;
+  }
+
+  .day-name {
+    font-size: 0.65rem;
+  }
+
+  .indicator-container {
+    padding: 0 24px;
+  }
+
+  .indicator-line {
+    left: 28px;
+    right: 28px;
+  }
+
+  .calls-info span {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .meeting-card {
+    padding: 0.8rem;
+  }
+
+  .header-meeting {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .date-selector {
+    margin-top: 0.5rem;
+  }
+
+  .day-number,
+  .day-name {
+    width: 30px;
+  }
+
+  .day-number {
+    font-size: 0.9rem;
+  }
+
+  .day-name {
+    font-size: 0.6rem;
+  }
+
+  .indicator-container {
+    padding: 0 20px;
+  }
+
+  .indicator-line {
+    left: 24px;
+    right: 24px;
+  }
+}
+
 
 /*---------------------------------------
   Profile // SEARCH, PROFILE FORM               
