@@ -297,6 +297,13 @@
 
                         <div class="col-lg-7 col-12">
                             <div class="custom-block-badges">
+                                <button class="expand-toggle" aria-label="Expand block" title="Expand">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <rect x="0" y="0" width="24" height="24" rx="4" fill="transparent" />
+                                        <path d="M7 17L17 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7 7H17V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
                                 <div class="card-message">
                                     <div class="bar"></div>
                                     <div class="card_form"></div>
@@ -320,6 +327,13 @@
                             </div>
 
                             <div class="custom-block-badges">
+                                <button class="expand-toggle" aria-label="Expand block" title="Expand">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <rect x="0" y="0" width="24" height="24" rx="4" fill="transparent" />
+                                        <path d="M7 17L17 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7 7H17V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
                                 <h5 class="mb-4"></h5> 
                                 <div id="chat-container">
                                     <!-- chat messages will be appended here by the chat animation script -->
@@ -512,6 +526,144 @@
                     });
                 }
             });
+        </script>
+        <style>
+        /* Expand/collapse controls for custom blocks */
+        .custom-block-badges { position: relative; transition: max-height 300ms ease; overflow: hidden; }
+        .custom-block-badges .expand-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background:#000;
+            color:#fff;
+            border:none;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+            z-index:10;
+            padding:6px;
+        }
+        /* Default constrained height for left column blocks (so expand is useful) */
+        .custom-block-badges[data-collapsible="true"] { max-height: 360px; }
+        /* stronger rule when expanded to act as a fallback if inline styles are reset */
+        .custom-block-badges[data-collapsible="true"].expanded { max-height: 1200px !important; }
+        </style>
+        <script>
+        // Robust expand/collapse with smooth animation
+        (function () {
+            function animateMaxHeight(element, fromPx, toPx, duration = 300) {
+                // Ensure we have integer values
+                fromPx = Math.round(Number(fromPx) || 0);
+                toPx = Math.round(Number(toPx) || 0);
+
+                // Force the element to use explicit height during animation so
+                // layout is updated reliably even with flex/overflow rules.
+                element.style.overflow = 'hidden';
+                element.style.maxHeight = fromPx + 'px';
+                element.style.height = fromPx + 'px';
+
+                // Force style recalculation
+                element.offsetHeight;
+
+                // Animate both max-height and height for better cross-browser results
+                element.style.transition = `max-height ${duration}ms ease, height ${duration}ms ease`;
+
+                function onend(e) {
+                    // when the height animation is done, remove the explicit height so
+                    // the element can size naturally (but keep max-height to the target)
+                    if (e.propertyName === 'height' || e.propertyName === 'max-height') {
+                        element.style.transition = '';
+                        // Remove explicit height to allow natural layout after animation
+                        element.style.height = '';
+                        element.removeEventListener('transitionend', onend);
+                    }
+                }
+
+                element.addEventListener('transitionend', onend);
+
+                // Trigger target values on next frame
+                requestAnimationFrame(() => {
+                    element.style.maxHeight = toPx + 'px';
+                    element.style.height = toPx + 'px';
+                });
+            }
+
+            function setupExpandToggles() {
+                // mark only the left-column blocks as collapsible
+                document.querySelectorAll('.col-lg-7 .custom-block-badges').forEach(el => el.setAttribute('data-collapsible', 'true'));
+
+                document.querySelectorAll('.custom-block-badges .expand-toggle').forEach(btn => {
+                    if (btn.__expandInit) return; // already initialized
+                    btn.__expandInit = true;
+
+                    const block = btn.closest('.custom-block-badges');
+                    if (!block) return;
+
+                    // compute a sensible original height: prefer data attr or default 360
+                    const computed = window.getComputedStyle(block);
+                    let origPx = 360;
+                    if (block.dataset.originalHeight) {
+                        origPx = parseInt(block.dataset.originalHeight, 10) || origPx;
+                    } else if (block.dataset.collapsible === 'true') {
+                        origPx = 360;
+                    } else {
+                        // use content height if not collapsible
+                        origPx = Math.ceil(block.scrollHeight);
+                    }
+
+                    // store
+                    block.dataset.originalHeight = String(origPx);
+                    block.dataset.currentHeight = String(origPx);
+
+                    // ensure initial maxHeight is set to original
+                    block.style.maxHeight = origPx + 'px';
+
+                    // aria and state
+                    btn.setAttribute('aria-pressed', 'false');
+                    btn.dataset.expanded = 'false';
+
+                    btn.addEventListener('click', function () {
+                        const orig = parseInt(block.dataset.originalHeight, 10) || 360;
+                        const isExpanded = btn.dataset.expanded === 'true';
+
+                        // Use the element's current rendered height as the starting point
+                        const currentVisible = Math.ceil(block.getBoundingClientRect().height) || orig;
+
+                        if (!isExpanded) {
+                            // expand to double original but ensure we at least fit the content
+                            const doubleH = Math.max(orig * 2, block.scrollHeight, currentVisible + 1);
+
+                            // add expanded class as a persistent fallback
+                            block.classList.add('expanded');
+                            btn.dataset.expanded = 'true';
+                            btn.setAttribute('aria-pressed', 'true');
+
+                            animateMaxHeight(block, currentVisible, doubleH, 350);
+                            block.dataset.currentHeight = String(doubleH);
+                        } else {
+                            // collapse back to original
+                            // remove expanded class fallback first
+                            block.classList.remove('expanded');
+                            btn.dataset.expanded = 'false';
+                            btn.setAttribute('aria-pressed', 'false');
+
+                            animateMaxHeight(block, currentVisible, orig, 350);
+                            block.dataset.currentHeight = String(orig);
+                        }
+                    });
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupExpandToggles);
+            } else {
+                setupExpandToggles();
+            }
+        })();
         </script>
         
         <script> //searchbar index
