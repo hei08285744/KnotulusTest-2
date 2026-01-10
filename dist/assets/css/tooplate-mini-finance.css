@@ -950,12 +950,21 @@ i{
 }
 
 .custom-block-profile-image {
-  border-radius: var(--border-radius-large);
-  display: block;
+  /* match header avatar visual style but at a larger scale */
+  border-radius: 8px; /* same rounded-square radius as header */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
   margin: auto;
-  width: 95.71px;
-  height: 95.71px;
-  object-fit: cover;
+  width: 96px;
+  height: 96px;
+  background-size: cover;
+  background-position: center;
+  line-height: 1;
+  font-size: 28px;
 }
 
 .custom-block .profile-image {
@@ -1756,7 +1765,7 @@ Profile / custom block profile image
 -------------------------------------------*/
 
 .custom-block-edit-icon:hover {
-  background: var(--custom-btn-bg-color);
+  background: #6c757d;
   color: var(--white-color);
 }
 
@@ -1788,8 +1797,8 @@ Profile / custom block profile image
                 position: absolute;
                 right: -6px;
                 bottom: -6px;
-                width: 34px;
-                height: 34px;
+                width: 24px;
+                height: 24px;
                 border-radius: 50%;
                 display: inline-flex;
                 align-items: center;

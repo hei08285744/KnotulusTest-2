@@ -151,30 +151,6 @@
                         </div>
                     </div>-->
 
-                    <style>
-                        /* Header avatar: colored rounded-square initials */
-                        .header-avatar, .header-dropdown-avatar {
-                            color: #ffffff;
-                            display: inline-flex;
-                            align-items: center;
-                            justify-content: center;
-                            font-weight: 700;
-                            font-size: 16px;
-                            width: 44px;
-                            height: 44px;
-                            border-radius: 8px;
-                            flex: 0 0 44px;
-                            line-height: 1;
-                            text-transform: uppercase;
-                        }
-
-                        /* Slightly smaller avatar used inside dropdown menu */
-                        .header-dropdown-avatar { width: 40px; height: 40px; font-size: 15px; }
-
-                        /* Ensure header avatar aligns nicely in the navbar */
-                        .nav-link .header-avatar { margin-right: 8px; }
-                    </style>
-
                     <div class="dropdown px-4">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div id="header-avatar" class="header-avatar profile-img" role="img" aria-label="Profile avatar">U</div>
@@ -366,7 +342,7 @@
                     </div>
                 </nav>
 
-                <main class="main-wrapper col-md-9 ms-sm-auto py-0 col-lg-9 px-md-4 border-start border-top border-right border-bottom border-end">
+                <main class="main-wrapper col-md-9 ms-sm-auto pb-4 col-lg-9 px-md-4 border-start border-top border-right border-bottom border-end">
                     <div class="row my-4">
                         <div class="title-group mb-3">
                             <h1 class="h7 mb-0">Dashboard</b></h1>
@@ -568,8 +544,17 @@
                         </div>
 
                         <div class="col-lg-7 col-12">
-                            <div class="custom-block-badges"> 
+                            <div class="custom-block-badges expandable">
                                 <h5 class="mb-4">Badges</h5>
+                                <button class="expand-toggle" aria-label="Expand block" title="Expand">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <rect x="0" y="0" width="24" height="24" rx="4" fill="transparent" />
+                                        <path d="M6 18 L18 6" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14 6 L18 6 L18 10" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M18 18 L6 6" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 14 L6 18 L10 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
                                 <div class="container-badges">
                                     
                                 </div>
@@ -742,16 +727,42 @@
                         
 
                         <div class="col-lg-5 col-12">
-                            <div class="custom-block-badges">
+                            <div class="custom-block-badges expandable">
+                                <button class="expand-toggle" aria-label="Expand block" title="Expand">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <rect x="0" y="0" width="24" height="24" rx="4" fill="transparent" />
+                                        <path d="M6 18 L18 6" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14 6 L18 6 L18 10" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M18 18 L6 6" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M6 14 L6 18 L10 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
                                 <h5 class="mb-4"></h5> 
                                 <div id="chat-container">
                                     <!-- chat messages will be appended here by the chat animation script -->
                                 </div>
                                 <!-- Input bar for sending chat messages -->
-                                <div id="chat-input-area" class="mt-3 d-flex align-items-center">
-                                    <button id="chat-add-file" title="Attach">+</button>
-                                    <input id="chat-input-field" type="text" placeholder="Type a message..." aria-label="Chat message" style="flex:1;min-width:0;" />
-                                    <button id="chat-send-btn" title="Send" style="width:42px;height:42px;padding:0;border-radius:21px;" class="btn btn-dark">
+                                <div class="container-items">
+                                <!-- Bot accounts: click to spawn bot with that name and color. Modifier click (Ctrl/Shift/Meta) sets your profile color. -->
+                                <button class="item-color bot-account" data-bot-name="James" title="James" style="--color: #e11d48" aria-color="James">J</button>
+                                <button class="item-color bot-account" data-bot-name="Ava" title="Ava" style="--color: #f472b6" aria-color="Ava">A</button>
+                                <button class="item-color bot-account" data-bot-name="Noah" title="Noah" style="--color: #fb923c" aria-color="Noah">N</button>
+                                <button class="item-color bot-account" data-bot-name="Emma" title="Emma" style="--color: #facc15" aria-color="Emma">E</button>
+                                <button class="item-color bot-account" data-bot-name="Olivia" title="Olivia" style="--color: #84cc16" aria-color="Olivia">O</button>
+                                <button class="item-color bot-account" data-bot-name="Mason" title="Mason" style="--color: #10b981" aria-color="Mason">M</button>
+                                <button class="item-color bot-account" data-bot-name="Sophia" title="Sophia" style="--color: #0ea5e9" aria-color="Sophia">S</button>
+                                <button class="item-color bot-account" data-bot-name="Lucas" title="Lucas" style="--color: #3b82f6" aria-color="Lucas">L</button>
+                                <button class="item-color bot-account" data-bot-name="Aria" title="Aria" style="--color: #8b5cf6" aria-color="Aria">A</button>
+                                <button class="item-color bot-account" data-bot-name="Liam" title="Liam" style="--color: #a78bfa" aria-color="Liam">L</button>
+                                </div>
+
+                                <div id="chat-input-area" class="mt-3 d-flex align-items-center" style="gap:8px;">
+                                    <button id="chat-add-file" class="btn btn-dark" title="Add user" aria-pressed="false" style="width:42px;height:42px;padding:0;border-radius:8px;">+</button>
+                                    <div class="chat-input-wrap" style="position:relative;flex:1;min-width:0;">
+                                        <input id="chat-input-field" type="text" class="form-control" placeholder="Type a message..." aria-label="Chat message" style="width:100%;" />
+                                        <div id="chat-mention-preview" class="mention-preview" hidden aria-hidden="true"></div>
+                                    </div>
+                                    <button id="chat-send-btn" class="btn btn-dark" title="Send" style="width:42px;height:42px;padding:0;border-radius:21px;">
                                         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
                                             <path fill="#fff" d="M9 6 L17 12 L9 18 Z" />
                                         </svg>
@@ -760,11 +771,10 @@
                             </div>
 
                             <div class="custom-block-badges custom-block-profile text-center">
-                                <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="images/medium-shot-happy-man-smiling.jpg" class="custom-block-profile-image img-fluid" alt="">
-
+                                <div class="custom-block-profile-image-wrap">
+                                    <div id="profile-page-avatar" class="custom-block-profile-image" role="img" aria-label="Profile avatar">U</div>
                                     <a href="setting.html" class="bi-pencil-square custom-block-edit-icon"></a>
-                                </div>
+                                </div><br>
 
                                 <p class="d-flex flex-wrap mb-2">
                                     <strong>Name:</strong>
@@ -1051,6 +1061,7 @@
             var chart = new ApexCharts(document.querySelector("#chart"), options);
             chart.render();
         </script>
+
         <script type="text/javascript"> //dark mode toggle
             const themeToggleBtn = document.getElementById('theme-toggle');
             const body = document.body;
@@ -1194,6 +1205,7 @@
                 });
             })();
         </script>
+
         <script> //dropdown profile update
             // Load updated profile from localStorage and display on the page.
             // This script only updates display elements; saving is handled by the settings page.
@@ -1255,6 +1267,144 @@
                 window.updateProfileDisplay = updateProfileDisplay;
             })();
         </script>
+
+        <script>// Robust expand/collapse with smooth animation
+        (function () {
+            function animateMaxHeight(element, fromPx, toPx, duration = 300) {
+                // Ensure we have integer values
+                fromPx = Math.round(Number(fromPx) || 0);
+                toPx = Math.round(Number(toPx) || 0);
+
+                // Force the element to use explicit height during animation so
+                // layout is updated reliably even with flex/overflow rules.
+                element.style.overflow = 'hidden';
+                element.style.maxHeight = fromPx + 'px';
+                element.style.height = fromPx + 'px';
+
+                // Force style recalculation
+                element.offsetHeight;
+
+                // Animate both max-height and height for better cross-browser results
+                element.style.transition = `max-height ${duration}ms ease, height ${duration}ms ease`;
+
+                function onend(e) {
+                    if (e.propertyName !== 'height' && e.propertyName !== 'max-height') return;
+
+                    element.style.transition = '';
+
+                    // Keep a stable expanded/collapsed size after the animation.
+                    // Using max-height alone can be masked by flex layout; explicit height
+                    // guarantees the visible box size.
+                    element.style.height = toPx + 'px';
+                    element.style.maxHeight = toPx + 'px';
+
+                    element.removeEventListener('transitionend', onend);
+                }
+
+                element.addEventListener('transitionend', onend);
+
+                // Trigger target values on next frame
+                requestAnimationFrame(() => {
+                    element.style.maxHeight = toPx + 'px';
+                    element.style.height = toPx + 'px';
+                });
+            }
+
+            function setupExpandToggles() {
+                // Initialize blocks that either:
+                //  - have been opt-in marked with `.expandable`, OR
+                //  - already contain an `.expand-toggle` button (existing behavior)
+                const allBlocks = Array.from(document.querySelectorAll('.custom-block-badges'));
+                const expandableBlocks = allBlocks.filter(b => b.classList.contains('expandable') || b.querySelector('.expand-toggle'));
+
+                // mark them collapsible for styling fallbacks
+                expandableBlocks.forEach(el => el.setAttribute('data-collapsible', 'true'));
+
+                // For blocks explicitly opted-in via `.expandable`, ensure they have a toggle.
+                expandableBlocks.forEach(block => {
+                    if (block.classList.contains('expandable') && !block.querySelector('.expand-toggle')) {
+                        const btn = document.createElement('button');
+                        btn.className = 'expand-toggle';
+                        btn.setAttribute('aria-label', 'Expand block');
+                        btn.title = 'Expand';
+                        btn.innerHTML = `
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <rect x="0" y="0" width="24" height="24" rx="4" fill="transparent" />
+                                <path d="M6 18 L18 6" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 6 L18 6 L18 10" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M18 18 L6 6" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 14 L6 18 L10 18" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>`;
+                        block.insertBefore(btn, block.firstChild);
+                    }
+                });
+
+                // Prepare stored heights and attributes for each expandable block
+                expandableBlocks.forEach(block => {
+                    let origPx = 360;
+                    if (block.dataset.originalHeight) {
+                        origPx = parseInt(block.dataset.originalHeight, 10) || origPx;
+                    } else if (block.dataset.collapsible === 'true') {
+                        origPx = 360;
+                    } else {
+                        origPx = Math.ceil(block.scrollHeight);
+                    }
+
+                    block.dataset.originalHeight = String(origPx);
+                    block.dataset.currentHeight = String(origPx);
+                    block.style.maxHeight = origPx + 'px';
+
+                    const existingBtn = block.querySelector('.expand-toggle');
+                    if (existingBtn) {
+                        existingBtn.setAttribute('aria-pressed', 'false');
+                        existingBtn.dataset.expanded = 'false';
+                    }
+                });
+
+                // Delegated click handler for all expand toggles. This ensures toggles
+                // inserted dynamically or present initially will work, and prevents
+                // duplicate/ordering issues with per-button initialization.
+                if (!window.__expandDelegateBound) {
+                    window.__expandDelegateBound = true;
+                    document.addEventListener('click', function (e) {
+                        const btn = e.target.closest && e.target.closest('.expand-toggle');
+                        if (!btn) return;
+                        const block = btn.closest('.custom-block-badges');
+                        if (!block) return;
+
+                        // debug
+                        try { console.debug('[expand] toggle clicked', { block, btn }); } catch (err) {}
+
+                        const orig = parseInt(block.dataset.originalHeight, 10) || 360;
+                        const isExpanded = btn.dataset.expanded === 'true';
+                        const currentVisible = Math.ceil(block.getBoundingClientRect().height) || orig;
+
+                        if (!isExpanded) {
+                            const doubleH = Math.max(orig * 2, block.scrollHeight, currentVisible + 1);
+                            block.classList.add('expanded');
+                            btn.dataset.expanded = 'true';
+                            btn.setAttribute('aria-pressed', 'true');
+                            animateMaxHeight(block, currentVisible, doubleH, 480);
+                            block.dataset.currentHeight = String(doubleH);
+                        } else {
+                            block.classList.remove('expanded');
+                            btn.dataset.expanded = 'false';
+                            btn.setAttribute('aria-pressed', 'false');
+                            animateMaxHeight(block, currentVisible, orig, 360);
+                            block.dataset.currentHeight = String(orig);
+                        }
+                    }, false);
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupExpandToggles);
+            } else {
+                setupExpandToggles();
+            }
+        })();
+        </script>
+
         <script> //community chat animation
             let amountOfColors = 18; // Or "participants"
             const AUTO_DELETE_MS = 10000; // milliseconds before a chat line auto-deletes
@@ -1282,7 +1432,9 @@
             function addChat() {
                 let chat = new Chat();
                 chats.push(chat);
-                setTimeout(() => chat.loop(), 200);
+                // Do not start automatic looping here. Bots created with createBot()
+                // will drive random/chat activity. This prevents non-bot automatic messages.
+                // setTimeout(() => chat.loop(), 200);
                 return chat;
             }
 
@@ -1334,6 +1486,11 @@
                         this.pickColor();
                     }
 
+                    // If a specific profile image color was provided (e.g. for bots), prefer it
+                    if (opts.profileImgColor !== undefined && opts.profileImgColor !== null) {
+                        this.profileImgColor = opts.profileImgColor;
+                    }
+
                     if (opts.name) {
                         this.name = opts.name;
                     } else {
@@ -1347,8 +1504,13 @@
                         this.pickText();
                     }
 
-                    this.pickHasImg();
-                    this.pickHasRichBody();
+                    /*this.pickHasImg();
+                    this.pickHasRichBody();*/
+                    // preserve bot flag when provided
+                    this.isBot = !!opts.isBot;
+                    // preserve user flag and profile image/color when provided
+                    this.isUser = !!opts.isUser;
+                    this.profileImage = opts.profileImage || null;
                     this.setupElements();
                     this.animateIn();
                 }
@@ -1400,7 +1562,9 @@
                 }
 
                 pickHasRichBody() {
-                    this.hasRichBody = !this.hasImage && Math.random() > 0.85;
+                    // Use the real `hasImg` flag (typo previously used `hasImage`).
+                    // Only allow a rich body when there is NOT an image and with low probability.
+                    this.hasRichBody = !this.hasImg && Math.random() > 0.85;
                 }
 
                 setupElements() {
@@ -1408,23 +1572,110 @@
                     this.ele = ele;
                     // set name text and profile initials
                     ele.name.textContent = this.name;
-                    // fill texts
+                    // fill texts — convert @mentions into a pill + color block when possible
+                    function escapeHtml(str) {
+                        return (str + '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+                    }
+
+                    function renderTextWithMentions(src) {
+                        const raw = src == null ? '' : String(src);
+                        // escape whole string first
+                        const escaped = escapeHtml(raw);
+                        // replace @name tokens with a structured mention element when the bot exists
+                        return escaped.replace(/@([A-Za-z0-9_\-]+)/g, (m, token) => {
+                            const registry = window.BOT_REGISTRY || {};
+                            let matched = null;
+                            for (const k in registry) {
+                                if (Object.prototype.hasOwnProperty.call(registry, k) && k.toLowerCase() === token.toLowerCase()) {
+                                    matched = k;
+                                    break;
+                                }
+                            }
+                            if (matched) {
+                                const col = registry[matched] || '#999';
+                                // expose the color as a CSS variable so the pill can use it as a background
+                                return `<span class="mention" data-mention="${matched}" style="--mention-color: ${col}"><span class="mention-pill">@${matched}</span></span>`;
+                            }
+                            return `<span class="mention"><span class="mention-pill">@${escapeHtml(token)}</span></span>`;
+                        });
+                    }
+
                     ele.texts.forEach((n, i) => {
-                        n.textContent = this.textsArray[i] || '';
+                        // Prefer the per-element raw text produced during createElement (wrapped chunks).
+                        const txt = (n && n.dataset && n.dataset.raw) ? n.dataset.raw : (this.textsArray[i] || '');
+                        try {
+                            // If there is no non-whitespace content, remove the empty text element
+                            if (!String(txt).trim()) {
+                                if (n && n.parentNode) n.parentNode.removeChild(n);
+                                return;
+                            }
+
+                            n.innerHTML = renderTextWithMentions(txt);
+                            // render as full-width block; sizing handled by CSS
+                            try {
+                                n.style.display = 'block';
+                                n.style.width = '100%';
+                                n.style.maxWidth = '100%';
+                                n.style.boxSizing = 'border-box';
+                                n.style.overflowWrap = 'break-word';
+                            } catch (e) { /* ignore */ }
+                        } catch (e) {
+                            n.textContent = txt;
+                        }
                     });
                     // style name and profile
                     ele.name.style.backgroundColor = 'transparent';
                     ele.name.style.height = 'auto';
-                    ele.profileImg.style.backgroundColor = this.profileImgColor;
-                    // show initials in profile box
-                    const initials = this.name.split(' ').map(s => s[0]).join('').slice(0,2).toUpperCase();
-                    ele.profileImg.textContent = initials;
-                    ele.profileImg.style.color = '#ffffff';
-                    ele.profileImg.style.display = 'flex';
-                    ele.profileImg.style.alignItems = 'center';
-                    ele.profileImg.style.justifyContent = 'center';
-                    ele.profileImg.style.fontWeight = '700';
-                    ele.profileImg.style.fontSize = '18px';
+                    // compute initials (up to 2 characters)
+                    const initials = (this.name || '').split(' ').map(s => (s || '')[0] || '').join('').slice(0,2).toUpperCase() || 'U';
+
+                    // If this line represents a user (not a bot) and the user has a saved profile image/color,
+                    // prefer rendering that. Bots continue to use their provided profileImgColor.
+                    if (!this.isBot && this.isUser) {
+                        // prefer provided profileImage, then localStorage.profileImage, else use color
+                        const savedImage = this.profileImage || localStorage.getItem('profileImage');
+                        const savedColor = this.profileImgColor || localStorage.getItem('profileColor') || this.profileImgColor;
+                        if (savedImage) {
+                            ele.profileImg.style.backgroundImage = `url(${savedImage})`;
+                            ele.profileImg.textContent = '';
+                        } else {
+                            ele.profileImg.style.backgroundColor = savedColor;
+                            ele.profileImg.textContent = initials;
+                        }
+                    } else {
+                        ele.profileImg.style.backgroundColor = this.profileImgColor;
+                        ele.profileImg.textContent = initials;
+                    }
+
+                    // If this line represents a bot, render a rounded-square avatar with initials
+                    if (this.isBot) {
+                        ele.profileImg.style.color = '#ffffff';
+                        ele.profileImg.style.display = 'flex';
+                        ele.profileImg.style.alignItems = 'center';
+                        ele.profileImg.style.justifyContent = 'center';
+                        ele.profileImg.style.fontWeight = '700';
+                        ele.profileImg.style.fontSize = '18px';
+                        ele.profileImg.style.width = '48px';
+                        ele.profileImg.style.height = '48px';
+                        ele.profileImg.style.borderRadius = '8px';
+                        ele.profileImg.style.flex = '0 0 48px';
+                        ele.profileImg.setAttribute('role','img');
+                        ele.profileImg.setAttribute('aria-label', `Profile picture for ${this.name}, color ${this.profileImgColor || ''}`);
+                    } else {
+                        // Non-bot / user: use the same rounded-square avatar style as bots
+                        ele.profileImg.style.color = '#ffffff';
+                        ele.profileImg.style.display = 'flex';
+                        ele.profileImg.style.alignItems = 'center';
+                        ele.profileImg.style.justifyContent = 'center';
+                        ele.profileImg.style.fontWeight = '700';
+                        ele.profileImg.style.fontSize = '18px';
+                        ele.profileImg.style.width = '48px';
+                        ele.profileImg.style.height = '48px';
+                        ele.profileImg.style.borderRadius = '8px';
+                        ele.profileImg.style.flex = '0 0 48px';
+                        ele.profileImg.setAttribute('role','img');
+                        ele.profileImg.setAttribute('aria-label', `Profile picture for ${this.name}, color ${this.profileImgColor || ''}`);
+                    }
                 }
 
                 animateIn() {
@@ -1499,10 +1750,60 @@
                     let img = createElement({ class: "img" });
                     let richBody = createElement({ class: "rich-body" });
                     body.appendChild(name);
-                    for (let i = 0; i < (this.textCount || 1); i++) {
-                        let text = createElement({ class: "text" });
-                        texts.push(text);
-                        body.appendChild(text);
+                    // Create `.text` elements by wrapping each message string into line-sized blocks.
+                    // This determines how many visual line blocks appear for each message based on length.
+                    function wrapToLines(str) {
+                        const raw = String(str == null ? '' : str).trim();
+                        if (!raw) return [];
+                        // approximate chars per line based on available textWidth
+                        const approxChar = 8; // px per character (approx)
+                        const padding = 24; // account for bubble padding
+                        const availablePx = (typeof textWidth === 'number' && textWidth > 0) ? textWidth : 320;
+                        const maxChars = Math.max(24, Math.floor((availablePx - padding) / approxChar));
+                        const words = raw.split(/\s+/);
+                        const lines = [];
+                        let cur = '';
+                        words.forEach((w) => {
+                            if (!cur) {
+                                cur = w;
+                                return;
+                            }
+                            if ((cur.length + 1 + w.length) <= maxChars) {
+                                cur += ' ' + w;
+                            } else {
+                                lines.push(cur);
+                                cur = w;
+                            }
+                        });
+                        if (cur) lines.push(cur);
+                        return lines;
+                    }
+
+                    if (Array.isArray(this.textsArray) && this.textsArray.length) {
+                        for (let i = 0; i < this.textsArray.length; i++) {
+                            const candidate = this.textsArray[i];
+                            // wrap into one or more visual lines
+                            const chunks = wrapToLines(candidate);
+                            for (const ch of chunks) {
+                                let text = createElement({ class: "text" });
+                                // store the actual line text on the element so setupElements can render it
+                                try { text.dataset.raw = ch; } catch (e) { /* ignore */ }
+                                texts.push(text);
+                                body.appendChild(text);
+                            }
+                        }
+                        // If nothing was added (all entries were empty), still create one text node
+                        if (texts.length === 0) {
+                            let text = createElement({ class: "text" });
+                            texts.push(text);
+                            body.appendChild(text);
+                        }
+                    } else {
+                        for (let i = 0; i < (this.textCount || 1); i++) {
+                            let text = createElement({ class: "text" });
+                            texts.push(text);
+                            body.appendChild(text);
+                        }
                     }
                     line.appendChild(profileImg);
                     line.appendChild(body);
@@ -1540,12 +1841,61 @@
                 // Give user's messages a consistent hue (purple) unless overridden
                 const userHue = opts.hue !== undefined ? opts.hue : 270;
 
-                const lineOpts = Object.assign({ textsArray: [text], name: username, hue: userHue }, opts);
+                // include user flags and saved profile info so chat avatar matches header/profile
+                const savedProfileColor = localStorage.getItem('profileColor') || undefined;
+                const savedProfileImage = localStorage.getItem('profileImage') || undefined;
+                const lineOpts = Object.assign({ textsArray: [text], name: username, hue: userHue, isUser: true, profileImgColor: savedProfileColor, profileImage: savedProfileImage }, opts);
                 const line = new Line(chat, lineOpts);
                 // register and append
                 chat.lines.push(line);
                 try { chat.ele.appendChild(line.ele.lineContainer); } catch (e) { /* ignore */ }
                 return line;
+            };
+
+            // Create a dummy bot that periodically posts messages using the Line class.
+            // Usage: const b = createBot('Aria', { profileImgColor:'#6ee7b7', messages:['Hi','How are you?'], interval:5000 });
+            window.createBot = function (name, opts = {}) {
+                const chat = chats[0] || addChat();
+                const messages = opts.messages || ["Hello!", "Nice to meet you."];
+                const interval = typeof opts.interval === 'number' ? opts.interval : 8000;
+                // prefer explicit opts.profileImgColor, then registered bot color, then opts.color
+                const profileImgColor = opts.profileImgColor || (window.BOT_REGISTRY && window.BOT_REGISTRY[name]) || opts.color || undefined;
+                const hue = opts.hue !== undefined ? opts.hue : undefined;
+
+                let i = 0;
+                const timer = setInterval(() => {
+                    const text = messages[i % messages.length];
+                    const lineOpts = { name: name, textsArray: [text], isUser: false, isBot: true };
+                    if (profileImgColor) lineOpts.profileImgColor = profileImgColor;
+                    if (hue !== undefined) lineOpts.hue = hue;
+                    const line = new Line(chat, lineOpts);
+                    chat.lines.push(line);
+                    try { chat.ele.appendChild(line.ele.lineContainer); } catch (e) {}
+                    i++;
+                }, interval);
+
+                const bot = {
+                    name,
+                    color: profileImgColor,
+                    stop() { clearInterval(timer); },
+                    start() { /* no-op: already running */ },
+                    timer
+                };
+                // register bot instance for external control
+                window._bots = window._bots || [];
+                window._bots.push(bot);
+                return bot;
+            };
+
+            // Spawn a few sample bots (no-op if you prefer to create them manually)
+            window.spawnSampleBots = function () {
+                if (window._sampleBotsSpawned) return;
+                window._sampleBotsSpawned = true;
+                const bots = [];
+                bots.push(window.createBot('Aria', { profileImgColor: '#6EE7B7', messages: ['Nice work! 🎉','Thanks for the update.'], interval: 9000 }));
+                bots.push(window.createBot('James', { profileImgColor: '#7C3AED', messages: ['Where can I find that?','Sounds good to me.'], interval: 7000 }));
+                bots.push(window.createBot('Ava', { profileImgColor: '#F97316', messages: ['I will check and update.','Let me know your thoughts.'], interval: 11000 }));
+                return bots;
             };
 
             // Wire the input controls to the send helper
@@ -1576,10 +1926,98 @@
                     });
                 }
 
-                if (addFileBtn && input) {
-                    addFileBtn.addEventListener('click', () => {
-                        // placeholder behaviour: focus the input. Hook file picker here if desired.
-                        input.focus();
+                // bot palette container (initially hidden; clicking add-file toggles it)
+                const botPalette = document.querySelector('.container-items');
+                if (botPalette) {
+                    botPalette.hidden = true;
+                }
+
+                if (addFileBtn) {
+                    // Toggle the bot palette when clicking the attach button.
+                    addFileBtn.setAttribute('aria-pressed', 'false');
+                    addFileBtn.addEventListener('click', (e) => {
+                        if (botPalette) {
+                            const isHidden = !!botPalette.hidden;
+                            botPalette.hidden = !isHidden;
+                            addFileBtn.setAttribute('aria-pressed', String(!isHidden));
+                            // prevent focusing the input when toggling
+                            return;
+                        }
+                        if (input) input.focus();
+                    });
+                }
+
+                // Color palette buttons: set the local profile color or create a bot when modifier key pressed
+                const colorButtons = document.querySelectorAll('.item-color');
+                if (colorButtons && colorButtons.length) {
+                    const NAMES = [
+                        'Ava','Liam','Noah','Emma','Olivia','Mason','Sophia','Isabella','Lucas','Mia',
+                        'Ethan','Amelia','Harper','Ella','James','Evelyn','Benjamin','Charlotte','Logan','Aria'
+                    ];
+                    const stored = (localStorage.getItem('profileColor') || '').toLowerCase();
+                    colorButtons.forEach((btn, idx) => {
+                        // Read color from inline CSS variable `--color` if present, then from data-color,
+                        // then fallback to legacy aria-color (was previously holding the name),
+                        // finally fall back to computed background color.
+                        let col = '';
+                        try {
+                            col = btn.style && btn.style.getPropertyValue('--color') ? btn.style.getPropertyValue('--color').trim() : '';
+                        } catch (e) { col = ''; }
+                        if (!col) col = (btn.dataset && btn.dataset.color) ? (btn.dataset.color + '').trim() : '';
+                        if (!col) col = (btn.getAttribute('aria-color') || '').trim();
+                        if (!col) {
+                            const cs = window.getComputedStyle ? getComputedStyle(btn) : null;
+                            col = (cs && (cs.backgroundColor || cs.color)) ? (cs.backgroundColor || cs.color) : '';
+                        }
+                        const botName = btn.dataset && btn.dataset.botName ? btn.dataset.botName : (NAMES[idx] || `Bot${idx+1}`);
+                        // compute initials (1-2 chars) and render on the swatch
+                        const initials = (botName || '').split(' ').map(s => s[0] || '').join('').slice(0,2).toUpperCase();
+                        try { btn.textContent = initials; } catch (e) { /* ignore */ }
+                        btn.setAttribute('data-initial', initials);
+                        btn.setAttribute('role', 'button');
+                        btn.setAttribute('tabindex', '0');
+                        btn.setAttribute('aria-label', `Bot ${botName}, color ${col}`);
+                        btn.setAttribute('aria-pressed', (stored && stored.toLowerCase() === (col + '').toLowerCase()) ? 'true' : 'false');
+
+                        // register the button's name->color mapping globally so createBot can reuse it
+                        window.BOT_REGISTRY = window.BOT_REGISTRY || {};
+                        window.BOT_REGISTRY[botName] = col;
+
+                        // clicking spawns the bot; modifier-click (ctrl/meta/shift) sets profile color instead
+                        btn.addEventListener('click', (e) => {
+                            if (e.ctrlKey || e.metaKey || e.shiftKey) {
+                                // set profile color
+                                localStorage.setItem('profileColor', col);
+                                colorButtons.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+                                btn.setAttribute('aria-pressed', 'true');
+                                try { console.info('Profile color set to', col); } catch (err) {}
+                                return;
+                            }
+
+                            // spawn bot with this name and color
+                            if (window.createBot) {
+                                const bot = window.createBot(botName, { profileImgColor: col, messages: [
+                                    'Hello!', 'How is everyone?', 'Nice work!', 'I will check and update.'
+                                ], interval: 6000 + (idx * 500) });
+                                try { console.info('Created bot', bot && bot.name); } catch (err) {}
+                            }
+                        });
+
+                        btn.addEventListener('keydown', (e) => {
+                            // Enter/Space -> spawn bot
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                if (e.shiftKey) {
+                                    // Shift+Enter: set profile color
+                                    localStorage.setItem('profileColor', col);
+                                    colorButtons.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+                                    btn.setAttribute('aria-pressed', 'true');
+                                } else {
+                                    // spawn bot
+                                    if (window.createBot) window.createBot(botName, { profileImgColor: col, messages:['Hi'], interval:7000 });
+                                }
+                            }
+                        });
                     });
                 }
             });
