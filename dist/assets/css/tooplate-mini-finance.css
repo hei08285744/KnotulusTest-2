@@ -2889,6 +2889,124 @@ header .dropdown-menu .ti {
     font-size:16px; 
   }
 
+.custom-block-badges { 
+  position: relative; 
+  transition: max-height 300ms ease; 
+  overflow: hidden; display: flex; 
+  flex-direction: column; 
+}
+
+.custom-block-badges .expand-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background:#000;
+  color:#fff;
+  border:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:10;
+  padding:6px;
+}
+  /* Make main content area scrollable so input stays at bottom */
+  .custom-block-badges #chat-container,
+  .custom-block-badges .card-message,
+  .custom-block-badges .meeting-card {
+      flex: 1 1 auto;
+      overflow: auto;
+  }
+
+  /* Pin chat input to bottom of the block */
+  .custom-block-badges #chat-input-area {
+      margin-top: auto;
+      flex: 0 0 auto;
+  }
+
+  /* Default constrained height for left column blocks (so expand is useful) */
+  .custom-block-badges[data-collapsible="true"] { 
+    max-height: 360px; 
+  }
+  /* stronger rule when expanded to act as a fallback if inline styles are reset */
+  .custom-block-badges[data-collapsible="true"].expanded {
+    max-height: 1200px !important; 
+  }
+
+/*---------------------------------------
+  community // Chat mention features @
+-----------------------------------------*/
+
+/* mention preview shown under the chat input when typing @name */
+.mention-preview {
+  position: absolute;
+  /* align to the flex-start (left) of the input wrapper */
+  left: 8px;
+  bottom: calc(100% + 8px); /* place above the input */
+  transform: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  font-size: 13px;
+  z-index: 50;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.mention-preview .mention-swatch { 
+  width: 16px; 
+  height: 16px; 
+  border-radius: 6px; 
+  display: inline-block; 
+}
+
+.mention-preview[hidden] { 
+  display: none !important; 
+}
+
+/* Inline mention styling for chat messages: show the @pill and a color block below it */
+.mention { 
+  display: inline-flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
+  gap: 6px; 
+  vertical-align: middle; 
+}
+.mention .mention-pill { 
+  display: inline-block; 
+  background: var(--mention-color, rgba(255,255,255,0.06)); 
+  color: #fff; 
+  padding: 6px 10px; 
+  border-radius: 6px; 
+  font-size: 13px; 
+}
+
+/* when mention is alone on a line, keep spacing reasonable */
+.text .mention { 
+  margin-top:0; 
+}
+
+/* Make message text render as full-width straight bars */
+.line .body .text { 
+  display: block; 
+  width: 100%; 
+  box-sizing: border-box; 
+  background: rgba(255,255,255,0.04); 
+  color: #f3f4f6; 
+  padding: 10px 12px; 
+  border-radius: 6px; 
+  margin: 8px 0; 
+  font-family: 'Roboto Mono', monospace; 
+  font-size: 15px; 
+}
+
 /* text blocks should wrap and not expand the row */
 .body .text {
   width: 100%;
@@ -3126,6 +3244,118 @@ header .dropdown-menu .ti {
 .card-message .front {
   transform: translate3d(0, 0, 1em);
 }
+
+.container-items {
+  display: flex;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.item-color {
+  position: relative;
+  flex-shrink: 0;
+  width: 32px;
+  height: 40px;
+  border: none;
+  outline: none;
+  transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  cursor: pointer;
+  color: #ffffff;
+  z-index: 1; /* create stacking context for pseudo-element layering */
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  padding: 19px;
+
+
+  &::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color);
+    border-radius: 6px;
+    transform: scale(1.2);
+    /* place the colored square behind the element content */
+    z-index: -1;
+    pointer-events: none;
+    transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  }
+
+  /* initials host element: center content and ensure it's above the color square */
+  .initial {
+    position: relative;
+    z-index: 3;
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    color: #ffffff;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &::before {
+    position: absolute;
+    /* show the bot name stored in data-bot-name as a pill above the swatch */
+    content: attr(data-bot-name);
+    left: 50%;
+    bottom: 56px;
+    font-size: 11px;
+    line-height: 14px;
+    transform: translateX(-50%) translateY(6px);
+    padding: 4px 8px;
+    background-color: #ffffff;
+    color: #111827;
+    border-radius: 12px;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    transition: 180ms ease, transform 220ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  }
+
+  &:hover {
+    transform: scale(1.5);
+    z-index: 99999;
+
+    &::before {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0px);
+    }
+  }
+
+  &:active::after {
+    transform: scale(1.1);
+  }
+}
+
+.item-color:hover + * {
+  transform: scale(1.3);
+  z-index: 9999;
+}
+
+.item-color:hover + * + * {
+  transform: scale(1.15);
+  z-index: 999;
+}
+
+.item-color:has(+ *:hover) {
+  transform: scale(1.3);
+  z-index: 9999;
+}
+
+.item-color:has(+ * + *:hover) {
+  transform: scale(1.15);
+  z-index: 999;
+}
+
 
 /*---------------------------------------
   community // upcoming meeting
