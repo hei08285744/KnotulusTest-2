@@ -11,8 +11,8 @@
 
         <!-- CSS FILES -->      
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
         <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
         <link href="assets/css/apexcharts.css" rel="stylesheet">
@@ -152,17 +152,16 @@
                     </div>-->
 
                     <div class="dropdown px-4">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <!--<img src="images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">-->
-                            <img class = "profile-image img-fluid" src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light'/>
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div id="header-avatar" class="header-avatar profile-img" role="img" aria-label="Profile avatar">U</div>
                             <span class="position-absolute end-0 bottom-60 translate-middle p-1-5 bg-danger border border-light rounded-circle">
                                 <span class="visually-hidden">New alerts</span>
                             </span>
                         </a>
                         <ul class="dropdown-menu shadow">
                             <li>
-                                <div class="dropdown-menu-profile-thumb d-flex">
-                                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-3" alt="">
+                                <div class="dropdown-menu-profile-thumb d-flex align-items-center">
+                                    <div id="header-dropdown-avatar" class="header-dropdown-avatar profile-img me-3" role="img" aria-label="Profile avatar small">U</div>
 
                                     <div class="d-flex flex-column">
                                         <!-- IDs added so script can update dropdown when profile is changed -->
@@ -500,6 +499,22 @@
                         headerEmail.textContent = email || '';
                         if (email) headerEmail.href = 'mailto:' + email;
                     }
+
+                        // update header avatars (colored initials blocks)
+                        const profileColor = localStorage.getItem('profileColor') || '#7C3AED';
+                        const headerAvatar = document.getElementById('header-avatar');
+                        const headerDropdownAvatar = document.getElementById('header-dropdown-avatar');
+                        const initials = (name || '').split(' ').map(s => (s || '')[0] || '').join('').slice(0,2).toUpperCase() || 'U';
+                        if (headerAvatar) {
+                            headerAvatar.textContent = initials;
+                            headerAvatar.style.backgroundColor = profileColor;
+                            headerAvatar.style.color = '#ffffff';
+                        }
+                        if (headerDropdownAvatar) {
+                            headerDropdownAvatar.textContent = initials;
+                            headerDropdownAvatar.style.backgroundColor = profileColor;
+                            headerDropdownAvatar.style.color = '#ffffff';
+                        }
 
                     // update other common selectors (navbar username, profile-name, dropdown-username)
                     document.querySelectorAll('.navbar-username, #profile-name, #dropdown-username').forEach(el => {

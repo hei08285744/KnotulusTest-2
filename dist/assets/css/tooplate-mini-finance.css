@@ -65,6 +65,56 @@ body {
   font-family: var(--body-font-family);
 }
 
+/* Avatar initials (header) - moved from inline page styles so it's global */
+.header-avatar, .header-dropdown-avatar {
+  color: var(--white-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  flex: 0 0 44px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* allow a small notification dot in the top-right corner */
+.header-avatar.notification-dot,
+.header-dropdown-avatar.notification-dot {
+  position: relative; /* create positioning context for the dot */
+}
+
+.header-avatar.notification-dot::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 14px;
+  height: 14px;
+  background: #ef4444; /* red */
+  border-radius: 50%;
+  border: 3px solid #ffffff; /* white rim */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 3;
+}
+
+.header-dropdown-avatar.notification-dot::after {
+  /* slightly smaller dot for dropdown avatar */
+  top: -5px;
+  right: -5px;
+  width: 12px;
+  height: 12px;
+  border-width: 2px;
+}
+
+/* Slightly smaller avatar used inside dropdown menu */
+.header-dropdown-avatar { width: 40px; height: 40px; font-size: 15px; }
+
+/* Ensure header avatar aligns nicely in the navbar */
+.nav-link .header-avatar { margin-right: 8px; }
 
 /*---------------------------------------
   TYPOGRAPHY               
@@ -430,6 +480,7 @@ i{
 /*---------------------------------------
     button
 -----------------------------------------*/
+
 #edit-profile-btn,
 #cancel-profile-btn,
 .btn.custom-btn {
@@ -1376,8 +1427,6 @@ header .dropdown-menu .ti {
   }
 }
 
-
-
 .navbar-toggler {
   background: var(--primary-color);
   border-radius: var(--border-radius-small);
@@ -1702,6 +1751,10 @@ header .dropdown-menu .ti {
   text-align: center;
 }
 
+/*-----------------------------------------
+Profile / custom block profile image
+-------------------------------------------*/
+
 .custom-block-edit-icon:hover {
   background: var(--custom-btn-bg-color);
   color: var(--white-color);
@@ -1716,6 +1769,42 @@ header .dropdown-menu .ti {
 .custom-block-profile-front .custom-block-edit-icon {
   bottom: 10px;
 }
+
+/* Profile page avatar (reduced size) */
+            .custom-block-profile-image {
+                width: 60px;
+                height: 60px;
+                border-radius: 10px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 18px;
+                color: #ffffff;
+                background-color: #7C3AED;
+            }
+            .custom-block-profile-image-wrap { position: relative; display: inline-block; }
+            .custom-block-edit-icon {
+                position: absolute;
+                right: -6px;
+                bottom: -6px;
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: #5e6b75;
+                color: #fff;
+
+                z-index: 3;
+                box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+                text-decoration: none;
+                font-size: 14px;
+                transition: transform .12s ease;
+                transform-origin: center;
+            }
+            .custom-block-edit-icon:hover { transform: translateY(-2px) scale(1.03); }
 
 .custom-block-bottom {
   background: var(--custom-btn-bg-color);
@@ -2832,6 +2921,30 @@ header .dropdown-menu .ti {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+
+/* Header-specific overrides: make header avatars smaller and keep them consistent
+   These selectors are more specific than plain `.profile-img` so they win. */
+.header-avatar.profile-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  font-size: 16px;
+  flex: 0 0 44px;
+}
+.header-dropdown-avatar.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 15px;
+  flex: 0 0 40px;
+}
+
+.profile-img img { 
+  display: none; 
 }
 
 #chat-input-area { 

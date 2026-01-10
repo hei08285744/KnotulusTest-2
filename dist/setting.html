@@ -99,16 +99,16 @@
                     </div>
 
                     <div class="dropdown px-4">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img class = "profile-image img-fluid" src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light'/>
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div id="header-avatar" class="header-avatar profile-img" role="img" aria-label="Profile avatar">U</div>
                             <span class="position-absolute end-0 bottom-60 translate-middle p-1-5 bg-danger border border-light rounded-circle">
                                 <span class="visually-hidden">New alerts</span>
                             </span>
                         </a>
                         <ul class="dropdown-menu shadow">
                             <li>
-                                <div class="dropdown-menu-profile-thumb d-flex">
-                                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-3" alt="">
+                                <div class="dropdown-menu-profile-thumb d-flex align-items-center">
+                                    <div id="header-dropdown-avatar" class="header-dropdown-avatar profile-img me-3" role="img" aria-label="Profile avatar small">U</div>
 
                                     <div class="d-flex flex-column">
                                         <b id="header-small-name">Thomas</b>
@@ -257,12 +257,36 @@
 
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                                        <h6 class="mb-4">User Profile</h6>
-
+                                        <h6 class="mb-4">Profile Image</h6>
+                                        <div class="container-items">
+                                            <button class="item-color" style="--color: #e11d48" aria-color="#e11d48"></button>
+                                            <button class="item-color" style="--color: #f472b6" aria-color="#f472b6"></button>
+                                            <button class="item-color" style="--color: #fb923c" aria-color="#fb923c"></button>
+                                            <button class="item-color" style="--color: #facc15" aria-color="#facc15"></button>
+                                            <button class="item-color" style="--color: #84cc16" aria-color="#84cc16"></button>
+                                            <button class="item-color" style="--color: #10b981" aria-color="#10b981"></button>
+                                            <button class="item-color" style="--color: #0ea5e9" aria-color="#0ea5e9"></button>
+                                            <button class="item-color" style="--color: #3b82f6" aria-color="#3b82f6"></button>
+                                            <button class="item-color" style="--color: #8b5cf6" aria-color="#8b5cf6"></button>
+                                            <button class="item-color" style="--color: #a78bfa" aria-color="#a78bfa"></button>
+                                        </div><br>
+                                        
+                                        <!-- Profile image preview (upload removed). Use color swatches + initials. -->
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div id="profile-image-preview" class="custom-block-profile-image me-3" role="img" aria-label="Profile preview">U</div>
+                                            <div style="flex:1;">
+                                                <div class="d-flex gap-2">
+                                                    <button id="btn-clear-profile-image" class="btn btn-secondary btn-sm">Clear</button>
+                                                    <button id="btn-save-profile-preview" class="btn btn-primary btn-sm">Save</button>
+                                                </div>
+                                                <small class="text-muted d-block mt-2">pick a color swatch to use initials.</small>
+                                            </div>
+                                        </div><br>
+                                        <h6 class="mb-4">Edit Profile</h6>
                                         <div class="col-lg-9 col-12">
                                             <div class="d-flex align-items-center mb-3">
                                                 <div class="me-3">
-                                                    <div class="small text-muted"><p>Use Edit to update name, email, and Shopify credentials.</p></div>
+                                                    <small class="text-muted d-block mt-2">Use Edit to update name, email.</small>
                                                 </div>
                                                 <button type="button" id="edit-profile-btn" class="btn custom-btn btn-sm ms-3">Edit</button>
                                             </div>
@@ -792,6 +816,30 @@
                     if (savedName) {
                         inputName.value = savedName;
                         headerName.textContent = savedName;
+                        // update header avatars when loading
+                        try {
+                            const headerAvatar = document.getElementById('header-avatar');
+                            const headerDropdownAvatar = document.getElementById('header-dropdown-avatar');
+                            const col = localStorage.getItem('profileColor') || '#7C3AED';
+                            const initials = (savedName || '').split(' ').map(s => (s || '')[0] || '').join('').slice(0,2).toUpperCase() || 'U';
+                            if (headerAvatar) { headerAvatar.textContent = initials; headerAvatar.style.backgroundColor = col; }
+                            if (headerDropdownAvatar) { headerDropdownAvatar.textContent = initials; headerDropdownAvatar.style.backgroundColor = col; }
+                            // also update the profile image preview if on settings page
+                            const preview = document.getElementById('profile-image-preview');
+                            const savedImage = localStorage.getItem('profileImage');
+                            if (preview) {
+                                if (savedImage) {
+                                    preview.style.backgroundImage = `url(${savedImage})`;
+                                    preview.textContent = '';
+                                    preview.style.backgroundSize = 'cover';
+                                    preview.style.backgroundPosition = 'center';
+                                } else {
+                                    preview.style.backgroundImage = '';
+                                    preview.textContent = initials;
+                                    preview.style.backgroundColor = col;
+                                }
+                            }
+                        } catch (e) { /* ignore */ }
                     }
                     if (savedEmail) {
                         inputEmail.value = savedEmail;
@@ -864,8 +912,149 @@
                     
                     // 3. Finalize
                     try { window.dispatchEvent(new Event('storage')); } catch(e) {}
+                    // ensure header avatars in this tab update too
+                    try {
+                        const col = localStorage.getItem('profileColor') || '#7C3AED';
+                        const name = inputName.value.trim();
+                        const initials = (name || '').split(' ').map(s => (s || '')[0] || '').join('').slice(0,2).toUpperCase() || 'U';
+                        const headerAvatar = document.getElementById('header-avatar');
+                        const headerDropdownAvatar = document.getElementById('header-dropdown-avatar');
+                        if (headerAvatar) { headerAvatar.textContent = initials; headerAvatar.style.backgroundColor = col; }
+                        if (headerDropdownAvatar) { headerDropdownAvatar.textContent = initials; headerDropdownAvatar.style.backgroundColor = col; }
+                    } catch(e) {}
                     showForm(false);
                 });
+
+                // --- Profile preview & color swatch handling ---
+                const previewEl = document.getElementById('profile-image-preview');
+                const btnClearImage = document.getElementById('btn-clear-profile-image');
+                // temporarily selected color from swatches (only persisted on Save)
+                let pendingProfileColor = null;
+
+                // Ensure preview shows initials + color when no uploaded image feature
+                if (previewEl) {
+                    const currentName = inputName.value.trim() || localStorage.getItem('profileName') || '';
+                    const initials = (currentName || '').split(' ').map(s => (s || '')[0] || '').join('').slice(0,2).toUpperCase() || 'U';
+                    const col = localStorage.getItem('profileColor') || '#7C3AED';
+                    previewEl.style.backgroundImage = '';
+                    previewEl.textContent = initials;
+                    previewEl.style.backgroundColor = col;
+                    previewEl.style.backgroundSize = 'cover';
+                    previewEl.style.backgroundPosition = 'center';
+                }
+
+                if (btnClearImage) {
+                    btnClearImage.addEventListener('click', () => {
+                        localStorage.removeItem('profileImage');
+                        // clear any pending color selection so preview falls back to saved color
+                        pendingProfileColor = null;
+                        // clear swatch selection visuals
+                        document.querySelectorAll('.container-items .item-color').forEach(s => s.classList.remove('selected'));
+                        // reset preview to initials + saved color
+                        const currentName = inputName.value.trim() || localStorage.getItem('profileName') || '';
+                        const initials = (currentName || '').split(' ').map(s => (s || '')[0] || '').join('').slice(0,2).toUpperCase() || 'U';
+                        const col = localStorage.getItem('profileColor') || '#7C3AED';
+                        if (previewEl) {
+                            previewEl.style.backgroundImage = '';
+                            previewEl.textContent = initials;
+                            previewEl.style.backgroundColor = col;
+                        }
+                        try { window.updateProfileDisplay && window.updateProfileDisplay(); } catch(e) {}
+                    });
+                }
+
+                // Save preview (persist current initials + color)
+                const btnSavePreview = document.getElementById('btn-save-profile-preview');
+                if (btnSavePreview) {
+                    btnSavePreview.addEventListener('click', () => {
+                        const col = localStorage.getItem('profileColor') || '#7C3AED';
+                        const name = inputName.value.trim() || localStorage.getItem('profileName') || '';
+                        const email = (typeof inputEmail !== 'undefined' && inputEmail && inputEmail.value) ? inputEmail.value.trim() : (localStorage.getItem('profileEmail') || '');
+
+                        // Persist core profile values
+                        if (name) localStorage.setItem('profileName', name);
+                        if (email) localStorage.setItem('profileEmail', email);
+                        // if the user selected a new color (pending), persist that; otherwise keep saved
+                        const colorToSave = pendingProfileColor || col || '#7C3AED';
+                        localStorage.setItem('profileColor', colorToSave);
+                        // prefer initials/color (remove any uploaded image)
+                        try { localStorage.removeItem('profileImage'); } catch(e) {}
+
+                        // Immediately update DOM in this tab for instant feedback
+                        try {
+                            const initials = (name || '').split(' ').map(s => (s || '')[0] || '').join('').slice(0,2).toUpperCase() || 'U';
+                            const headerAvatar = document.getElementById('header-avatar');
+                            const headerDropdownAvatar = document.getElementById('header-dropdown-avatar');
+                            const profilePageAvatar = document.getElementById('profile-page-avatar');
+                            const preview = document.getElementById('profile-image-preview');
+                            const headerSmallName = document.getElementById('header-small-name');
+                            const headerSmallEmail = document.getElementById('header-small-email');
+
+                            if (headerSmallName) headerSmallName.textContent = name || '';
+                            if (headerSmallEmail) { headerSmallEmail.textContent = email || ''; if (email) headerSmallEmail.href = 'mailto:' + email; }
+
+                            // Use profileImage if present, otherwise initials + color
+                            const savedImage = localStorage.getItem('profileImage');
+                            const usedColor = pendingProfileColor || colorToSave || '#7C3AED';
+                            // clear pending selection once applied
+                            pendingProfileColor = null;
+                            // clear swatch visuals now that we've saved
+                            document.querySelectorAll('.container-items .item-color').forEach(s => s.classList.remove('selected'));
+
+                            if (savedImage) {
+                                if (headerAvatar) { headerAvatar.style.backgroundImage = `url(${savedImage})`; headerAvatar.textContent = ''; }
+                                if (headerDropdownAvatar) { headerDropdownAvatar.style.backgroundImage = `url(${savedImage})`; headerDropdownAvatar.textContent = ''; }
+                                if (profilePageAvatar) { profilePageAvatar.style.backgroundImage = `url(${savedImage})`; profilePageAvatar.textContent = ''; }
+                                if (preview) { preview.style.backgroundImage = `url(${savedImage})`; preview.textContent = ''; }
+                            } else {
+                                if (headerAvatar) { headerAvatar.style.backgroundImage = ''; headerAvatar.textContent = initials; headerAvatar.style.backgroundColor = usedColor; headerAvatar.style.color = '#ffffff'; }
+                                if (headerDropdownAvatar) { headerDropdownAvatar.style.backgroundImage = ''; headerDropdownAvatar.textContent = initials; headerDropdownAvatar.style.backgroundColor = usedColor; headerDropdownAvatar.style.color = '#ffffff'; }
+                                if (profilePageAvatar) { profilePageAvatar.style.backgroundImage = ''; profilePageAvatar.textContent = initials; profilePageAvatar.style.backgroundColor = usedColor; profilePageAvatar.style.color = '#ffffff'; }
+                                if (preview) { preview.style.backgroundImage = ''; preview.textContent = initials; preview.style.backgroundColor = usedColor; }
+                            }
+                        } catch (e) { console.error('Error updating avatars after save:', e); }
+
+                        // broadcast change to other tabs/windows and call global helper if available
+                        try { window.dispatchEvent(new Event('storage')); } catch(e) {}
+                        try { window.updateProfileDisplay && window.updateProfileDisplay(); } catch(e) {}
+                        try { if (typeof showPopup === 'function') showPopup('Profile preview saved.'); } catch(e) {}
+                    });
+                }
+
+                // Color swatch clicks in settings should set profileColor and update preview
+                const swatches = document.querySelectorAll('.container-items .item-color');
+                if (swatches && swatches.length) {
+                    swatches.forEach((btn) => {
+                        btn.addEventListener('click', (e) => {
+                            // determine color from swatch
+                            let col = '';
+                            try { col = btn.style.getPropertyValue('--color') || btn.getAttribute('aria-color') || ''; } catch(e) { col = btn.getAttribute('aria-color') || ''; }
+                            if (!col) {
+                                const cs = window.getComputedStyle ? getComputedStyle(btn) : null;
+                                col = (cs && (cs.backgroundColor || cs.color)) ? (cs.backgroundColor || cs.color) : '';
+                            }
+                            if (!col) return;
+
+                            // set as pending selection (do NOT persist yet)
+                            pendingProfileColor = col;
+
+                            // update preview to reflect selection immediately
+                            if (previewEl) {
+                                const currentName = inputName.value.trim() || localStorage.getItem('profileName') || '';
+                                const initials = (currentName || '').split(' ').map(s => (s || '')[0] || '').join('').slice(0,2).toUpperCase() || 'U';
+                                previewEl.style.backgroundImage = '';
+                                previewEl.textContent = initials;
+                                previewEl.style.backgroundColor = col;
+                            }
+
+                            // update swatch visual selection
+                            document.querySelectorAll('.container-items .item-color').forEach(s => s.classList.remove('selected'));
+                            btn.classList.add('selected');
+
+                            // Do NOT update header avatars or localStorage until Save is clicked
+                        });
+                    });
+                }
 
                 // --- Initial Load ---
                 loadProfile();

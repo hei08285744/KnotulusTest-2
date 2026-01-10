@@ -11,11 +11,11 @@
 
         <!-- CSS FILES -->      
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
         <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/css/apexcharts.css" rel="stylesheet">
         <link href="assets/css/tooplate-mini-finance.css" rel="stylesheet">
         <style>
             .btn-sm {
@@ -23,7 +23,7 @@
                 font-size: 0.7rem;
                 border-radius: 0.3rem;
                 width: 150px; 
-            }
+            } 
         </style>
     </head>
     
@@ -75,18 +75,18 @@
                             </li>
                         </ul>
                     </div>
-
+                    
                     <div class="dropdown px-4">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img class = "profile-image img-fluid" src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light'/>
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div id="header-avatar" class="header-avatar profile-img" role="img" aria-label="Profile avatar">U</div>
                             <span class="position-absolute end-0 bottom-60 translate-middle p-1-5 bg-danger border border-light rounded-circle">
                                 <span class="visually-hidden">New alerts</span>
                             </span>
                         </a>
                         <ul class="dropdown-menu shadow">
                             <li>
-                                <div class="dropdown-menu-profile-thumb d-flex">
-                                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-3" alt="">
+                                <div class="dropdown-menu-profile-thumb d-flex align-items-center">
+                                    <div id="header-dropdown-avatar" class="header-dropdown-avatar profile-img me-3" role="img" aria-label="Profile avatar small">U</div>
 
                                     <div class="d-flex flex-column">
                                         <b id="header-small-name">Thomas</b>
@@ -107,7 +107,6 @@
             </div>
         </header>
         <br>
-
         <div class="container-fluid">
             <div class="row">
                 <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
@@ -196,14 +195,14 @@
                                     <div class="col-lg-12 col-12 mb-3"><h6>General</h6></div>
                                     <div class="col-lg-3 col-12 mb-4 mb-lg-0">
                                         <div class="custom-block-profile-image-wrap">
-                                            <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="custom-block-profile-image img-fluid" alt="">
+                                            <div id="profile-page-avatar" class="custom-block-profile-image" role="img" aria-label="Profile avatar">U</div>
                                             <a href="setting.html" class="bi-pencil-square custom-block-edit-icon"></a>
                                         </div>
                                     </div>
                                     <div class="col-lg-9 col-12">
                                         <p class="d-flex flex-wrap mb-2"><strong>Name:</strong><span id="display-profile-name" class="ms-2"></span></p>
                                         <p class="d-flex flex-wrap mb-2"><strong>Email:</strong><a id="display-profile-email" class="ms-2" href="#"></a></p>
-                                        <p class="d-flex flex-wrap mb-2"><strong>Shop Name:</strong><span id="display-profile-shop" class="ms-2"></span></p>
+                                        <!--<p class="d-flex flex-wrap mb-2"><strong>Shop Name:</strong><span id="display-profile-shop" class="ms-2"></span></p>-->
 
                                         <div class="wrapper-profile">
                                             <section class="section">
@@ -593,32 +592,75 @@
             });
         </script>
 
-        <script>
-            // This script loads the user's profile data from localStorage and populates the DOM.
-            document.addEventListener('DOMContentLoaded', () => {
-                const displayName = document.getElementById('display-profile-name');
-                const displayEmail = document.getElementById('display-profile-email');
-                const displayShop = document.getElementById('display-profile-shop');
-                const headerName = document.getElementById('header-small-name');
-                const headerEmail = document.getElementById('header-small-email');
+        <script> //dropdown profile update
+            // Load updated profile from localStorage and display on the page.
+            // This script only updates display elements; saving is handled by the settings page.
+            (function () {
+                const DISPLAY_NAME_ID = 'display-profile-name';
+                const DISPLAY_EMAIL_ID = 'display-profile-email';
+                const HEADER_NAME_ID = 'header-small-name';
+                const HEADER_EMAIL_ID = 'header-small-email';
 
-                const savedName = localStorage.getItem('profileName') || '';
-                const savedEmail = localStorage.getItem('profileEmail') || '';
-                const savedShop = localStorage.getItem('shopName') || '';
+                function updateProfileDisplay() {
+                    const name = localStorage.getItem('profileName') || '';
+                    const email = localStorage.getItem('profileEmail') || '';
 
-                if (displayName) displayName.textContent = savedName;
-                if (displayEmail) {
-                    displayEmail.textContent = savedEmail;
-                    displayEmail.href = 'mailto:' + savedEmail;
+                    const displayName = document.getElementById(DISPLAY_NAME_ID);
+                    const displayEmail = document.getElementById(DISPLAY_EMAIL_ID);
+                    const headerName = document.getElementById(HEADER_NAME_ID);
+                    const headerEmail = document.getElementById(HEADER_EMAIL_ID);
+
+                    if (displayName) displayName.textContent = name || '—';
+                    if (displayEmail) {
+                        displayEmail.textContent = email || '—';
+                        displayEmail.href = email ? ('mailto:' + email) : '#';
+                    }
+                    if (headerName) headerName.textContent = name || 'User';
+                    if (headerEmail) {
+                        headerEmail.textContent = email || '';
+                        if (email) headerEmail.href = 'mailto:' + email;
+                    }
+
+                        // update header + profile avatars (colored initials blocks)
+                        const profileColor = localStorage.getItem('profileColor') || '#7C3AED';
+                        const headerAvatar = document.getElementById('header-avatar');
+                        const headerDropdownAvatar = document.getElementById('header-dropdown-avatar');
+                        const profilePageAvatar = document.getElementById('profile-page-avatar');
+                        const initials = (name || '').split(' ').map(s => (s || '')[0] || '').join('').slice(0,2).toUpperCase() || 'U';
+                        if (headerAvatar) {
+                            headerAvatar.textContent = initials;
+                            headerAvatar.style.backgroundColor = profileColor;
+                            headerAvatar.style.color = '#ffffff';
+                        }
+                        if (headerDropdownAvatar) {
+                            headerDropdownAvatar.textContent = initials;
+                            headerDropdownAvatar.style.backgroundColor = profileColor;
+                            headerDropdownAvatar.style.color = '#ffffff';
+                        }
+
+                        if (profilePageAvatar) {
+                            profilePageAvatar.textContent = initials;
+                            profilePageAvatar.style.backgroundColor = profileColor;
+                            profilePageAvatar.style.color = '#ffffff';
+                        }
+
+                    // update other common selectors (navbar username, profile-name, dropdown-username)
+                    document.querySelectorAll('.navbar-username, #profile-name, #dropdown-username').forEach(el => {
+                        if (el) el.textContent = name || '';
+                    });
                 }
-                if (displayShop) displayShop.textContent = savedShop;
 
-                if (headerName) headerName.textContent = savedName;
-                if (headerEmail) {
-                    headerEmail.textContent = savedEmail;
-                    headerEmail.href = 'mailto:' + savedEmail;
-                }
-            });
+                // update on initial load
+                document.addEventListener('DOMContentLoaded', updateProfileDisplay);
+
+                // update if localStorage changes in another tab/window
+                window.addEventListener('storage', (e) => {
+                    if (e.key === 'profileName' || e.key === 'profileEmail') updateProfileDisplay();
+                });
+
+                // Provide a global helper so settings page can call it after saving
+                window.updateProfileDisplay = updateProfileDisplay;
+            })();
         </script>
 
         <script> //profile interest

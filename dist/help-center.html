@@ -154,18 +154,42 @@ Bootstrap 5 Dashboard Admin Template
                         </div>
                     </div>-->
 
+                    <style>
+                        /* Header avatar: colored rounded-square initials */
+                        .header-avatar, .header-dropdown-avatar {
+                            color: #ffffff;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-weight: 700;
+                            font-size: 16px;
+                            width: 44px;
+                            height: 44px;
+                            border-radius: 8px;
+                            flex: 0 0 44px;
+                            line-height: 1;
+                            text-transform: uppercase;
+                        }
+
+                        /* Slightly smaller avatar used inside dropdown menu */
+                        .header-dropdown-avatar { width: 40px; height: 40px; font-size: 15px; }
+
+                        /* Ensure header avatar aligns nicely in the navbar */
+                        .nav-link .header-avatar { margin-right: 8px; }
+                    </style>
+
                     <div class="dropdown px-3">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img class = "profile-image img-fluid" src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light'/>
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div id="header-avatar" class="header-avatar profile-img" role="img" aria-label="Profile avatar">U</div>
                         </a>
                         <ul class="dropdown-menu bg-white shadow">
                             <li>
-                                <div class="dropdown-menu-profile-thumb d-flex">
-                                    <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-3" alt="">
+                                <div class="dropdown-menu-profile-thumb d-flex align-items-center">
+                                    <div id="header-dropdown-avatar" class="header-dropdown-avatar profile-img me-3" role="img" aria-label="Profile avatar small">U</div>
 
                                     <div class="d-flex flex-column">
-                                        <small>Thomas</small>
-                                        <a href="#">thomas@site.com</a>
+                                        <small id="header-small-name">Thomas</small>
+                                        <a id="header-small-email" href="#">thomas@site.com</a>
                                     </div>
                                 </div>
                             </li>
