@@ -81,33 +81,110 @@ body {
   text-transform: uppercase;
 }
 
-/* allow a small notification dot in the top-right corner */
-.header-avatar.notification-dot,
-.header-dropdown-avatar.notification-dot {
-  position: relative; /* create positioning context for the dot */
-}
+/* Avatar notification dots intentionally removed — notifications are shown on the bell only */
 
-.header-avatar.notification-dot::after {
+/* Notification dot for bell trigger in navbar */
+#navbarLightDropdownMenuLink { position: relative; }
+
+/* Pseudo-element-based dot (preferred) */
+#navbarLightDropdownMenuLink.notification-dot::after {
   content: '';
   position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 14px;
-  height: 14px;
-  background: #ef4444; /* red */
-  border-radius: 50%;
-  border: 3px solid #ffffff; /* white rim */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  z-index: 3;
-}
-
-.header-dropdown-avatar.notification-dot::after {
-  /* slightly smaller dot for dropdown avatar */
-  top: -5px;
-  right: -5px;
+  top: 6px;
+  right: 6px;
   width: 12px;
   height: 12px;
-  border-width: 2px;
+  background: #ef4444;
+  border-radius: 50%;
+  border: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 50;
+  animation: bell-dot-pulse 1.8s ease-out infinite;
+  will-change: transform, box-shadow, opacity;
+}
+
+/* DOM-injected fallback dot (used by JS if pseudo-element doesn't render) */
+#navbarLightDropdownMenuLink .navbar-notification-dot {
+  position: absolute !important;
+  top: 4px !important;
+  right: 6px !important;
+  width: 12px !important;
+  height: 12px !important;
+  background: #ef4444 !important;
+  border-radius: 50% !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25) !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  animation: bell-dot-pulse 1.8s ease-out infinite !important;
+}
+
+/* Subtle pulsing animation for the bell notification dot */
+@keyframes bell-dot-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239,68,68,0.9);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 8px rgba(239,68,68,0);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239,68,68,0);
+    opacity: 1;
+  }
+}
+
+/* Fallback real DOM bell dot (used if pseudo-element doesn't render) */
+#navbarLightDropdownMenuLink .bell-dot {
+  display: none;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 6px;
+  background: #ef4444;
+  border-radius: 999px;
+  border: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 50;
+  will-change: transform, box-shadow, opacity;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 11px;
+  line-height: 16px;
+  text-align: center;
+  display: none;
+}
+
+#navbarLightDropdownMenuLink.notification-dot .bell-dot {
+  display: inline-block;
+  animation: bell-dot-pulse 1.8s ease-out infinite;
+  transition: transform 180ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease;
+  opacity: 1;
+}
+
+/* Circle for single-digit counts */
+#navbarLightDropdownMenuLink .bell-dot.single {
+  padding: 0;
+  width: 16px;
+  min-width: 0;
+  height: 16px;
+  line-height: 16px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Hidden state */
+#navbarLightDropdownMenuLink .bell-dot[aria-hidden="true"],
+#navbarLightDropdownMenuLink .bell-dot:empty {
+  opacity: 0;
+  transform: scale(.9);
+  pointer-events: none;
 }
 
 /* Slightly smaller avatar used inside dropdown menu */
@@ -2791,17 +2868,19 @@ Profile / custom block profile image
 -----------------------------------------*/
 
  #chat-container {
-	display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px; 
-  flex-direction: column;
-  gap: 20px;
-  background-color: #f1f2f200;
-  height: calc(100vh - 400px);
-  position: relative; /* ensure children are positioned relative to this container */
-  box-sizing: border-box; 
-
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* keep content at top so overflow can scroll */
+    align-items: stretch;
+    padding: 10px;
+    gap: 12px;
+    background-color: #f1f2f200;
+    height: calc(100vh - 400px);
+    position: relative; /* ensure children are positioned relative to this container */
+    box-sizing: border-box;
+    overflow-y: auto; /* enable vertical scrolling */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
  #chat-input {
 	 position: relative;
@@ -3011,6 +3090,10 @@ Profile / custom block profile image
     font-size:16px; 
   }
 
+/*---------------------------------------
+  community // Chat Custom-block-badges expandable
+-----------------------------------------*/
+
 .custom-block-badges { 
   position: relative; 
   transition: max-height 300ms ease; 
@@ -3057,6 +3140,16 @@ Profile / custom block profile image
   .custom-block-badges[data-collapsible="true"].expanded {
     max-height: 1200px !important; 
   }
+
+/*---------------------------------------
+  community // Chat Custom-block-badges scrollable
+-----------------------------------------*/
+.custom-block-badges .scrollable {
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
 
 /*---------------------------------------
   community // Chat mention features @
@@ -4241,7 +4334,12 @@ button-profile:disabled {
   #chat-container {
     height: 45vh;
     padding: 8px;
+    overflow-y: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
+  #chat-container::-webkit-scrollbar { display: none; width: 0; height: 0; }
+  #chat-container .removing { opacity: 0; transition: opacity 0.5s ease; }
   #chat-input {
     height: 40px;
     padding-left: 42px;
