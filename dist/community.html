@@ -44,9 +44,7 @@
                     <div class="dropdown ps-3 ">
                         <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
                             <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
-                            <span class="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
-                                <span class="visually-hidden">New alerts</span>
-                            </span>
+                            <span class="bell-dot" aria-label="Unread notifications" title="Unread notifications"></span>
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-lg-end notifications-block-wrap shadow" aria-labelledby="navbarLightDropdownMenuLink">
@@ -154,9 +152,6 @@
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <!-- Colored initials avatar (kept as a div so we can style/update via JS) -->
                             <div id="header-avatar" class="header-avatar profile-img" role="img" aria-label="Profile avatar">U</div>
-                            <span class="position-absolute end-0 bottom-60 translate-middle p-1-5 bg-danger border border-light rounded-circle">
-                                <span class="visually-hidden">New alerts</span>
-                            </span>
                         </a>
                         <ul class="dropdown-menu shadow">
                             <li>
@@ -265,11 +260,8 @@
                                     </button>                                                                   
                                 </a>
 
-                                <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
-                                        <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
-                                        <span class="position-absolute translate-middle p-1 bg-danger border border-light rounded-circle">
-                                            <span class="visually-hidden">New alerts</span>
-                                        </span>
+                                <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="sidebarBellTrigger">
+                                    <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
                                 </a>
                                 
                                 <a class="nav-link-button" href="#">       
@@ -320,7 +312,7 @@
                                 </div>
                             </div>
 
-                            <div class="custom-block-badges expandable">
+                            <div class="custom-block-badges expandable scrollable">
                                 <button class="expand-toggle" aria-label="Expand block" title="Expand">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                         <rect x="0" y="0" width="24" height="24" rx="4" fill="transparent" />
@@ -465,6 +457,7 @@
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <script src="assets/js/apexcharts.min.js"></script>
         <script src="assets/js/custom.js"></script>
+        <script src="assets/js/notifications.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/icons-react/dist/index.umd.min.js"></script>
 
         <script type="text/javascript"> //dark mode toggle
@@ -976,13 +969,180 @@
             const AUTO_DELETE_MS = 10000; // milliseconds before a chat line auto-deletes
             const AUTO_DELETE_JITTER = 3000; // optional randomness added to auto-delete time
             const FADE_OUT_MS = 500; // fade out duration
+            // Message limits: when total messages exceed MAX_TOTAL_MESSAGES,
+            // remove older messages until only PRESERVE_LATEST remain.
+            const MAX_TOTAL_MESSAGES = 20;
+            const PRESERVE_LATEST = 5;
 
             let container = document.getElementById("chat-container");
+
+            // Ensure visible scrollbar when chat is inside a `.custom-block-badges.scrollable`
+            (function ensureChatScrollable(){
+                try {
+                    if (!container) return;
+                    const parent = container.closest && container.closest('.custom-block-badges');
+                    if (!parent || !parent.classList.contains('scrollable')) return;
+
+
+                    // make the chat area scrollable and ensure visible scrollbar
+                    container.style.overflowY = 'auto';
+                    container.style.overflowX = 'hidden';
+                    container.style.display = 'block';
+                    container.style.position = 'relative';
+                    container.style.boxSizing = 'border-box';
+                    container.style.webkitOverflowScrolling = 'touch';
+                    // ensure some right padding so a vertical scrollbar doesn't overlap content
+                    if (!container.style.paddingRight) container.style.paddingRight = '8px';
+
+                    // Compute a sensible max-height based on the parent block's current visible height.
+                    function updateContainerMax() {
+                        try {
+                            // prefer clientHeight which excludes scrollbars
+                            const parentH = parent.clientHeight || Math.ceil(parent.getBoundingClientRect().height || 0);
+                            // estimate space used by header/title and controls inside the block
+                            const titleEl = parent.querySelector('h5');
+                            const controlsEl = parent.querySelector('.container-items');
+                            const headerH = (titleEl && titleEl.offsetHeight) ? titleEl.offsetHeight : 28;
+                            const controlsH = (controlsEl && controlsEl.offsetHeight) ? controlsEl.offsetHeight : 64;
+                            const extra = 24; // breathing room
+                            const h = Math.max(120, Math.floor(parentH - headerH - controlsH - extra));
+                            container.style.maxHeight = h + 'px';
+                        } catch (e) { /* ignore */ }
+                    }
+
+                    // initial sizing
+                    updateContainerMax();
+
+                    // pick a theme color for the scrollbar thumb
+                    let thumbColor = (function(){
+                        try {
+                            // prefer explicit profile color if available
+                            const p = localStorage.getItem('profileColor');
+                            if (p) return p.trim();
+                            // fallback: try to read a prominent header/avatar background
+                            const avatar = document.getElementById('header-avatar') || parent.querySelector('.chat-name');
+                            if (avatar) {
+                                const cs = window.getComputedStyle(avatar);
+                                if (cs && cs.backgroundColor && cs.backgroundColor !== 'transparent') return cs.backgroundColor;
+                            }
+                        } catch (e) { /* ignore */ }
+                        return 'rgba(0,0,0,0.22)';
+                    })();
+
+                    // apply Firefox scrollbar styling
+                    container.style.scrollbarWidth = 'thin';
+                    container.style.scrollbarColor = thumbColor + ' transparent';
+
+                    // Inject WebKit scrollbar styles (use the computed thumbColor). Replace any existing style with same id.
+                    const STYLE_ID = 'chat-scrollbar-styles';
+                    let existing = document.getElementById(STYLE_ID);
+                    const safeColor = thumbColor.replace(/"/g,'\\"');
+                    const css = `
+.custom-block-badges.scrollable #chat-container{position:relative}
+.custom-block-badges.scrollable #chat-container::-webkit-scrollbar{width:12px;height:12px}
+.custom-block-badges.scrollable #chat-container::-webkit-scrollbar-thumb{background:${safeColor} !important;border-radius:8px;border:2px solid rgba(0,0,0,0.08) !important}
+.custom-block-badges.scrollable #chat-container::-webkit-scrollbar-track{background:transparent}
+`;
+                    if (existing) {
+                        existing.textContent = css;
+                    } else {
+                        const s = document.createElement('style');
+                        s.id = STYLE_ID;
+                        s.textContent = css;
+                        document.head.appendChild(s);
+                    }
+
+                    // Observe parent attribute/style changes so we can update container max-height
+                    const obs = new MutationObserver((muts) => {
+                        updateContainerMax();
+                    });
+                    obs.observe(parent, { attributes: true, attributeFilter: ['style','class','data-original-height','data-current-height'] });
+
+                    // also update on window resize and when layout stabilizes
+                    const onResize = () => updateContainerMax();
+                    window.addEventListener('resize', onResize, { passive: true });
+
+                    // Call update after a short delay to handle initial layout/animations
+                    setTimeout(updateContainerMax, 40);
+
+                    // Keep a small reference on the parent so other scripts can disconnect if needed
+                    parent.__chatScrollbarObserver = { obs, onResize };
+
+                } catch (e) {
+                    // fail silently if anything goes wrong
+                }
+            })();
+            // Debug helper: enable by running `localStorage.setItem('chatDebug','1')` in console then reload.
+            (function chatDebugHelper(){
+                try {
+                    if (localStorage.getItem('chatDebug') !== '1') return;
+                    console.warn('CHAT DEBUG: forcing visible scrollbar and emitting diagnostics');
+                    if (!container) { console.warn('CHAT DEBUG: #chat-container not found'); return; }
+                    const parent = container.closest && container.closest('.custom-block-badges');
+                    console.log('CHAT DEBUG: parent', parent);
+                    // Force visible scroll behavior and a visible outline so you can see the box
+                    container.style.overflowY = 'scroll';
+                    container.style.paddingRight = '12px';
+                    container.style.maxHeight = (parent ? (parent.clientHeight - 80) : 320) + 'px';
+                    container.style.outline = '3px solid rgba(255,0,0,0.12)';
+                    console.log('CHAT DEBUG: computed styles', getComputedStyle(container));
+                    console.log('CHAT DEBUG: dims', {
+                        clientHeight: container.clientHeight,
+                        scrollHeight: container.scrollHeight,
+                        parentClientHeight: parent ? parent.clientHeight : null
+                    });
+                    // Append a few test messages to force overflow
+                    setTimeout(() => {
+                        try { for (let i = 0; i < 12; i++) window.sendChatMessage && window.sendChatMessage('DEBUG message ' + (i+1)); } catch (e) { console.warn(e); }
+                    }, 120);
+                } catch (e) { /* ignore */ }
+            })();
             let lineWidth = 400;
             let profileImgWidth = 60;
             let textWidth = lineWidth - 20 - profileImgWidth - 10;
             let chats = [];
             let maxTexts = 4;
+
+            // Scroll helpers: keep the chat scrolled to bottom when the user
+            // is already near the bottom, but allow manual scrolling to view history.
+            function isUserNearBottom(el, threshold = 80) {
+                if (!el) return true;
+                try {
+                    return (el.scrollHeight - el.scrollTop - el.clientHeight) <= threshold;
+                } catch (e) { return true; }
+            }
+
+            function scrollChatToBottom() {
+                if (!container) return;
+                try { container.scrollTop = container.scrollHeight; } catch (e) {}
+            }
+
+            function scrollChatToBottomIfNeeded() {
+                if (!container) return;
+                if (isUserNearBottom(container, 120)) scrollChatToBottom();
+            }
+
+            // Enforce message retention policy:
+            // - If total messages exceed `MAX_TOTAL_MESSAGES`, delete oldest
+            //   messages until only `PRESERVE_LATEST` remain.
+            // - This preserves the most recent `PRESERVE_LATEST` messages.
+            function enforceMessageLimit(max = MAX_TOTAL_MESSAGES, preserve = PRESERVE_LATEST) {
+                if (!container) return;
+                try {
+                    if (container.children.length <= max) return;
+                    while (container.children.length > preserve) {
+                        const oldest = container.firstElementChild;
+                        if (!oldest) break;
+                        // graceful fade then remove for a smoother UX
+                        try {
+                            oldest.classList.add('removing');
+                            setTimeout(() => { try { oldest.remove(); } catch(e) {} }, FADE_OUT_MS);
+                        } catch (e) {
+                            try { oldest.remove(); } catch(e) {}
+                        }
+                    }
+                } catch (e) { /* ignore */ }
+            }
 
             function createElement(opts = {}) {
                 let ele = document.createElement("div");
@@ -1273,9 +1433,13 @@
                     ele.texts.forEach((n, i, arr) =>
                         setTimeout(() => (n.style.opacity = 1), 70 * (i + 3) + delay)
                     );
-                    // schedule auto-delete
-                    const ttl = AUTO_DELETE_MS + Math.floor(Math.random() * AUTO_DELETE_JITTER);
-                    this._autoDeleteTimeout = setTimeout(() => this.animateOutAndRemove(), ttl);
+                    // schedule auto-delete only when AUTO_DELETE_MS > 0
+                    if (typeof AUTO_DELETE_MS === 'number' && AUTO_DELETE_MS > 0) {
+                        const ttl = AUTO_DELETE_MS + Math.floor(Math.random() * AUTO_DELETE_JITTER);
+                        this._autoDeleteTimeout = setTimeout(() => this.animateOutAndRemove(), ttl);
+                    } else {
+                        this._autoDeleteTimeout = null;
+                    }
                 }
 
                 animateOutAndRemove() {
@@ -1415,11 +1579,76 @@
                 // register and append
                 chat.lines.push(line);
                 try { chat.ele.appendChild(line.ele.lineContainer); } catch (e) { /* ignore */ }
+                // user sent a message -> clear unread notifications (centralized)
+                try { if (typeof setUnreadCount === 'function') setUnreadCount(0); else localStorage.setItem('chatUnreadCount', '0'); } catch(e) {}
+                // enforce max messages and keep view scrolled if appropriate
+                try { enforceMessageLimit(); } catch(e) {}
+                try { scrollChatToBottomIfNeeded(); } catch(e) {}
                 return line;
             };
 
             // Create a dummy bot that periodically posts messages using the Line class.
             // Usage: const b = createBot('Aria', { profileImgColor:'#6ee7b7', messages:['Hi','How are you?'], interval:5000 });
+            // Notification helpers: increment unread count and show/hide header dot
+            function getUnreadCount() {
+                return parseInt(localStorage.getItem('chatUnreadCount') || '0', 10) || 0;
+            }
+
+            function setUnreadCount(n) {
+                try { localStorage.setItem('chatUnreadCount', String(n)); } catch(e) {}
+                // show notification on the bell dropdown trigger instead of the avatar
+                const bellTrigger = document.getElementById('navbarLightDropdownMenuLink');
+                if (bellTrigger) {
+                    const count = Math.max(0, parseInt(n, 10) || 0);
+                    if (count > 0) {
+                        bellTrigger.classList.add('notification-dot');
+                    } else {
+                        bellTrigger.classList.remove('notification-dot');
+                    }
+
+                    // Update unread badge text (1–2 digits, capped)
+                    const badge = bellTrigger.querySelector && bellTrigger.querySelector('.bell-dot');
+                    if (badge) {
+                        const text = count > 99 ? '99+' : String(count);
+                        badge.textContent = count > 0 ? text : '';
+                        // toggle single-digit class for perfect circle
+                        if (count > 0 && count < 10) badge.classList.add('single'); else badge.classList.remove('single');
+                        badge.setAttribute('aria-label', count > 0 ? `${text} unread notifications` : 'No unread notifications');
+                        if (count === 0) badge.setAttribute('aria-hidden', 'true'); else badge.removeAttribute('aria-hidden');
+                    }
+                }
+                // Do NOT add notification-dot to header avatars here — keep notifications
+                // targeted to the bell trigger only. This avoids duplicate/overlapping
+                // indicators on the UI.
+            }
+
+            function incrementUnread() {
+                const next = getUnreadCount() + 1;
+                setUnreadCount(next);
+            }
+
+            // Initialize dot on page load from stored value
+            try { setUnreadCount(getUnreadCount()); } catch(e) {}
+
+            // Clear unread count when the user clicks the bell (or opens the dropdown).
+            // This ensures unread is acknowledged when the user inspects notifications.
+            try {
+                document.addEventListener('DOMContentLoaded', () => {
+                    const bell = document.getElementById('navbarLightDropdownMenuLink');
+                    if (!bell) return;
+
+                    // Primary: clear when the bell is clicked
+                    bell.addEventListener('click', (e) => {
+                        try { setUnreadCount(0); } catch (err) { /* ignore */ }
+                    });
+
+                    // Secondary: if Bootstrap emits dropdown events, clear when shown as well
+                    try {
+                        bell.addEventListener('shown.bs.dropdown', () => { try { setUnreadCount(0); } catch (err) {} });
+                    } catch (err) { /* not fatal if event not supported */ }
+                });
+            } catch (e) { /* ignore global attach errors */ }
+
             window.createBot = function (name, opts = {}) {
                 const chat = chats[0] || addChat();
                 const messages = opts.messages || ["Hello!", "Nice to meet you."];
@@ -1437,6 +1666,11 @@
                     const line = new Line(chat, lineOpts);
                     chat.lines.push(line);
                     try { chat.ele.appendChild(line.ele.lineContainer); } catch (e) {}
+                    // enforce max messages and keep view scrolled if appropriate
+                    try { enforceMessageLimit(); } catch(e) {}
+                    try { scrollChatToBottomIfNeeded(); } catch(e) {}
+                    // New bot message -> increment unread count and show notification
+                    try { incrementUnread(); } catch (e) { console.error('Failed to update unread count', e); }
                     i++;
                 }, interval);
 
