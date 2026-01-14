@@ -962,22 +962,7 @@
         <script src="assets/js/custom.js"></script>
         <script src="assets/js/notifications.js"></script>
         <script>
-            // Global wrappers so other pages/scripts can update unread counts easily.
-            function getUnreadCount() {
-                return parseInt(localStorage.getItem('chatUnreadCount') || '0', 10) || 0;
-            }
-
-            function setUnreadCount(n) {
-                try { localStorage.setItem('chatUnreadCount', String(n)); } catch (e) { /* ignore */ }
-                // write to localStorage will trigger storage event and `notifications.js` will refresh the badge
-            }
-
-            function incrementUnread() {
-                setUnreadCount(getUnreadCount() + 1);
-            }
-
-            // Initialize value on load (notifications.js also refreshes from storage)
-            try { if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => {}); else {} } catch (e) {}
+            // Notification helpers moved to `assets/js/notifications.js`.
         </script>
         <script src="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/icons-react/dist/index.umd.min.js"></script>
 
