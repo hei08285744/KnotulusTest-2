@@ -2099,5 +2099,42 @@
         });
         </script>
 
-    </body>
+    <script>
+        // Shopify tab: open n8n monitor and POST a hidden form to trigger the Form Trigger (Option A)
+        document.addEventListener('DOMContentLoaded', function () {
+            var shopifyBtn = document.getElementById('shopify-tab');
+            var webhook = 'https://longheisit.app.n8n.cloud/form-test/d409e3ed-6711-4cf2-8727-459288c8112e';
+            if (!shopifyBtn) return;
+
+            shopifyBtn.addEventListener('click', function (e) {
+                try { e.preventDefault(); } catch (err) {}
+
+                // Open the webhook monitor page in a new tab so n8n shows the "listening" UI
+                try { window.open(webhook, '_blank'); } catch (err) { /* ignore */ }
+
+                // Create and submit a hidden form using POST to avoid CORS issues
+                try {
+                    var form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = webhook;
+                    form.target = '_blank';
+
+                    // Add any fields your n8n form expects. Example field provided below.
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'source';
+                    input.value = 'dashboard';
+                    form.appendChild(input);
+
+                    document.body.appendChild(form);
+                    form.submit();
+                    form.remove();
+                } catch (err) {
+                    console.error('Failed to submit webhook form', err);
+                    alert('Failed to submit webhook form. See console for details.');
+                }
+            }, { passive: false });
+        });
+    </script>
+</body>
 </html>
