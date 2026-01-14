@@ -3575,6 +3575,19 @@ Profile / custom block profile image
 /*---------------------------------------
   community // upcoming meeting
 -----------------------------------------*/
+/* Date strip: show a horizontal list of days (1..31). Scrollable by touch/mouse but scrollbar hidden for a clean UI. */
+.date-nav-container{display:flex;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+.date-nav-container::-webkit-scrollbar{display:none;height:0}
+    .date-nav-container{display:flex;gap:10px;padding:6px 6px;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+    .date-nav-container .day-item{min-width:48px;/*flex:0 0 auto*/}
+.date-nav-container{ -ms-overflow-style: none; scrollbar-width: none; }
+.date-nav-container:focus{outline:none}
+    .day-item{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 8px;border-radius:12px}
+.day-item{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 8px;border-radius:12px}
+.day-item.day-active{background:rgba(99,102,241,0.12);box-shadow:0 1px 0 rgba(0,0,0,0.02)}
+.day-number{font-weight:700;font-size:20px}
+.day-name{font-size:12px;color:#6b7280}
+
 
 .meeting-card {
   background-color: #e9eeea;
@@ -3603,12 +3616,13 @@ Profile / custom block profile image
   height: 30px;
   background-color: #e9eeea;
   border-radius: 9999px;
-  padding: 1rem 1rem;
+  padding: 0 1rem;
   cursor: pointer;
   border: 1px solid #d0d0ce;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
+  justify-content: center;
   transition: background-color 0.2s ease;
 }
 
@@ -3619,7 +3633,7 @@ Profile / custom block profile image
 .date-selector span {
   font-size: 1rem;
   font-weight: 500;
-  margin-right: 0.5rem;
+  margin: 0;
 }
 
 .calls-info {

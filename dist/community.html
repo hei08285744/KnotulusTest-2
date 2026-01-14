@@ -72,8 +72,6 @@
 
                                     <div>
                                         <span>Please check. We have sent a Daily report.</span>
-
-                                        <p>10 days ago</p>
                                     </div>
                                 </a>
                             </li>
@@ -363,18 +361,6 @@
                                     <div class="title">Upcoming<br />Events</div>
                                     <div class="date-selector" id="month-selector">
                                     <span>September</span>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="18"
-                                        height="18"
-                                        fill="currentColor"
-                                        viewBox="0 0 16 16"
-                                    >
-                                        <path
-                                        fill-rule="evenodd"
-                                        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                                        ></path>
-                                    </svg>
                                     </div>
                                 </div>
 
@@ -394,31 +380,8 @@
                                 </div>
 
                                 <div class="date-nav-and-indicators">
-                                    <div class="date-nav-container">
-                                    <div class="day-item">
-                                        <div class="day-number">8</div>
-                                        <div class="day-name">Mon</div>
-                                    </div>
-                                    <div class="day-item">
-                                        <div class="day-number">9</div>
-                                        <div class="day-name">Tue</div>
-                                    </div>
-                                    <div class="day-item">
-                                        <div class="day-number">10</div>
-                                        <div class="day-name">Wed</div>
-                                    </div>
-                                    <div class="day-item day-active">
-                                        <div class="day-number">11</div>
-                                        <div class="day-name">Thu</div>
-                                    </div>
-                                    <div class="day-item">
-                                        <div class="day-number">12</div>
-                                        <div class="day-name">Fri</div>
-                                    </div>
-                                    <div class="day-item">
-                                        <div class="day-number">13</div>
-                                        <div class="day-name">Sat</div>
-                                    </div>
+                                    <div class="date-nav-container" id="date-strip" role="tablist" tabindex="0" aria-label="Date strip">
+                                        <!-- Dates 1..31 will be populated by JS to keep markup concise and correct -->
                                     </div>
 
                                     <div class="indicator-container">
@@ -1071,31 +1034,6 @@
                 } catch (e) {
                     // fail silently if anything goes wrong
                 }
-            })();
-            // Debug helper: enable by running `localStorage.setItem('chatDebug','1')` in console then reload.
-            (function chatDebugHelper(){
-                try {
-                    if (localStorage.getItem('chatDebug') !== '1') return;
-                    console.warn('CHAT DEBUG: forcing visible scrollbar and emitting diagnostics');
-                    if (!container) { console.warn('CHAT DEBUG: #chat-container not found'); return; }
-                    const parent = container.closest && container.closest('.custom-block-badges');
-                    console.log('CHAT DEBUG: parent', parent);
-                    // Force visible scroll behavior and a visible outline so you can see the box
-                    container.style.overflowY = 'scroll';
-                    container.style.paddingRight = '12px';
-                    container.style.maxHeight = (parent ? (parent.clientHeight - 80) : 320) + 'px';
-                    container.style.outline = '3px solid rgba(255,0,0,0.12)';
-                    console.log('CHAT DEBUG: computed styles', getComputedStyle(container));
-                    console.log('CHAT DEBUG: dims', {
-                        clientHeight: container.clientHeight,
-                        scrollHeight: container.scrollHeight,
-                        parentClientHeight: parent ? parent.clientHeight : null
-                    });
-                    // Append a few test messages to force overflow
-                    setTimeout(() => {
-                        try { for (let i = 0; i < 12; i++) window.sendChatMessage && window.sendChatMessage('DEBUG message ' + (i+1)); } catch (e) { console.warn(e); }
-                    }, 120);
-                } catch (e) { /* ignore */ }
             })();
             let lineWidth = 400;
             let profileImgWidth = 60;
@@ -1822,6 +1760,98 @@
                 }
             });
 
+        </script>
+
+        <script>
+            // Date strip renderer and month switcher.
+            (function () {
+                const container = document.getElementById('date-strip') || document.querySelector('.date-nav-container');
+                const monthSelector = document.getElementById('month-selector');
+                if (!container) return;
+
+                const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+                const WEEK = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+                const today = new Date();
+                let year = today.getFullYear();
+
+                // infer initial month from #month-selector text or fallback to current month
+                let monthIndex = (function () {
+                    const el = monthSelector && monthSelector.querySelector('span');
+                    if (el && el.textContent) {
+                        const name = el.textContent.trim();
+                        const idx = MONTHS.findIndex(m => m.toLowerCase().startsWith(name.toLowerCase().slice(0,3)));
+                        if (idx >= 0) return idx;
+                    }
+                    return today.getMonth();
+                })();
+
+                function renderDateStrip(mIdx, yr) {
+                    container.innerHTML = '';
+                    for (let d = 1; d <= 31; d++) {
+                        const dt = new Date(yr, mIdx, d);
+                        const dayName = WEEK[dt.getDay()];
+                        const isToday = (dt.toDateString() === today.toDateString());
+                        const div = document.createElement('div');
+                        div.className = 'day-item' + (isToday ? ' day-active' : '');
+                        div.setAttribute('role','button');
+                        div.setAttribute('tabindex','0');
+                        div.setAttribute('data-day', String(d));
+                        div.setAttribute('data-month', String(mIdx));
+                        div.setAttribute('data-year', String(yr));
+                        div.innerHTML = `<div class="day-number">${d}</div><div class="day-name">${dayName}</div>`;
+                        container.appendChild(div);
+                    }
+
+                    // center today's date if it's in this month
+                    const active = container.querySelector('.day-item.day-active');
+                    if (active) {
+                        const target = active.offsetLeft - (container.clientWidth - active.offsetWidth) / 2;
+                        container.scrollLeft = Math.max(0, target);
+                    } else {
+                        container.scrollLeft = 0;
+                    }
+                }
+
+                // initial render
+                renderDateStrip(monthIndex, year);
+
+                // switch month when user clicks #month-selector: normal click -> next month, Shift+click -> previous month
+                if (monthSelector) {
+                    monthSelector.style.cursor = 'pointer';
+                    monthSelector.addEventListener('click', (ev) => {
+                        if (ev.shiftKey) monthIndex--; else monthIndex++;
+                        if (monthIndex > 11) { monthIndex = 0; year++; }
+                        if (monthIndex < 0) { monthIndex = 11; year--; }
+                        const label = monthSelector.querySelector('span');
+                        if (label) label.textContent = MONTHS[monthIndex];
+                        renderDateStrip(monthIndex, year);
+                    });
+
+                    // keyboard support: Left/Right on the month selector to change months
+                    monthSelector.setAttribute('tabindex','0');
+                    monthSelector.addEventListener('keydown', (ev) => {
+                        if (ev.key === 'ArrowLeft') { ev.preventDefault(); monthSelector.click(); /* shift-click previous */ }
+                        if (ev.key === 'ArrowRight') { ev.preventDefault(); monthSelector.click(); }
+                    });
+                }
+
+                // day click: make day active and keep selection
+                container.addEventListener('click', (ev) => {
+                    const day = ev.target.closest('.day-item');
+                    if (!day) return;
+                    container.querySelectorAll('.day-item').forEach(n => n.classList.remove('day-active'));
+                    day.classList.add('day-active');
+                });
+
+                // keyboard support for days: Enter/Space activates
+                container.addEventListener('keydown', (ev) => {
+                    const focused = document.activeElement;
+                    if (!focused || !focused.classList.contains('day-item')) return;
+                    if (ev.key === 'Enter' || ev.key === ' ') {
+                        ev.preventDefault(); focused.click();
+                    }
+                });
+            })();
         </script>
 
     </body>
